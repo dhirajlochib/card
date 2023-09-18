@@ -232,7 +232,7 @@ class UserController extends Controller
         $user = auth()->user();
 
         try{
-            $user->delete();
+            // $user->delete();
             $message =  ['success'=>['User deleted successfully']];
             return Helpers::onlysuccess($message);
         }catch(Exception $e) {

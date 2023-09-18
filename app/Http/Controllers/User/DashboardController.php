@@ -54,7 +54,7 @@ class DashboardController extends Controller
         $user = auth()->user();
 
         try{
-            $user->delete();
+            // $user->delete();
             return redirect()->route('index')->with(['success' => ['User deleted successfully!']]);
         }catch(Exception $e) {
             return back()->with(['error' => ['Something went wrong! Please try again.']]);
