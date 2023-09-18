@@ -3323,7 +3323,8 @@ input:focus {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 50%;
-  background-color: var(--primary-color);
+  background-color: transparent;
+    background-image: radial-gradient(at top left, var(--e-global-color-c8d24ad ) 0%, var(--e-global-color-accent ) 77%);
   color: #fff;
   text-align: center;
   margin: 0 auto;
