@@ -2457,7 +2457,7 @@ input:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #ebebeb;
+  color: #595a5a;
   display: inline-block;
   font-size: 15px;
   -webkit-transition: all 0.5s;
@@ -3320,7 +3320,7 @@ input:focus {
           align-items: center;
   border-radius: 50%;
   background-color: var(--primary-color);
-  color: #fff;
+  color: #fff !important;
   text-align: center;
   margin: 0 auto;
 }
