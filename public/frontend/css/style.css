@@ -2736,7 +2736,7 @@ input:focus {
     transition: all 0.5s;
 }
 .account-area {
-    background: #0f183d;
+  background-color: var(--primary-color);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     position: relative;
@@ -2788,7 +2788,6 @@ input:focus {
     }
 }
 .account-area .account-form-area {
-  background-color: var(--primary-color);
     padding: 30px;
     border-radius: 8px;
     position: relative;
