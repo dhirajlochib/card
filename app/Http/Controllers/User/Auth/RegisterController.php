@@ -139,6 +139,6 @@ class RegisterController extends Controller
     {
 
         $this->createUserWallets($user);
-        return redirect()->intended(route('user.dashboard'));
+        return redirect()->intended(route('kyc'));
     }
 }
