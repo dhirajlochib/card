@@ -3022,6 +3022,7 @@ input:focus {
 # Footer-block
 --------------------------------------------------------------*/
 .footer-section {
+  color: #fff !important;
   background-color: #1B756B;
   position: relative;
 }
@@ -3363,6 +3364,15 @@ input:focus {
 }
 .service-section .service-item .service-content {
   padding-top: 15px;
+}
+
+.how-it-works-section .how-it-work-area .how-it-work-title {
+  color: #fff !important;
+  padding-top: 0px;
+}
+
+.counter {
+  color: #fff !important;
 }
 
 .statistics-section {
