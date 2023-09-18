@@ -3262,6 +3262,7 @@ input:focus {
 }
 
 .feature-section .feature-item {
+  color: #fff;
   background-color: #1B756B;
   padding: 20px;
   margin-top: 10px;
@@ -3279,6 +3280,7 @@ input:focus {
 }
 
 .how-it-works-section {
+  color: #fff;
   text-align: center;
 }
 .how-it-works-section .how-it-works-wrapper {
@@ -3320,7 +3322,7 @@ input:focus {
           align-items: center;
   border-radius: 50%;
   background-color: var(--primary-color);
-  color: #fff !important;
+  color: #fff;
   text-align: center;
   margin: 0 auto;
 }
