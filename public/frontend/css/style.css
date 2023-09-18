@@ -3267,7 +3267,7 @@ input:focus {
   transition: all 0.6s;
 }
 .feature-section .feature-item:hover {
-  background-color: #053473;
+  background-color: #15554d;
 }
 .feature-section .feature-item a {
   color: var(--primary-color);
