@@ -109,7 +109,7 @@ html {
 body {
   font-family: "Outfit", sans-serif;
   font-size: 18px;
-  background-color: #1B756B;
+  background-color: #fff;
   font-weight: 400;
   line-height: 1.5em;
   color: #ebebeb;
@@ -2358,7 +2358,7 @@ input:focus {
   display: none !important;
 }
 .header-section.header-fixed .header-bottom-area {
-  background-color: #1B756B;
+  background-color: #fff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 @media only screen and (max-width: 991px) {
