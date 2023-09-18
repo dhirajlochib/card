@@ -2358,7 +2358,7 @@ input:focus {
   display: none !important;
 }
 .header-section.header-fixed .header-bottom-area {
-  background-color: #050338;
+  background-color: #1B756B;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 @media only screen and (max-width: 991px) {
