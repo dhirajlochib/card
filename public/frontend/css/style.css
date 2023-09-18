@@ -199,7 +199,7 @@ a, a:focus, a:hover {
 }
 
 blockquote {
-  background-color: #053473;
+  background-color: #1B756B;
   padding: 40px;
   border-radius: 10px;
   font-weight: 500;
@@ -660,7 +660,7 @@ blockquote .quote-icon {
 }
 
 .bg--gray {
-  background-color: #050251;
+  background-color: #1B756B;
 }
 
 .border--rounded {
@@ -781,7 +781,7 @@ html::-webkit-scrollbar-corner {
     [ ## Table ]
 */
 .table-wrapper {
-  background-color: #050251;
+  background-color: #1B756B;
   padding: 30px;
   border-radius: 15px;
 }
@@ -1178,7 +1178,7 @@ h4 a:hover {
 .section-header .section-sub-title {
   font-size: 11px;
   padding: 5px 10px;
-  background-color: #050251;
+  background-color: #1B756B;
   text-transform: uppercase;
   border-radius: 7px;
   color: var(--primary-color);
@@ -2492,7 +2492,7 @@ input:focus {
   left: 0px;
   padding: 10px 5px;
   width: 180px;
-  background-color: #050251;
+  background-color: #1B756B;
   border: 1px solid rgba(208, 203, 203, 0.2705882353);
   border-radius: 15px;
   display: block;
@@ -2583,7 +2583,7 @@ input:focus {
     -o-border-radius: 6px;
 }
   option{
-    background-color: #050251;
+    background-color: #1B756B;
 }
 
 @media only screen and (max-width: 991px) {
@@ -3015,7 +3015,7 @@ input:focus {
 # Footer-block
 --------------------------------------------------------------*/
 .footer-section {
-  background-color: #050251;
+  background-color: #1B756B;
   position: relative;
 }
 
@@ -3163,7 +3163,7 @@ input:focus {
 
 .testimonial-wrapper {
   padding: 40px;
-  background-color: #050251;
+  background-color: #1B756B;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
   border-radius: 1.25rem;
@@ -3256,7 +3256,7 @@ input:focus {
 }
 
 .feature-section .feature-item {
-  background-color: #050251;
+  background-color: #1B756B;
   padding: 20px;
   margin-top: 10px;
   border-radius: 10px;
@@ -3319,7 +3319,7 @@ input:focus {
   margin: 0 auto;
 }
 .how-it-works-section .how-it-work-area {
-  background-color: #050251;
+  background-color: #1B756B;
   padding: 15px;
   margin-top: 50px;
   border-radius: 10px;
@@ -3333,7 +3333,7 @@ input:focus {
 }
 
 .service-section .service-item {
-  background-color: #050251;
+  background-color: #1B756B;
   padding: 15px;
   border-radius: 10px;
   text-align: center;
@@ -3353,7 +3353,7 @@ input:focus {
 }
 
 .statistics-section {
-  background-color: #050251;
+  background-color: #1B756B;
 }
 .statistics-section .counter i {
   font-size: 50px;
@@ -3378,7 +3378,7 @@ input:focus {
   }
 
 .blog-section .blog-item {
-  background-color: #050251;
+  background-color: #1B756B;
   border-radius: 10px;
 }
 .blog-section .blog-item .blog-content {
@@ -3395,7 +3395,7 @@ input:focus {
 }
 
 .deposit-wrapper .deposit-form {
-  background-color: #050251;
+  background-color: #1B756B;
   padding: 40px 30px;
   border-radius: 10px;
 }
@@ -3537,11 +3537,11 @@ input:focus {
 }
 
 .select2-dropdown {
-  background-color: #050251;
+  background-color: #1B756B;
 }
 
 .select2-container--default .select2-search--dropdown .select2-search__field {
-  background-color: #050251;
+  background-color: #1B756B;
 }
 
 .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
@@ -3560,11 +3560,11 @@ input:focus {
 .otp-verification .account-form .form-group input {
   margin: 6px 10px;
   border-radius: 5px;
-  background-color: #050251;
+  background-color: #1B756B;
 }
 
 .forgot-password .forgot-password-area {
-  background-color: #050251;
+  background-color: #1B756B;
   padding: 40px;
   border-radius: 10px;
 }
@@ -3576,7 +3576,7 @@ input:focus {
 }
 
 .verification-otp .verification-otp-area {
-  background-color: #050251;
+  background-color: #1B756B;
   padding: 40px;
   border-radius: 10px;
   @media only screen and (max-width: 575px) {
@@ -3592,7 +3592,7 @@ input:focus {
 }
 
 .new-password .new-password-area {
-  background-color: #050251;
+  background-color: #1B756B;
   padding: 40px;
   border-radius: 10px;
 }
@@ -3748,7 +3748,7 @@ input:focus {
 }
 
 .widget-box {
-  background-color: #050251;
+  background-color: #1B756B;
   padding: 30px;
   border-radius: 5px;
 }
@@ -4658,7 +4658,7 @@ input:focus {
 }
 
 .dashboard-list-item-wrapper {
-  background-color: #050251;
+  background-color: #1B756B;
   padding: 15px 20px;
   border-radius: 15px;
   margin-bottom: 20px;
@@ -4815,7 +4815,7 @@ input:focus {
   }
 }
 .support-card-wrapper .card-header {
-  background-color: #050251;
+  background-color: #1B756B;
   border-radius: 10px 10px 0 0;
 }
 
@@ -4894,7 +4894,7 @@ input:focus {
 .chat-container .media .media-body p {
   position: relative;
   padding: 20px;
-  background-color: #050251;
+  background-color: #1B756B;
   font-size: 13px;
   border-radius: 10px;
   color: #fff;
@@ -4931,7 +4931,7 @@ input:focus {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 12px 20px;
-  background-color: #050251;
+  background-color: #1B756B;
   border-top: 1px solid rgba(208, 203, 203, 0.2705882353);
   border-radius: 0 0 10px 10px;
 }
@@ -5043,7 +5043,7 @@ input:focus {
 }
 .support-profile-wrapper .support-profile-header {
   padding: 20px;
-  background-color: #050251;
+  background-color: #1B756B;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5138,7 +5138,7 @@ input:focus {
   height: 120px;
   border-radius: 50%;
   border: 2px solid rgba(208, 203, 203, 0.2705882353);
-  background-color: #050251;
+  background-color: #1B756B;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -5365,7 +5365,7 @@ input:focus {
 }
 
 .exchange-area {
-  background-color: #050251;
+  background-color: #1B756B;
   padding: 30px 80px;
   border-radius: 15px;
   display: inline-block;
@@ -5433,18 +5433,18 @@ input:focus {
   }
 }
 .support-card-wrapper .card-header {
-  background-color: #050251;
+  background-color: #1B756B;
   border-radius: 10px 0 0 0;
 }
 
 .review-area {
-  background-color: #050251;
+  background-color: #1B756B;
   padding: 40px;
   border-radius: 20px;
 }
 
 .payment-information .form-group {
-  background-color: #050251;
+  background-color: #1B756B;
   padding: 40px;
   border-radius: 20px;
 }
@@ -5482,7 +5482,7 @@ input:focus {
 }
 .support-profile-wrapper .support-profile-header {
   padding: 17px;
-  background-color: #050251;
+  background-color: #1B756B;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
