@@ -3339,7 +3339,7 @@ input:focus {
 }
 .how-it-works-section .how-it-work-area .how-it-work-icon {
   font-size: 50px;
-  color: var(--primary-color);
+  color: #fff !important;
 }
 .how-it-works-section .how-it-work-area .how-it-work-title {
   color: #fff !important;
@@ -3357,7 +3357,7 @@ input:focus {
 .service-section .service-item:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
-  background-color: #053473;
+  background-color: #15554d;
 }
 .service-section .service-item .service-icon img {
   width: 100px;
@@ -3380,8 +3380,9 @@ input:focus {
   background-color: #1B756B;
 }
 .statistics-section .counter i {
+
   font-size: 50px;
-  color: var(--primary-color);
+  color: #fff !important;
 }
 
 .call-to-action-section .bg_img {
@@ -3412,7 +3413,7 @@ input:focus {
 
 .contact-section .contact-widget-box .contact-icon {
   font-size: 30px;
-  color: var(--primary-color);
+  color: #fff !important;
   padding-top: 10px;
 }
 .contact-section .contact-widget-box .contact-containt {
