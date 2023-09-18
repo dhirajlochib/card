@@ -3327,6 +3327,7 @@ input:focus {
   margin: 0 auto;
 }
 .how-it-works-section .how-it-work-area {
+  color: #fff;
   background-color: #1B756B;
   padding: 15px;
   margin-top: 50px;
@@ -3337,6 +3338,7 @@ input:focus {
   color: var(--primary-color);
 }
 .how-it-works-section .how-it-work-area .how-it-work-title {
+  color: #fff;
   padding-top: 15px;
 }
 
@@ -3361,6 +3363,7 @@ input:focus {
 }
 
 .statistics-section {
+  color: #fff;
   background-color: #1B756B;
 }
 .statistics-section .counter i {
@@ -3387,6 +3390,7 @@ input:focus {
 
 .blog-section .blog-item {
   background-color: #1B756B;
+  color: #fff;
   border-radius: 10px;
 }
 .blog-section .blog-item .blog-content {
@@ -3422,6 +3426,7 @@ input:focus {
   background-color: var(--primary-color);
   padding: 30px 40px;
   border-radius: 10px;
+  color: #fff;
 }
 .card-wrapper .card-balance span {
   font-size: 30px;
