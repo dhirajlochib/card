@@ -2272,7 +2272,7 @@ input:focus {
 
 /* ------------------------------------------------------------------------------------------- */
 .header-area {
-  color: #fff;
+  color: #000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
