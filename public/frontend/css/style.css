@@ -3324,13 +3324,13 @@ input:focus {
           align-items: center;
   border-radius: 50%;
   background-color: transparent;
-    background-image: radial-gradient(at top left, var(--e-global-color-c8d24ad ) 0%, var(--e-global-color-accent ) 77%);
+  background-image: radial-gradient(at top left, #dcffea 0%, #1b756b 77%);
   color: #fff;
   text-align: center;
   margin: 0 auto;
 }
 .how-it-works-section .how-it-work-area {
-  color: #fff;
+  color: #fff !important;
   background-color: #1B756B;
   padding: 15px;
   margin-top: 50px;
@@ -3341,7 +3341,7 @@ input:focus {
   color: var(--primary-color);
 }
 .how-it-works-section .how-it-work-area .how-it-work-title {
-  color: #fff;
+  color: #fff !important;
   padding-top: 15px;
 }
 
@@ -3366,7 +3366,7 @@ input:focus {
 }
 
 .statistics-section {
-  color: #fff;
+  color: #fff !important;
   background-color: #1B756B;
 }
 .statistics-section .counter i {
@@ -3393,7 +3393,7 @@ input:focus {
 
 .blog-section .blog-item {
   background-color: #1B756B;
-  color: #fff;
+  color: #fff !important;
   border-radius: 10px;
 }
 .blog-section .blog-item .blog-content {
