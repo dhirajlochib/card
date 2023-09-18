@@ -2788,6 +2788,7 @@ input:focus {
     }
 }
 .account-area .account-form-area {
+  background-color: var(--primary-color);
     padding: 30px;
     border-radius: 8px;
     position: relative;
