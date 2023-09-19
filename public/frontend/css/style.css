@@ -4290,7 +4290,7 @@ input:focus {
   }
 
   .sidebar-menu .sidebar-menu-item.active {
-    background-color: #080707;
+    background-color: #fff;
     color: #1b756b;
   }
 
