@@ -1040,7 +1040,7 @@ html::-webkit-scrollbar-corner {
     [ ## modal ]
 */
 .modal-content {
-  background: #1c3259;
+  background: #1b756b;
   border-radius: 10px;
 }
 .modal-content .close {
@@ -5368,7 +5368,7 @@ input:focus {
   top: 47px;
   right: 0;
   width: 280px;
-  background-color: #1c3259;
+  background-color: #1b756b;
   border: 1px solid rgba(208, 203, 203, 0.2705882353);
   border-radius: 10px;
   z-index: 9;
