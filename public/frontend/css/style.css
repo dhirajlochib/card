@@ -5868,13 +5868,13 @@ input:focus {
     padding: 40px 40px;
 }
 .stripe-modal .modal-checkbox{
-    border: 1px solid var(--primary-color);
+    border: 1px solid #fff;
         padding: 15px;
         border-radius: 10px;
         transition: all 0.6s;
 }
 .stripe-modal .modal-checkbox:hover{
-    border: 1px solid var(--primary-color);
+    border: 1px solid #939797;
 }
 .stripe-modal .form-check .form-check-input {
     padding: 0px;
