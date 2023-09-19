@@ -2639,8 +2639,8 @@ input:focus {
       -ms-flex-align: center;
           align-items: center;
   background-color: rgba(255, 255, 255, 0.05);
-  color: #ebebeb;
-  border: 1px solid #353a68;
+  color: #1b756b;
+  border: 1px solid #1b756b;
   border-radius: 10px;
   font-size: 20px;
 }
@@ -5376,6 +5376,7 @@ input:focus {
   top: 47px;
   right: 0;
   width: 280px;
+  color: white;
   background-color: #1b756b;
   border: 1px solid rgba(208, 203, 203, 0.2705882353);
   border-radius: 10px;
