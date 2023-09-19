@@ -2889,7 +2889,7 @@ input:focus {
 .account-area p {
   font-size: 12px;
   margin-bottom: 30px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.836);
 }
 
 .account-area .account-form input {
@@ -3307,6 +3307,18 @@ input:focus {
   margin-right: 10px;
 }
 
+.feature-item h3 {
+  color: #fff !important;
+}
+
+.how-it-work-title h3 {
+  color: #fff !important;
+}
+
+.how-it-work-title p {
+  color: #fff !important;
+}
+
 .feature-section .feature-item {
   color: #fff;
   background-color: #1B756B;
@@ -3418,13 +3430,24 @@ input:focus {
   color: #fff !important;
 }
 
+.odo-area h2 {
+  color: #fff !important;
+}
+
+.odo-area h4 {
+  color: #fff !important;
+}
+
 .statistics-section {
   color: #fff !important;
   background-color: #1B756B;
 }
 .statistics-section .counter i {
-
   font-size: 50px;
+  color: #fff !important;
+}
+
+.call-to-action-section h2 {
   color: #fff !important;
 }
 
