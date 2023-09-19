@@ -4466,9 +4466,9 @@ input:focus {
   margin-right: 10px;
 }
 .dashboard-title-part .left .icon button, .dashboard-title-part .left .icon input[type=button], .dashboard-title-part .left .icon input[type=reset], .dashboard-title-part .left .icon input[type=submit] {
-  font-size: 14px;
-  color: #1b756b;
-  background-color: transparent;
+  font-size: 25px;
+  color: #fff;
+  background-color: #1b756b;
 }
 .dashboard-title-part .title {
   margin-bottom: 0;
