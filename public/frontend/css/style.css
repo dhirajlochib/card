@@ -4011,6 +4011,10 @@ input:focus {
     color: white;
   }
 
+  .user-name h4 {
+    color: white;
+  }
+
   .sidebar.active .user-name {
     display: none;
   }
