@@ -1034,6 +1034,8 @@ html::-webkit-scrollbar-corner {
   }
 }
 .custom-card button, .custom-card input[type=submit], .custom-card input[type=reset], .custom-card input[type=button], .custom-card .btn--base {
+  color: #1b756b;
+  background-color: #fff;
   padding: 12px 30px;
 }
 
