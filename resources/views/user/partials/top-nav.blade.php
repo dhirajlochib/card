@@ -3,7 +3,7 @@
 <nav class="navbar-wrapper">
     <div class="dashboard-title-part">
         <div class="left">
-            <div class="icon d-lg-none d-md-none d-sm-block">
+            <div class="icon d-lg-none d-md-block d-sm-block">
                 <button class="sidebar-menu-bar">
                     <i class="fas fa-exchange-alt"></i>
                 </button>
