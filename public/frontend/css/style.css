@@ -656,7 +656,7 @@ blockquote .quote-icon {
 }
 
 .section--bg {
-  background-color: #050251 !important;
+  background-color: #b7b6c7 !important;
 }
 
 .bg--gray {
@@ -1023,7 +1023,7 @@ html::-webkit-scrollbar-corner {
           justify-content: space-between;
 }
 .custom-card .card-body {
-  background: #050251;
+  background: #b8b8c2;
   padding: 30px;
   border-radius: 20px;
 }
@@ -1947,7 +1947,7 @@ option {
 .submit-btn {
   padding: 12px 20px;
   color: #fff;
-  background: #050251;
+  background: var(--primary-color);
   font-weight: 600;
   font-size: 14px;
   border-radius: 5px;
@@ -3977,7 +3977,7 @@ input:focus {
   .sidebar {
     width: 250px;
     position: fixed;
-    background: #050251;
+    background: #ffffff;
     -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
     border-radius: 8px;
@@ -4589,7 +4589,7 @@ input:focus {
 }
 
 .dashbord-item {
-  background: #050251;
+  background: #c5c5c5;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
   border-radius: 20px;
@@ -5002,7 +5002,7 @@ input:focus {
   left: -10px;
   -webkit-clip-path: polygon(100% 0, 0 50%, 100% 100%);
           clip-path: polygon(100% 0, 0 50%, 100% 100%);
-  background: #050251;
+  background: #afafb9;
   width: 12px;
   height: 17px;
 }
@@ -5473,7 +5473,7 @@ input:focus {
 }
 
 .transfer-section .transfer-item {
-  background: #050251;
+  background: #bebec7;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
   border-radius: 20px;
