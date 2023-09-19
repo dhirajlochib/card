@@ -1023,6 +1023,7 @@ html::-webkit-scrollbar-corner {
           justify-content: space-between;
 }
 .custom-card .card-body {
+  color: white;
   background: #1b756b;
   padding: 30px;
   border-radius: 20px;
@@ -1040,6 +1041,7 @@ html::-webkit-scrollbar-corner {
     [ ## modal ]
 */
 .modal-content {
+  color: #fff;
   background: #1b756b;
   border-radius: 10px;
 }
@@ -4287,6 +4289,7 @@ input:focus {
 
   .sidebar-menu .sidebar-menu-item.active {
     background-color: #fff;
+    color: #000;
   }
 
   .sidebar-menu .sidebar-menu-item.active::after {
