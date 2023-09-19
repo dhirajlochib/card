@@ -2577,9 +2577,9 @@ input:focus {
 
 .language-select {
     background: transparent;
-    color: #fff;
+    color: #595a5a;
     padding: 5px 8px;
-    border: 1px solid #ffffff38 !important;
+    border: 1px solid #0000004f !important;
     margin-left: 30px;
     border-radius: 6px;
     font-size: 14px;
