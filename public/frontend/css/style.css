@@ -4426,13 +4426,13 @@ input:focus {
   padding: 0 10px 0 0;
 }
 .navbar-wrapper.active .dashboard-title-part .left .icon {
-  display: none;
+  display: none !important;
 }
 @media only screen and (max-width: 1199px) {
   .navbar-wrapper {
     margin-left: 0;
   }
-  
+
 }
 
 .dashboard-title-part {
@@ -4497,7 +4497,7 @@ input:focus {
   font-size: 15px;
 }
 .dashboard-path .main-path {
-  color: #fff;
+  color: #000000;
   font-weight: 600;
 }
 
@@ -5310,7 +5310,7 @@ input:focus {
             transform: translateY(0);
   }
 }
-.username h6 {
+.profile-content h6 {
   color: #fff;
 }
 .profile-thumb-content .profile-content .username {
