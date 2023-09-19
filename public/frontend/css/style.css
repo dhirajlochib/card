@@ -2787,7 +2787,22 @@ input:focus {
       display: block;
     }
 }
+
+/* .account-form-area btn */
+.account-form-area .btn-loading {
+    background-color: #fff;
+    border: 1px solid var(--primary-color);
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
 .account-area .account-form-area {
+    color: #fff !important;
     padding: 30px;
     border-radius: 8px;
     position: relative;
@@ -3561,7 +3576,7 @@ input:focus {
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-  color: #ebebeb;
+  color: #595a5a;
 }
 
 .select2-dropdown {
