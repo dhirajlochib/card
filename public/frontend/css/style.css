@@ -4467,7 +4467,7 @@ input:focus {
 }
 .dashboard-title-part .left .icon button, .dashboard-title-part .left .icon input[type=button], .dashboard-title-part .left .icon input[type=reset], .dashboard-title-part .left .icon input[type=submit] {
   font-size: 14px;
-  color: #fff;
+  color: #1b756b;
   background-color: transparent;
 }
 .dashboard-title-part .title {
