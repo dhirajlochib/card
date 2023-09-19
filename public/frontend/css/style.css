@@ -4451,6 +4451,7 @@ input:focus {
 @media only screen and (max-width: 375px) {
   .dashboard-title-part {
     display: block;
+    display: flex;
   }
 }
 .dashboard-title-part .left {
