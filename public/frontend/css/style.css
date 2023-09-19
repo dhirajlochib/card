@@ -5407,6 +5407,11 @@ input:focus {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
 }
+
+.notification-header h5{
+  color: #fff;
+}
+
 .notification-wrapper .notification-header {
   display: -webkit-box;
   display: -ms-flexbox;
