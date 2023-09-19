@@ -1373,9 +1373,9 @@ input::-moz-focus-inner {
 
 .btn--base {
   position: relative;
-  background: var(--primary-color);
+  background: #fff;
   border-radius: 15px;
-  color: #fff;
+  color: #05554c;
   padding: 10px 20px;
   font-size: 15px;
   font-weight: 600;
@@ -1393,8 +1393,8 @@ input::-moz-focus-inner {
   color: var(--primary-color);
 }
 .btn--base.active:focus, .btn--base.active:hover {
-  color: #ced0d1;
-  background: var(--primary-color);
+  color: #05554c;
+  background: #cccccc;
 }
 .btn--base:focus, .btn--base:hover {
   color: #025148;
@@ -4290,8 +4290,12 @@ input:focus {
   }
 
   .sidebar-menu .sidebar-menu-item.active {
-    background-color: #fff;
-    color: #000;
+    background-color: #080707;
+    color: #1b756b;
+  }
+
+  .sidebar-menu .sidebar-menu-item.active span {
+    color: #1b756b;
   }
 
   .sidebar-menu .sidebar-menu-item.active::after {
