@@ -3491,8 +3491,13 @@ input:focus {
   padding-left: 15px;
 }
 
+.deposit-form h3 {
+  color: #fff !important;
+}
+
 .deposit-wrapper .deposit-form {
   background-color: #1B756B;
+  color: white;
   padding: 40px 30px;
   border-radius: 10px;
 }
