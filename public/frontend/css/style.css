@@ -4209,7 +4209,7 @@ input:focus {
   .sidebar-menu .sidebar-menu-item a .menu-icon {
     width: 30px;
     height: 30px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(255, 255, 255);
     color: var(--primary-color);
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4605,10 +4605,17 @@ input:focus {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
+.dashbord-item .dashboard-content h4{
+  color: white;
+}
+
 .dashbord-item .dashboard-content .sub-title {
+  color: #fff;
   margin-bottom: 5px;
 }
 .dashbord-item .dashboard-content .title {
+  color: #fff;
   margin-bottom: 0;
 }
 .dashbord-item .dashboard-icon {
