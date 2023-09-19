@@ -1393,11 +1393,11 @@ input::-moz-focus-inner {
   color: var(--primary-color);
 }
 .btn--base.active:focus, .btn--base.active:hover {
-  color: #fff;
+  color: #ced0d1;
   background: var(--primary-color);
 }
 .btn--base:focus, .btn--base:hover {
-  color: #fff;
+  color: #025148;
   -webkit-box-shadow: 0 10px 20px rgba(19, 186, 186, 0.4);
           box-shadow: 0 10px 20px rgba(19, 186, 186, 0.4);
 }
