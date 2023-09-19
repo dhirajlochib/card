@@ -3989,7 +3989,6 @@ input:focus {
     background: #1b756b;
     -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
-    border-radius: 8px;
     padding: 20px 10px;
     padding: 10px;
     top: 0;
@@ -4007,9 +4006,11 @@ input:focus {
       left: -300px;
     }
   }
-  .sidebar.active {
+  .sidebar.active h4 {
     width: 60px;
+    color: white;
   }
+
   .sidebar.active .user-name {
     display: none;
   }
@@ -4143,7 +4144,7 @@ input:focus {
 
   .sidebar-logo .sidebar-menu-bar {
     font-size: 14px;
-    color: #94a9c9;
+    color: #1b756b;
     background-color: transparent;
     display: none;
   }
