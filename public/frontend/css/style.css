@@ -4382,10 +4382,14 @@ input:focus {
     -ms-flex-align: center;
     align-items: center;
     background: var(--primary-color);
-    color: #000;
+    color: #ffffff;
     border-radius: 10px;
     font-size: 20px;
     margin-bottom: 15px;
+  }
+
+  .sidebar-doc-content h4 p{
+    color: #fff;
   }
 
   .sidebar-doc-box .sidebar-doc-content .title {
