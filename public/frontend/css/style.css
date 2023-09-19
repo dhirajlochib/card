@@ -2788,7 +2788,7 @@ input:focus {
     }
 }
 
-.account-logo title {
+.account-logo .title {
     margin-bottom: 10px;
     color: #fff;
     font-size: 20px;
