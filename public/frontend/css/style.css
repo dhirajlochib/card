@@ -3430,13 +3430,14 @@ input:focus {
   color: #fff !important;
 }
 
+.counter h4 {
+  color: #fff !important;
+}
+
 .odo-area h2 {
   color: #fff !important;
 }
 
-.odo-area h4 {
-  color: #fff !important;
-}
 
 .statistics-section {
   color: #fff !important;
