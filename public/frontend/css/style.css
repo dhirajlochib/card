@@ -4388,7 +4388,7 @@ input:focus {
     margin-bottom: 15px;
   }
 
-  .sidebar-doc-content h4 p{
+  .sidebar-doc-content h4, .sidebar-doc-content p{
     color: #fff;
   }
 
