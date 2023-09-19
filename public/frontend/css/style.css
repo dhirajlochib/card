@@ -5419,7 +5419,7 @@ input:focus {
 }
 @media only screen and (max-width: 375px) {
     .notification-wrapper{
-        left: 0;
+        right: 0;
     }
   }
 .notification-wrapper.active {
