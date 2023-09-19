@@ -2807,6 +2807,14 @@ input:focus {
     transition: all 0.3s;
 }
 
+.account-form-area .title {
+    color: #fff !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    margin-bottom: 30px !important;
+    text-align: center !important;
+}
+
 /* .account-form-area btn */
 .account-form-area .btn-loading {
     background-color: #fff;
@@ -2950,6 +2958,7 @@ input:focus {
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
+
 
 .account-area .account-form .account-item {
   color: rgba(255, 255, 255, 0.884);
