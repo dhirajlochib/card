@@ -3637,7 +3637,7 @@ input:focus {
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-  color: #595a5a;
+  color: #e4e4e4;
 }
 
 .select2-dropdown {
@@ -5308,6 +5308,9 @@ input:focus {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
+}
+.username h6 {
+  color: #fff;
 }
 .profile-thumb-content .profile-content .username {
   font-size: 18px;
