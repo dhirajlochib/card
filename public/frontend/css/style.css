@@ -4426,14 +4426,19 @@ input:focus {
   padding: 0 10px 0 0;
 }
 .navbar-wrapper.active .dashboard-title-part .left .icon {
-  display: none !important;
+  display: block;
 }
+
+
+
 @media only screen and (max-width: 1199px) {
   .navbar-wrapper {
     margin-left: 0;
   }
 
 }
+
+
 
 .dashboard-title-part {
   display: -webkit-box;
@@ -4445,6 +4450,10 @@ input:focus {
   padding: 0 20px 0 35px;
 }
 @media only screen and (max-width: 1199px) {
+  .navbar-wrapper.active .dashboard-title-part .left .icon {
+    display: none;
+  }
+
   .dashboard-title-part {
     padding: 0 20px 0 10px;
   }
