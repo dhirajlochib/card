@@ -4898,8 +4898,13 @@ input:focus {
 .preview-list-user-wrapper .preview-list-user-content {
   padding-left: 20px;
 }
+.preview-list-right span {
+  font-weight: 500;
+  color: #fff;
+}
 
 .preview-list-right {
+
   text-align: right;
 }
 .deposit-form .note-area {
