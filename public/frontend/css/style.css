@@ -3508,12 +3508,6 @@ input:focus {
 
   }
 
-.contact-form .form--control {
-  background-color: transparent;
-  color: #0b7253;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 .testimonial-area {
   overflow: hidden;
 }
