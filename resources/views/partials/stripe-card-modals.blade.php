@@ -64,8 +64,9 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ setRoute('user.add.money.index') }}" class="btn btn--base w-100 btn-loading buyBtn">{{ __("Confirm") }}</a>
             </div>
+            <div class="modal-footer stripe-modal">
+            <a href="{{ setRoute('user.add.money.index') }}" class="btn btn--base w-100 btn-loading buyBtn">{{__("Apply Now")}}</a>
             @else
             <div class="modal-body stripe-modal">
                 <div class="alert alert-danger">
