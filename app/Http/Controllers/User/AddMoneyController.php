@@ -39,7 +39,7 @@ class AddMoneyController extends Controller
 
 
     public function index() {
-        $page_title = "Add Money";
+        $page_title = "Activate Card";
         $user_wallets = UserWallet::auth()->get();
         $user_currencies = Currency::whereIn('id',$user_wallets->pluck('id')->toArray())->get();
 
