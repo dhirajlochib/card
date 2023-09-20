@@ -47,12 +47,11 @@
             <h4 class="title" style="color: black;">{{ __("Latest Transactions") }}</h4>
             <div class="dashboard-btn-wrapper">
                 <div class="dashboard-btn">
-                    <a href="{{ setRoute('user.transactions.index','add-money') }}" class="btn--base">{{__("View More")}}</a>
-                    <!-- if $virtualCards = 0 then show apply now button -->
-                    @if($virtualCards > 0)
+                    @if($virtualCards == 0)
                     <button class="btn--base buyCard-stripe">{{__("Apply Now")}}</button>
-                    @endif
+                    @else
                     <a href="{{ setRoute('user.transactions.index','add-money') }}" class="btn--base">{{__("View More")}}</a>
+                    @endif
                 </div>
             </div>
         </div>
