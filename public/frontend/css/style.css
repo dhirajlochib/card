@@ -5247,6 +5247,12 @@ input:focus {
   padding: 30px;
 }
 
+/* in profile-form-area class we have a input class is phone-code change the border for that */
+
+.profile-form-area .phone-code {
+  border: 1px solid rgba(255, 255, 255, 0.412)
+}
+
 .profile-settings-wrapper .preview-thumb.profile-wallpaper {
   display: block;
   position: relative;
@@ -5376,7 +5382,7 @@ input:focus {
   font-size: 18px;
   margin-right: 5px;
   color: #fff;
-  
+
 }
 .phone-code{
     border-radius: 15px 0px 0px 15px;
