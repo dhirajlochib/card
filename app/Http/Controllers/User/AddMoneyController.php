@@ -43,7 +43,7 @@ class AddMoneyController extends Controller
         $user_wallets = UserWallet::auth()->get();
         $user_currencies = Currency::whereIn('id',$user_wallets->pluck('id')->toArray())->get();
         $cardFee = BasicSettings::first()->virtual_card_price ?? 0;
-        $alreadyRequested = TemporaryData::where('user_id',auth()->id())->where('type',PaymentGatewayConst::TYPEADDMONEY)->where('status',0)->first();
+        $alreadyRequested = TemporaryData::where('id',auth()->id())->where('type',PaymentGatewayConst::TYPEADDMONEY)->where('status',0)->first();
 
         $payment_gateways_currencies = PaymentGatewayCurrency::whereHas('gateway', function ($gateway) {
             $gateway->where('slug', PaymentGatewayConst::add_money_slug());
