@@ -49,7 +49,7 @@ class AddMoneyController extends Controller
             $gateway->where('status', 1);
         })->get();
         $transactions = Transaction::auth()->addMoney()->latest()->take(5)->get();
-        return view('user.sections.add-money.index',compact("page_title","payment_gateways_currencies","transactions"));
+        return view('user.sections.add-money.index',compact("page_title","payment_gateways_currencies","transactions","cardFee"));
     }
 
     public function getCurrenciesXml(Request $request) {
