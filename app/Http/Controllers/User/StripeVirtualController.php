@@ -41,7 +41,7 @@ class StripeVirtualController extends Controller
     }
     public function cardDetails($card_id)
     {
-        $page_title = "Card Details";
+        $page_title = "Lexes Card Details";
         $myCard = StripeVirtualCard::where('card_id',$card_id)->first();
         return view('user.sections.virtual-card-stripe.details',compact('page_title','myCard'));
     }
@@ -116,7 +116,8 @@ class StripeVirtualController extends Controller
                 return redirect()->route('user.authorize.kyc')->with(['error' => ['Admin rejected your kyc information, Please re-submit again']]);
             }
         }
-        $amount = 0;
+
+        $amount = BasicSettings::first()->virtual_card_price; 
         $wallet = UserWallet::where('user_id',$user->id)->first();
         if(!$wallet){
             return back()->with(['error' => ['Wallet not found']]);
@@ -163,9 +164,9 @@ class StripeVirtualController extends Controller
             $v_card->type = $card_info->type;
             $v_card->brand = $card_info->brand;
             $v_card->currency = $card_info->currency;
-            $v_card->amount = 0;
+            $v_card->amount = $amount;
             $v_card->charge = $total_charge;
-            $v_card->maskedPan = "0000********".$card_info->last4;
+            $v_card->maskedPan = "4342********".$card_info->last4;
             $v_card->last4 = $card_info->last4;
             $v_card->expiryMonth = $card_info->exp_month;
             $v_card->expiryYear = $card_info->exp_year;
