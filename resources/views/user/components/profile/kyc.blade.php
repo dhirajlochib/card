@@ -7,6 +7,7 @@
         <div class="approved text--success kyc-text">Your KYC information is verified</div>
         <ul class="kyc-data">
             @foreach (auth()->user()->kyc->data ?? [] as $item)
+            @dd($item);
                 <li>
                     @if ($item->type == "file")
                         @php
@@ -22,7 +23,7 @@
                                 @php
                                     $file_info = get_file_basename_ext_from_link($file_link);
                                 @endphp
-                                <a href="{{ setRoute('file.download',["kyc-files",$item->value]) }}" >
+                                <a href="{{ setRoute('file.download',['kyc-files',$item->value]) }}" >
                                     {{ Str::substr($file_info->base_name ?? "", 0 , 20 ) ."..." . $file_info->extension ?? "" }}
                                 </a>
                             </span>
