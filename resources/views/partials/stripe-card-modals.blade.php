@@ -19,7 +19,7 @@
                     <div class="card-front">
                         <div class="card-logo">
                             <!-- Your card logo image here -->
-                            <img src="{{asset('frontend/images/element/card.png')" alt="Card Logo">
+                            <img src="{{asset('frontend/images/element/card.png')}}" alt="Card Logo">
                         </div>
                         <div class="card-number">
                             <!-- Your card number here -->
