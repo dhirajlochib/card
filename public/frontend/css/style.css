@@ -5843,6 +5843,7 @@ input:focus {
     color: #fff;
   }
 .cookie-main-wrapper {
+  display: none;
   background-color: rgb(31, 41, 55);
   padding: 20px 30px;
   border-radius: 0.5rem 0.5rem 0 0;
