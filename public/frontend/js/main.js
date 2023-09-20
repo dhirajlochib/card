@@ -26,6 +26,11 @@ $(".nice-select").niceSelect(),
   $("a[data-rel^=lightcase]").lightcase();
 })
 
+// apply button class has reg
+$(".reg").on("click", function () {
+  $('.account-section').addClass('active');
+});
+
 
 // header-fixed
 var fixed_top = $(".header-section");

@@ -26,7 +26,7 @@
                     <h1 class="title">{{ @$heading[0] }} {{ @$heading[1] }} {{ @$heading[2] }} {{ @$heading[4] }}  <span class="text--base"> {{ @$heading[5] }}  {{ @$heading[6] }}</span>  {{ @$heading[7] }}</h1>
                     <p>{{ __(@$banner->value->language->$lang->sub_heading) }}</p>
                     <div class="banner-btn">
-                        <a href="{{ url('/').'/'.@$banner->value->language->$lang->button_link }}" class="btn--base">{{ __(@$banner->value->language->$lang->button_name) }}</a>
+                        <button class="btn--base reg">{{ __(@$banner->value->language->$lang->button_name) }}</button>
                     </div>
                 </div>
             </div>

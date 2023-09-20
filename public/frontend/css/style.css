@@ -4614,6 +4614,12 @@ input:focus {
   border-radius: 8px;
 }
 
+.reg {
+  background-color: #1b756b;
+  color: #fff;
+  border: none;
+}
+
 .dashboard-btn .btn--base {
   background-color: var(--primary-color);
   color: #fff;

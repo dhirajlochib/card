@@ -44,7 +44,7 @@
                             <div class="header-action">
                                 @auth
                                     @if(auth()->user()->email_verified == 0)
-                                    <button class="btn--base header-account-btn">{{ __("Login Now") }}</button>
+                                    <button class="btn--base header-account-btn reg">{{ __("Login Now") }}</button>
                                     @else
                                      <a href="{{ setRoute('user.dashboard') }}" class="btn--base">{{__("Dashboard")}}</a>
                                     @endif
