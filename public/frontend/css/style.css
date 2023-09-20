@@ -3846,7 +3846,8 @@ input:focus {
   margin-bottom: 0 !important;
 }
 
-.blog-sidebar {
+.blog-sidebar, h4, h5 {
+  color: white;
   position: sticky;
   top: 0;
 }
