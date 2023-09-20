@@ -492,10 +492,7 @@ $('.header-account-btn').on('click', function () {
 
 //account-toggle
 $('.reg-dashboard-btn').on('click', function () {
-  $('.account-area').addClass('change-form');
-
-  
-
+  $('.account-section').addClass('active');
 });
 
 $(".buy-btn").click(function(){
