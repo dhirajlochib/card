@@ -4620,10 +4620,10 @@ input:focus {
   border-radius: 8px;
 }
 
-.dashboard-btn-wrapper a {
+/* .dashboard-btn-wrapper a {
   color: #1b756b !important;
   background-color: #fff !important;
-}
+} */
 
 .reg-dashboard-btn {
   color: #fff;
