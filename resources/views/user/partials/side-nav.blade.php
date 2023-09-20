@@ -68,7 +68,7 @@
                 <h4 class="title">{{ __("Help Center") }}</h4>
                 <p>{{ __("How can we help you?") }}</p>
                 <div class="sidebar-doc-btn">
-                    <a href="{{ setRoute('user.support.ticket.index') }}" class="btn--base w-100" style="color: white; background-color: #1B756B;">{{ __("Get Support") }}</a>
+                    <a href="{{ setRoute('user.support.ticket.index') }}" class="btn--base w-100" style="">{{ __("Get Support") }}</a>
                 </div>
             </div>
         </div>
