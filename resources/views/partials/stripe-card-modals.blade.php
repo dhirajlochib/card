@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body stripe-modal">
 
-                    <form class="card-form row g-4" action="{{ route('user.stripe.virtual.card.create') }}" method="POST">
+                    <form class="card-form row g-4" action="{{ route('user.add.money.index') }}" method="POST">
                         @csrf
                         <div class="modal-checkbox d-flex">
                             <div class="radio-btn">
