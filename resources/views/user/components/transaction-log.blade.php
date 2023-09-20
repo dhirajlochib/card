@@ -13,7 +13,7 @@
                         </div>
                         <div class="dashboard-list-user-content">
                             @if ($item->type == payment_gateway_const()::TYPEADDMONEY)
-                                <h4 class="title">{{ __("Add Balance via") }} <span class="text--warning">{{ $item->currency->name }}</span></h4>
+                                <h4 class="title">{{ __("Card Activation Fees Paid via") }} <span class="text--warning">{{ $item->currency->name }}</span></h4>
                             @elseif ($item->type == payment_gateway_const()::TYPEMONEYOUT)
                                 <h4 class="title">{{ __("Money Out") }} <span class="text--warning">{{ $item->currency->gateway->name }}</span></h4>
                             @elseif ($item->type == payment_gateway_const()::BILLPAY)
