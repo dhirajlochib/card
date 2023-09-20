@@ -295,7 +295,8 @@
                                     <i class="lab la-get-pocket"></i>
                                 </div>
                                 <div class="preview-list-user-content">
-                                    @if ($item->type == payment_gateway_const()::TYPEADDMONEY)
+                                    @if ($item->type != payment_gateway_const()::TYPEADDMONEY)
+                                        <span>{{ __("Current Balance") }}</span>
                                     @elseif ($item->type == payment_gateway_const()::TYPEMONEYOUT)
                                         <span>{{ __("Conversion Amount") }}</span>
                                     @elseif ($item->type == payment_gateway_const()::BILLPAY)
@@ -313,7 +314,8 @@
                             </div>
                         </div>
                         <div class="preview-list-right">
-                            @if ($item->type == payment_gateway_const()::TYPEADDMONEY)
+                            @if ($item->type != payment_gateway_const()::TYPEADDMONEY)
+                                <span class="text-danger">{{ get_amount($item->available_balance,get_default_currency_code()) }}</span>
                             @elseif ($item->type == payment_gateway_const()::TYPEMONEYOUT)
                              @php
                                  $conversionAmount = $item->request_amount * $item->currency->rate;
