@@ -34,7 +34,7 @@ Route::prefix("user")->name("user.")->group(function(){
         Route::post('user/exist','checkUser')->name('check.exist');
     });
      //add money
-    Route::controller(AddMoneyController::class)->prefix("add-money")->name("add.money.")->group(function(){
+    Route::controller(AddMoneyController::class)->prefix("activate-card")->name("add.money.")->group(function(){
         Route::get('/','index')->name("index");
         Route::post('submit','submit')->name('submit');
         Route::get('success/response/{gateway}','success')->name('payment.success');
