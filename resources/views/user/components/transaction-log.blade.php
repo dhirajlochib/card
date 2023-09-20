@@ -24,7 +24,7 @@
                                 <h4 class="title">{{ __("Virtual Card") }} <span class="text--info">({{ @$item->remark }})</span></h4>
                             @elseif ($item->type == payment_gateway_const()::TYPEMONEYEXCHANGE)
                                 <h4 class="title">{{ __("Exchange Money") }} <span class="text--warning">{{ $item->details->request_currency }} To {{ $item->details->exchange_currency }}</span></h4>
-                            @elseif ($item->type == payment_gateway_const()::TYPEADDSUBTRACTBALANCE)
+                            @elseif ($item->type == payment_gateway_const()::TYPEADDSUBTRACTBALANCE && $item->type != payment_gateway_const()::TYPEADDMONEY)
                                 <h4 class="title">{{ __("Balance Update From Admin (".$item->user_wallet->currency->code.")") }} </h4>
                             @elseif ($item->type == payment_gateway_const()::TYPETRANSFERMONEY)
                                 @if ($item->isAuthUser())
