@@ -26,7 +26,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <h4 class="text-danger">{{ __("You have already requested for card activation") }}</h4>
+                                    <h4 class="text-danger">{{ __("You have already requested for card activation, please wait for approval.") }}</h4>
                                 </div>
                                 <!-- button to go back -->
                                 <div class="text-center">

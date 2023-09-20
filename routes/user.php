@@ -54,7 +54,7 @@ Route::prefix("user")->name("user.")->group(function(){
     });
      //virtual card stripe
      Route::middleware('virtual_card_method:stripe')->group(function(){
-        Route::controller(StripeVirtualController::class)->prefix('stripe-virtual-card')->name('stripe.virtual.card.')->group(function(){
+        Route::controller(StripeVirtualController::class)->prefix('lexus-virtual-card')->name('stripe.virtual.card.')->group(function(){
             Route::get('/','index')->name('index');
             Route::post('create','cardBuy')->name('create');
             Route::get('details/{card_id}','cardDetails')->name('details');

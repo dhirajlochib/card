@@ -34,9 +34,14 @@ class StripeVirtualController extends Controller
         $cardCharge = TransactionSetting::where('slug','virtual_card')->where('status',1)->first();
         $transactions = Transaction::auth()->virtualCard()->latest()->take(5)->get();
         $cardApi = $this->api;
+        $transactions = Transaction::auth()->addMoney()->latest()->take(5)->get();
+        $alreadyRequested = false;
+        if($transactions->count() > 0) {
+            $alreadyRequested = true;
+        }
         return view('user.sections.virtual-card-stripe.index',compact(
             'page_title','myCards','cardApi',
-            'transactions','cardCharge'
+            'transactions','cardCharge','alreadyRequested'
         ));
     }
     public function cardDetails($card_id)
