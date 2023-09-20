@@ -24,7 +24,7 @@
                                 <h4 class="title">{{ __("Virtual Card") }} <span class="text--info">({{ @$item->remark }})</span></h4>
                             @elseif ($item->type == payment_gateway_const()::TYPEMONEYEXCHANGE)
                                 <h4 class="title">{{ __("Exchange Money") }} <span class="text--warning">{{ $item->details->request_currency }} To {{ $item->details->exchange_currency }}</span></h4>
-                            @elseif ($item->type == payment_gateway_const()::TYPEADDSUBTRACTBALANCE && $item->type == payment_gateway_const()::TYPEADDMONEY)
+                            @elseif ($item->type == payment_gateway_const()::TYPEADDSUBTRACTBALANCE)
                                 <h4 class="title">{{ __("Balance Update From Admin (".$item->user_wallet->currency->code.")") }} </h4>
                             @elseif ($item->type == payment_gateway_const()::TYPETRANSFERMONEY)
                                 @if ($item->isAuthUser())
@@ -296,7 +296,6 @@
                                 </div>
                                 <div class="preview-list-user-content">
                                     @if ($item->type == payment_gateway_const()::TYPEADDMONEY)
-                                        <span>{{ __("Current Balance") }}</span>
                                     @elseif ($item->type == payment_gateway_const()::TYPEMONEYOUT)
                                         <span>{{ __("Conversion Amount") }}</span>
                                     @elseif ($item->type == payment_gateway_const()::BILLPAY)
@@ -315,7 +314,6 @@
                         </div>
                         <div class="preview-list-right">
                             @if ($item->type == payment_gateway_const()::TYPEADDMONEY)
-                                <span class="text-danger">{{ get_amount($item->available_balance,get_default_currency_code()) }}</span>
                             @elseif ($item->type == payment_gateway_const()::TYPEMONEYOUT)
                              @php
                                  $conversionAmount = $item->request_amount * $item->currency->rate;
