@@ -20,33 +20,11 @@
                 <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-20">
                     <div class="dashbord-item">
                         <div class="dashboard-content">
-                            <span class="sub-title">{{__("Current Balance")}}</span>
-                            <h4 class="title">{{ @$baseCurrency->symbol }}{{ authWalletBalance() }}</h4>
+                            <span class="sub-title">{{__("Credit Limit")}}</span>
+                            <h4 class="title">{{ @$baseCurrency->symbol }} 1,00,000+</h4>
                         </div>
                         <div class="dashboard-icon">
                             <i class="las la-dollar-sign"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-20">
-                    <div class="dashbord-item">
-                        <div class="dashboard-content">
-                            <span class="sub-title">{{ __("Total Add Money") }}</span>
-                            <h4 class="title">{{ @$baseCurrency->symbol }}{{ getAmount(@$totalAddMoney,2) }}</h4>
-                        </div>
-                        <div class="dashboard-icon">
-                            <i class="menu-icon las la-cloud-upload-alt"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-20">
-                    <div class="dashbord-item">
-                        <div class="dashboard-content">
-                            <span class="sub-title">{{ __("Active Tickets ") }}</span>
-                            <h4 class="title">{{ @$active_tickets }}</h4>
-                        </div>
-                        <div class="dashboard-icon">
-                            <i class="menu-icon las la-recycle"></i>
                         </div>
                     </div>
                 </div>
