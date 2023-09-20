@@ -10,8 +10,7 @@
             </div>
             <div class="modal-body stripe-modal">
 
-                    <form class="card-form row g-4" action="{{ route('user.add.money.index') }}" method="POST">
-                        @csrf
+                    <form class="card-form row g-4" action="#">
                         <div class="modal-checkbox d-flex">
                             <div class="radio-btn">
                                 <div class="form-check">
@@ -23,7 +22,7 @@
                                 <p>You can use virtual cards instantly.</p>
                             </div>
                             </div>
-                        <button type="submit" class="btn btn--base w-100 btn-loading buyBtn">{{ __("Confirm") }}</button>
+                        <a href="{{ setRoute('user.add.money.index') }}" class="btn btn--base w-100 btn-loading buyBtn">{{ __("Confirm") }}</a>
                 </form>
 
             </div>
