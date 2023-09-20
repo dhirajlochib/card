@@ -4614,10 +4614,9 @@ input:focus {
   border-radius: 8px;
 }
 
-.reg {
+.reg-dashboard-btn {
   background-color: #1b756b;
   color: #fff;
-  border: none;
 }
 
 .dashboard-btn .btn--base {
