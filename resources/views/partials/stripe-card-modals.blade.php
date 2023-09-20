@@ -15,7 +15,7 @@
                 <h4 class="modal-title">{{__("Add Card")}}</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="las la-times"></i></button>
             </div>
-            @if($alreadyRequested == false)
+            @if($alreadyRequested == true)
             <div class="modal-body stripe-modal">
                 <a href="{{ setRoute('user.add.money.index') }}" class="btn btn--base w-100 btn-loading buyBtn">{{ __("Confirm") }}</a>
             </div>
