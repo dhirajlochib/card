@@ -30,7 +30,7 @@
                                 </div>
                                 <!-- button to go back -->
                                 <div class="text-center">
-                                    <a href="{{ setRoute('user.dashboard') }}" class="btn btn--base mt-4">{{ __("Go Back") }}</a>
+                                    <a href="{{ setRoute('user.dashboard') }}" class="btn btn--base mt-4" style="background-color: #1b756b; color: #fff;">{{ __("Go Back") }}</a>
                                 </div>
                             </div>
                         </div>
