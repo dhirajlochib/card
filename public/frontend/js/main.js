@@ -21,10 +21,10 @@ $(window).on('load', function() {
 // nice-select
 $(".nice-select").niceSelect(),
 
-// lightcase
- $(window).on('load', function () {
-  $("a[data-rel^=lightcase]").lightcase();
-})
+// // lightcase
+//  $(window).on('load', function () {
+//   $("a[data-rel^=lightcase]").lightcase();
+// })
 
 // apply button class has reg
 $(".reg").on("click", function () {
