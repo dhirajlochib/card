@@ -4620,9 +4620,14 @@ input:focus {
   border-radius: 8px;
 }
 
+.dashboard-btn-wrapper a {
+  color: #1b756b;
+  background-color: #fff;
+}
+
 .reg-dashboard-btn {
-  background-color: #1b756b;
   color: #fff;
+  background-color: #1b756b;
 }
 
 .reg-dashboard-btn:hover {
