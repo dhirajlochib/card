@@ -15,7 +15,7 @@
                 <h4 class="modal-title">{{__("Activate Card")}}</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="las la-times"></i></button>
             </div>
-            @if($alreadyRequested == true)
+            @if($alreadyRequested == false)
             <div class="modal-body stripe-modal">
                 <!-- credit card design here -->
                 <div class="card-custom">
