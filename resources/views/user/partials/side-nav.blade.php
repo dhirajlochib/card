@@ -25,12 +25,6 @@
                             <span class="menu-title">{{ __("Dashboard") }}</span>
                         </a>
                     </li>
-                    <li class="sidebar-menu-item">
-                        <a href="{{ setRoute('user.transfer.money.index') }}">
-                            <i class="menu-icon las la-paper-plane"></i>
-                            <span class="menu-title">{{ __("Transfer Money") }}</span>
-                        </a>
-                    </li>
                     @if(virtual_card_system('stripe'))
                     <li class="sidebar-menu-item">
                         <a href="{{ setRoute('user.stripe.virtual.card.index') }}">
