@@ -4594,6 +4594,10 @@ input:focus {
   }
 }
 
+.dashboard-header-wrapper h4 {
+  color: #000;
+}
+
 .dashboard-header-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
