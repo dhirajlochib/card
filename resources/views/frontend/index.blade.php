@@ -23,7 +23,7 @@
                         $heading = explode(' ', @$banner->value->language->$lang->heading);
 
                     @endphp
-                    <h1 class="title">{{ @$heading[0] }} {{ @$heading[1] }} {{ @$heading[2] }} {{ @$heading[4] }}  <span class="text--base" style="color: #1b756b;"> {{ @$heading[5] }}  {{ @$heading[6] }}</span>  {{ @$heading[7] }}</h1>
+                    <h1 class="title">{{ @$heading[0] }} {{ @$heading[1] }} {{ @$heading[2] }} {{ @$heading[4] }}  <span class="text--base" style="color: #1b756b !important;">{{ @$heading[5] }}  {{ @$heading[6] }}</span>  {{ @$heading[7] }}</h1>
                     <p>{{ __(@$banner->value->language->$lang->sub_heading) }}</p>
                     <div class="banner-btn">
                         <button class="btn--base reg-dashboard-btn">{{ __(@$banner->value->language->$lang->button_name) }}</button>
