@@ -28,6 +28,10 @@
                                 <div class="text-center">
                                     <h4 class="text-danger">{{ __("You have already requested for card activation") }}</h4>
                                 </div>
+                                <!-- button to go back -->
+                                <div class="text-center">
+                                    <a href="{{ setRoute('user.dashboard') }}" class="btn btn--base mt-4">{{ __("Go Back") }}</a>
+                                </div>
                             </div>
                         </div>
                     @else
