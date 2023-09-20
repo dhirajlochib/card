@@ -54,64 +54,6 @@
 @include('frontend.partials.extensions.tawk-to')
 
 @stack('script')
-<script>
-    var status = "{{  @$cookie->status }}";
-    var  cookie_accepted = "{{@$cookie_accepted}}";
-    var  cookie_decline = "{{@$cookie_decline}}";
-
-    const pop = document.querySelector('.cookie-main-wrapper')
-    if(status == 1){
-        if(cookie_accepted == true || cookie_decline == true){
-            pop.style.bottom = "-300px";
-        }else{
-            window.onload = function(){
-            setTimeout(function(){
-                pop.style.bottom = "0";
-            }, 2000)
-        }
-
-        }
-    }else{
-        pop.style.bottom = "-300px";
-    }
-
-    // })
-</script>
-<script>
-    (function ($) {
-        "use strict";
-
-        $('.cookie-btn').on('click',function(){
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.get('{{route('cookie.accept')}}', function(response){
-                throwMessage('success',[response]);
-                setTimeout(function(){
-                    location.reload();
-                },1000);
-            });
-
-        });
-        $('.cookie-btn-cross').on('click',function(){
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.get('{{route('cookie.decline')}}', function(response){
-                throwMessage('error',[response]);
-                setTimeout(function(){
-                    location.reload();
-                },1000);
-            });
-
-        });
-
-    })(jQuery)
-</script>
 
 </body>
 </html>
