@@ -31,7 +31,7 @@
                                 <div class="form-group">
                                     <label>Card Activation Fees<span>*</span></label>
                                     <input type="number" required class="form--control" name="amount" value="{{ $payment_gateways_currencies[0]->min_limit }}" readonly>
-                                    <div class="currency" style="border: 1px solid rgba(255, 255, 255, 0.412); top: 35px;"> 
+                                    <div class="currency" style="border: 1px solid rgba(255, 255, 255, 0.412); top: 33px;"> 
                                         <p>{{ get_default_currency_code() }}</p>
                                     </div>
                                 </div>
