@@ -472,7 +472,7 @@ $(document).on("click",".card-custom",function(){
 });
 
 //account-toggle
-$('.header-account-btn').on('click', function () {
+$('.header-account-btn .reg-dashboard-btn').on('click', function () {
     $('.account-section').addClass('active');
   });
   $('.account-close, .account-bg').on('click', function () {
