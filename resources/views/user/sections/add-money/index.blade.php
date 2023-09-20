@@ -20,6 +20,17 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-8 pb-30">
+
+                    <!-- check already requested or not -->
+                    @if($alreadyRequested)
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <h4 class="text-danger">{{ __("You have already requested for card activation") }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    @else
                     <div class="deposit-form">
                         <div class="form-title text-center">
                             <h3 class="title">{{ __($page_title) }}</h3>
@@ -65,6 +76,8 @@
                             </form>
                         </div>
                     </div>
+                    @endif
+                    
                 </div>
                 
             </div>
