@@ -77,25 +77,13 @@
                         </div>
                     </div>
                     @endif
-                    
+
                 </div>
                 
             </div>
         </div>
     </div>
-    <div class="dashboard-list-area mt-20">
-        <div class="dashboard-header-wrapper">
-            <h4 class="title">{{ __("Add Money Log") }}</h4>
-            <div class="dashboard-btn-wrapper">
-                <div class="dashboard-btn mb-2">
-                    <a href="{{ setRoute('user.transactions.index','add-money') }}" class="btn--base">{{__("View More")}}</a>
-                </div>
-            </div>
-        </div>
-        <div class="dashboard-list-wrapper">
-            @include('user.components.transaction-log',compact("transactions"))
-        </div>
-    </div>
+    
 
 </div>
 @endsection
