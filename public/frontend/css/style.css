@@ -4824,6 +4824,7 @@ input:focus {
 }
 .dashboard-list-item-wrapper .preview-list-wrapper {
   display: none;
+  color: white;
   margin-top: 20px;
   background: rgba(255, 255, 255, 0.05);
 }
@@ -4831,8 +4832,8 @@ input:focus {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .dashboard-list-item-wrapper .preview-list-wrapper .preview-list-item .preview-list-user-wrapper .preview-list-user-icon {
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 .preview-list-wrapper {
