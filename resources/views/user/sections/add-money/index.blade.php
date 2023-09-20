@@ -30,8 +30,8 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>{{ __("Enter Amount") }}<span>*</span></label>
-                                    <input type="number" required class="form--control" placeholder="{{ __("Enter Amount") }}" name="amount" value="{{ old("amount") }}">
-                                    <div class="currency">
+                                    <input type="number" required class="form--control" name="amount" value="{{ $item->min_limit }}" readonly>
+                                    <div class="currency" style="border: 1px solid rgba(255, 255, 255, 0.412); top: 35px;">
                                         <p>{{ get_default_currency_code() }}</p>
                                     </div>
                                 </div>
@@ -68,64 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-8">
-                    <div class="deposit-form">
-                        <div class="form-title text-center pb-4">
-                            <h3 class="title">{{ __($page_title) }} {{ __("Preview") }}</h3>
-                        </div>
-                        <div class="preview-item d-flex justify-content-between">
-                            <div class="preview-content">
-                                <p>{{ __("Enter Amount") }}</p>
-                            </div>
-                            <div class="preview-content">
-                                <p class="request-amount"> </p>
-                            </div>
-                        </div>
-
-                        <div class="preview-item d-flex justify-content-between">
-                            <div class="preview-content">
-                                <p>{{ __("Exchange Rate") }}</p>
-                            </div>
-                            <div class="preview-content">
-                                <p class="rate-show">--</p>
-                            </div>
-                        </div>
-                        <div class="preview-item d-flex justify-content-between">
-                            <div class="preview-content">
-                                <p>{{__("Fees & Charges")}}</p>
-                            </div>
-                            <div class="preview-content">
-                                <p class="fees">--</p>
-                            </div>
-                        </div>
-                        <div class="preview-item d-flex justify-content-between">
-                            <div class="preview-content">
-                                <p>{{__("Conversion Amount")}}</p>
-                            </div>
-                            <div class="preview-content">
-                                <p class="conversionAmount">--</p>
-                            </div>
-                        </div>
-                        <div class="preview-item d-flex justify-content-between">
-                            <div class="preview-content">
-                                <p>{{__("Will Get")}}</p>
-                            </div>
-                            <div class="preview-content">
-                                <p class="will-get">--</p>
-                            </div>
-                        </div>
-
-                        <div class="preview-item d-flex justify-content-between">
-                            <div class="preview-content">
-                                <p>{{ __("Total Payable Amount") }}</p>
-                            </div>
-                            <div class="preview-content">
-                                <p class="pay-in-total">--</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -157,15 +100,15 @@
             getFees();
             getPreview();
         });
-        $(document).ready(function(){
-            getExchangeRate();
-            getLimit();
-            getFees();
-            getPreview();
-        });
+        // $(document).ready(function(){
+        //     getExchangeRate();
+        //     getLimit();
+        //     getFees();
+        //     getPreview();
+        // });
         $("input[name=amount]").keyup(function(){
-             getFees();
-             getPreview();
+            //  getFees();
+            //  getPreview();
         });
         $("input[name=amount]").focusout(function(){
             enterLimit();
@@ -186,7 +129,7 @@
             if($.isNumeric(min_limit) || $.isNumeric(max_limit)) {
                 var min_limit_calc = parseFloat(min_limit/sender_currency_rate).toFixed(2);
                 var max_limit_clac = parseFloat(max_limit/sender_currency_rate).toFixed(2);
-                $('.limit-show').html("Limit " + min_limit_calc + " " + defualCurrency + " - " + max_limit_clac + " " + defualCurrency);
+                // $('.limit-show').html("Limit " + min_limit_calc + " " + defualCurrency + " - " + max_limit_clac + " " + defualCurrency);
                 return {
                     minLimit:min_limit_calc,
                     maxLimit:max_limit_clac,
@@ -277,7 +220,7 @@
             if (charges == false) {
                 return false;
             }
-            $(".fees-show").html("Charge: " + parseFloat(charges.fixed).toFixed(2) + " " + sender_currency + " + " + parseFloat(charges.percent).toFixed(2) + "%" );
+            // $(".fees-show").html("Charge: " + parseFloat(charges.fixed).toFixed(2) + " " + sender_currency + " + " + parseFloat(charges.percent).toFixed(2) + "%" );
         }
         function getPreview() {
                 var senderAmount = $("input[name=amount]").val();

@@ -4,7 +4,7 @@
         <div class="sidebar-inner-wrapper">
             <div class="sidebar-logo">
                 <a href="{{ route('index') }}">
-                    <img src="{{ get_logo($basic_settings,"dark") }}" width="140"  alt="logo">
+                    <img src="{{ get_logo($basic_settings,'dark') }}" width="140"  alt="logo">
                 </a>
                 <button class="sidebar-menu-bar">
                     <i class="fas fa-exchange-alt"></i>
@@ -23,12 +23,6 @@
                         <a href="{{ setRoute('user.dashboard') }}">
                             <i class="menu-icon las la-palette"></i>
                             <span class="menu-title">{{ __("Dashboard") }}</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-menu-item">
-                        <a href="{{ setRoute('user.add.money.index') }}">
-                            <i class="menu-icon las la-cloud-upload-alt"></i>
-                            <span class="menu-title">{{ __("Add Money") }}</span>
                         </a>
                     </li>
                     <li class="sidebar-menu-item">
@@ -80,7 +74,7 @@
                 <h4 class="title">{{ __("Help Center") }}</h4>
                 <p>{{ __("How can we help you?") }}</p>
                 <div class="sidebar-doc-btn">
-                    <a href="{{ setRoute('user.support.ticket.index') }}" class="btn--base w-100">{{ __("Get Support") }}</a>
+                    <a href="{{ setRoute('user.support.ticket.index') }}" class="btn--base w-100" style="color: white; background-color: #1B756B;">{{ __("Get Support") }}</a>
                 </div>
             </div>
         </div>
