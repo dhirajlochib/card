@@ -5375,7 +5375,8 @@ input:focus {
 .profile-thumb-content .profile-content .user-info-list li i {
   font-size: 18px;
   margin-right: 5px;
-  color: var(--primary-color);
+  color: #fff;
+  
 }
 .phone-code{
     border-radius: 15px 0px 0px 15px;
