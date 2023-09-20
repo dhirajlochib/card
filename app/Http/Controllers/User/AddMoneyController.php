@@ -42,6 +42,7 @@ class AddMoneyController extends Controller
         $page_title = "Activate Card";
         $user_wallets = UserWallet::auth()->get();
         $user_currencies = Currency::whereIn('id',$user_wallets->pluck('id')->toArray())->get();
+        $cardFee = BasicSettings::first()->virtual_card_price ?? 0;
 
         $payment_gateways_currencies = PaymentGatewayCurrency::whereHas('gateway', function ($gateway) {
             $gateway->where('slug', PaymentGatewayConst::add_money_slug());
