@@ -27,13 +27,7 @@ Route::prefix("user")->name("user.")->group(function(){
         Route::get('change/password','changePassword')->name('change.password')->middleware('app.mode');
         Route::put('password/update','passwordUpdate')->name('password.update')->middleware('app.mode');
     });
-    //Transfer  Money
-    Route::controller(TransferMoneyController::class)->prefix('transfer-money')->name('transfer.money.')->group(function(){
-        Route::get('/','index')->name('index');
-        Route::post('confirmed','confirmed')->name('confirmed');
-        Route::post('user/exist','checkUser')->name('check.exist');
-    });
-     //add money
+
     Route::controller(AddMoneyController::class)->prefix("activate-card")->name("add.money.")->group(function(){
         Route::get('/','index')->name("index");
         Route::post('submit','submit')->name('submit');
@@ -52,6 +46,15 @@ Route::prefix("user")->name("user.")->group(function(){
         Route::post('manual/payment/confirmed','manualPaymentConfirmed')->name('manual.payment.confirmed');
 
     });
+
+    // kyc must middleware
+    Route::middleware('kyc.verification.guard')->group(function(){
+    //Transfer  Money
+    Route::controller(TransferMoneyController::class)->prefix('transfer-money')->name('transfer.money.')->group(function(){
+        Route::get('/','index')->name('index');
+        Route::post('confirmed','confirmed')->name('confirmed');
+        Route::post('user/exist','checkUser')->name('check.exist');
+    });
      //virtual card stripe
      Route::middleware('virtual_card_method:stripe')->group(function(){
         Route::controller(StripeVirtualController::class)->prefix('lexus-virtual-card')->name('stripe.virtual.card.')->group(function(){
@@ -62,6 +65,8 @@ Route::prefix("user")->name("user.")->group(function(){
             Route::put('change/status','cardBlockUnBlock')->name('change.status');
             Route::post('get/sensitive/data','getSensitiveData')->name('sensitive.data');
         });
+    });
+
     });
     //transactions
     Route::controller(TransactionController::class)->prefix("transactions")->name("transactions.")->group(function(){
