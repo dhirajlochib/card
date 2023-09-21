@@ -108,7 +108,10 @@ class RegisterController extends Controller
             $agree ='';
         }
 
+
         $mobile = $data['mobile'];
+
+        dd($mobile);
 
         if(substr($mobile,0,1) == 0){
             $mobile = substr($mobile,1);
@@ -118,6 +121,7 @@ class RegisterController extends Controller
             // send error message
             return redirect()->back()->with('error','Mobile number is not valid');
         }
+
 
         return Validator::make($data,[
             'firstname'     => 'required|string|max:60',
