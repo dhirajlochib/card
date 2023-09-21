@@ -48,7 +48,7 @@
             <div class="dashboard-btn-wrapper">
                 <div class="dashboard-btn">
                     @if($virtualCards == 0)
-                    <button class="btn--base buyCard-stripe">{{__("Apply Now")}}</button>
+                    <a href="javascript:void(0)" class="btn--base buyCard-stripe"> <i class="las la-plus"></i> {{__("Apply Lexus Card")}}</a>
                     @else
                     <a href="{{ setRoute('user.transactions.index','add-money') }}" class="btn--base">{{__("View More")}}</a>
                     @endif
