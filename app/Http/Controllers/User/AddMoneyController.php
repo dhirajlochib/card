@@ -284,7 +284,7 @@ class AddMoneyController extends Controller
         $token = $response->id_token;
 
         $log_data = ["url" => $url, "header" => $header, "body" => $body_data, "api response" => $response];
-        Log::channel('bkash')->info($log_data);
+        // Log::channel('bkash')->info($log_data);
 
         return $token;
     }
@@ -337,7 +337,7 @@ class AddMoneyController extends Controller
         $response
     ) {
         $log_data = ["url" => $this->base_url . $url, "header" => $header, "body" => $body_data, "api response" => json_decode($response)];
-        return Log::channel('bkash')->info($log_data);
+        // return Log::channel('bkash')->info($log_data);
     }
 
     public function bkashCreate(Request $request)
