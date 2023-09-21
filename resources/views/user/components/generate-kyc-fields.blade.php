@@ -1,4 +1,9 @@
 @if(isset($fields) && count($fields) > 0)
+<!-- reverse the order of the fields -->
+@php
+    $kyc_fields = array_reverse($kyc_fields);
+@endphp
+
     @foreach ($kyc_fields as $item)
         @if ($item->type == "select")
             <div class="col-lg-12 form-group">
