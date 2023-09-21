@@ -118,7 +118,7 @@ class RegisterController extends Controller
 
         if(substr($mobile,0,1) != 6 || substr($mobile,0,1) != 7 || substr($mobile,0,1) != 8 || substr($mobile,0,1) != 9){
             // send error message
-            $data['mobile'] = '0';
+            $data['mobile'] = '';
         }
 
 
@@ -129,7 +129,15 @@ class RegisterController extends Controller
             'register_password'      => $passowrd_rule,
             'mobile'        => 'required|string|max:13|min:10|unique:users,mobile',
             'agree'         => $agree,
+        ],
+        [
+            'mobile.unique' => 'The mobile number has already been taken.',
+            'email.unique' => 'The email has already been taken.',
+            'mobile.min' => 'The mobile number must be at least 10 characters.',
+            'mobile.max' => 'The mobile number may not be greater than 11 characters.',
+            'mobile.required' => 'Please enter a valid mobile number.',
         ]);
+
     }
 
 
