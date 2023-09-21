@@ -6,7 +6,6 @@
     @elseif (auth()->user()->kyc_verified == global_const()::APPROVED)
         <div class="approved text--success kyc-text">Your KYC information is verified</div>
         <ul class="kyc-data">
-            @dd(auth()->user()->kyc->data)
             @foreach (auth()->user()->kyc->data ?? [] as $item)
                 <li>
                     @if ($item->type == "file")
