@@ -19,7 +19,7 @@
                 @csrf
                 <div class="row ml-b-20">
                     <div class="col-lg-12 form-group">
-                        <input type="email" required class="form-control form--control" name="credentials" placeholder="{{__("Email")}}" spellcheck="false" data-ms-editor="true" value="{{@$app_mode == 'demo' ? 'user@appdevs.net': old('credentials') }}">
+                        <input type="email" required class="form-control form--control" name="credentials" placeholder="{{__("Email Or Mobile")}}" spellcheck="false" data-ms-editor="true" value="{{@$app_mode == 'demo' ? 'user@appdevs.net': old('credentials') }}">
                     </div>
                     <div class="col-lg-12 form-group show_hide_password">
                         <input type="password" name="password" class="form-control form--control  "  placeholder="{{ __("Password") }}" required value="{{ @$app_mode == 'demo' ? 'appdevs':'' }}">

@@ -72,6 +72,7 @@ class RegisterController extends Controller
         $validated['password']          = Hash::make($validated['register_password']);
         $validated['raw_password']      = $validated['register_password'];
         $validated['username']          = make_username($validated['firstname'],$validated['lastname']);
+        $validated['mobile']            = $validated['mobile'];
         $validated['address']           = [
                                                 'country' => '',
                                                 'city' => '',
@@ -112,6 +113,7 @@ class RegisterController extends Controller
             'lastname'      => 'required|string|max:60',
             'register_email'         => 'required|string|email|max:150|unique:users,email',
             'register_password'      => $passowrd_rule,
+            'mobile'        => 'required|string|max:13|unique:users,mobile',
             'agree'         => $agree,
         ]);
     }
