@@ -63,6 +63,7 @@ class LoginController extends Controller
     {
         $request->merge(['status' => true]);
         $request->merge([$this->username() => $request->credentials]);
+        dd($request->all());
         return $request->only($this->username(), 'password','status');
     }
 
@@ -79,7 +80,6 @@ class LoginController extends Controller
         if(filter_var($credentials,FILTER_VALIDATE_EMAIL)) {
             return "email";
         }
-        dd($credentials);
         return "mobile";
     }
 
