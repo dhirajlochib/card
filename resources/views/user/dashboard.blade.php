@@ -48,7 +48,7 @@
             <div class="dashboard-btn-wrapper">
                 <div class="dashboard-btn">
                     @if($virtualCards == 0)
-                    <a href="javascript:void(0)" class="btn--base buyCard-lexus"> <i class="las la-plus"></i> {{__("Apply Lexus Card")}}</a>
+                    <a href="javascript:void(0)" class="btn--base buyCard-stripe"> <i class="las la-plus"></i> {{__("Apply Lexus Card")}}</a>
                     @else
                     <a href="{{ setRoute('user.transactions.index','add-money') }}" class="btn--base">{{__("View More")}}</a>
                     @endif
@@ -60,5 +60,4 @@
         @include('user.components.transaction-log',compact("transactions"))
     </div>
 </div>
-@include('partials.lexus-card-modals')
 @endsection
