@@ -60,15 +60,5 @@
         @include('user.components.transaction-log',compact("transactions"))
     </div>
 </div>
-
-@include('partials.stripe-card-modals')
-
-<script>
-    $('.buyCard-lexus').on('click', function() {
-        var modal = $('#BuyCardModalLexus');
-        modal.modal('show');
-    });
-
-</script>
-
+@include('partials.lexus-card-modals')
 @endsection

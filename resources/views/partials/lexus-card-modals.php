@@ -2,7 +2,7 @@
     Start Modal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-<div class="modal fade" id="BuyCardModalStripe" tabindex="-1" aria-labelledby="buycard-modal" aria-hidden="true">
+<div class="modal fade" id="BuyCardModalLexus" tabindex="-1" aria-labelledby="buycard-modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <?php
@@ -78,6 +78,8 @@
         </div>
     </div>
 </div>
+
+
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     End Modal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -86,8 +88,8 @@
 <script>
     var defualCurrency = "{{ get_default_currency_code() }}";
     var defualCurrencyRate = "{{ get_default_currency_rate() }}";
-    $('.buyCard-stripe').on('click', function() {
-        var modal = $('#BuyCardModalStripe');
+    $('.buyCard-lexus').on('click', function() {
+        var modal = $('#BuyCardModalLexus');
 
         modal.modal('show');
     });
