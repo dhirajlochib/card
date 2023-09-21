@@ -27,14 +27,14 @@
         <div class="account-middle">
             <div class="account-form-area">
                 <h3 class="title">Login Information</h3>
-                <p>Please input your Mobile and password and login to your account to get access to your dashboard.</p>
+                <p>Please input your username and password and login to your account to get access to your dashboard.</p>
                 <form action="{{ setRoute('user.login.submit') }}" method="POST">
                     @csrf
                     <div class="row ml-b-20">
                         <div class="col-lg-12 form-group">
                             @include('admin.components.form.input',[
                                 'name'          => "credentials",
-                                'placeholder'   => "Mobile OR Email Address",
+                                'placeholder'   => "Username OR Email Address",
                                 'required'      => true,
                             ])
                         </div>

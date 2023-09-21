@@ -14,6 +14,6 @@ class SiteSectionConst{
     const FOOTER_SECTION = "Footer Section";
     const BLOG_SECTION = "Blog Section";
     const STATISTICS_SECTION = "Statistics Section";
-    const AUTH_SECTION = "Auth Section";
+
 }
 
