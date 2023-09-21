@@ -32,6 +32,12 @@ $(".reg").on("click", function () {
 });
 
 
+//
+$('.buyCard-lexus').on('click', function() {
+    var modal = $('#BuyCardModalLexus');
+    modal.modal('show');
+});
+
 // header-fixed
 var fixed_top = $(".header-section");
 $(window).on("scroll", function(){

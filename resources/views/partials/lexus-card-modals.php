@@ -83,15 +83,3 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     End Modal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-
-@push('script')
-<script>
-    var defualCurrency = "{{ get_default_currency_code() }}";
-    var defualCurrencyRate = "{{ get_default_currency_rate() }}";
-    $('.buyCard-lexus').on('click', function() {
-        var modal = $('#BuyCardModalLexus');
-
-        modal.modal('show');
-    });
-</script>
-@endpush
