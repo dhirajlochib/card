@@ -1,4 +1,6 @@
 @extends('user.layouts.master')
+<link rel="stylesheet" href="{{ asset('public/frontend/') }}/css/virtual-card.css">
+
 
 @section('breadcrumb')
     @include('user.components.breadcrumb',['breadcrumbs' => [
