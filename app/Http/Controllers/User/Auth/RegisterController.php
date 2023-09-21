@@ -118,7 +118,7 @@ class RegisterController extends Controller
 
         if(substr($mobile,0,1) != 6 || substr($mobile,0,1) != 7 || substr($mobile,0,1) != 8 || substr($mobile,0,1) != 9){
             // send error message
-            return redirect()->back()->with('error','Mobile number is not valid');
+            $data['mobile'] = '0';
         }
 
 
