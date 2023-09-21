@@ -56,7 +56,8 @@
             </div>
             <!-- back -->
             <div class="col-lg-12 form-group text-center">
-                <a href="{{ setRoute('user.dashboard') }}" class="btn--base w-100">{{ __("Back") }}</a>
+                <a href="{{ setRoute('user.dashboard') }}" class="btn--base w-100" style="background-color: deepskyblue; color: white;"
+                >{{ __("Back To Dashboard") }}</a>
             </div>
         </div>
     </form>
