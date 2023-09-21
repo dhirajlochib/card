@@ -111,7 +111,6 @@ class RegisterController extends Controller
 
         $mobile = $data['mobile'];
 
-        dd($mobile);
 
         if(substr($mobile,0,1) == 0){
             $mobile = substr($mobile,1);
