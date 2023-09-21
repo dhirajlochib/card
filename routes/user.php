@@ -14,6 +14,9 @@ use App\Http\Controllers\User\StripeVirtualController;
 use App\Http\Controllers\User\SupportTicketController;
 use App\Http\Controllers\User\TransferMoneyController;
 
+// user.social.auth.facebook route here
+Route::get('user/social/auth/facebook', 'User\SocialAuthController@facebook')->name('user.social.auth.facebook');
+
 Route::prefix("user")->name("user.")->group(function(){
     Route::controller(DashboardController::class)->group(function(){
         Route::get('dashboard','index')->name('dashboard');
