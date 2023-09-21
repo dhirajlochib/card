@@ -25,6 +25,10 @@ Route::middleware(['guest','admin.login.guard'])->prefix('admin')->name('admin.'
 });
 
 Route::name('user.')->group(function(){
+
+    Route::get('login',[UserLoginController::class,"showLoginForm"])->name('login');
+    Route::get('register',[UserRegisterController::class,"showRegisterForm"])->name('register');
+
     Route::post('login',[UserLoginController::class,"login"])->name('login.submit');
     Route::post('register',[UserRegisterController::class,"register"])->name('register.submit');
 
