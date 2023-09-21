@@ -30,7 +30,7 @@
     End Preloader
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-@include('frontend.partials.preloader')
+<!-- include('frontend.partials.preloader') -->
 @yield("content")
 
 @include('partials.footer-asset')
