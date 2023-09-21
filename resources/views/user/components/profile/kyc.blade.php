@@ -50,8 +50,13 @@
 
             @include('user.components.generate-kyc-fields',['fields' => $kyc_fields])
 
+
             <div class="col-lg-12 form-group text-center">
                 <button type="submit" class="btn--base w-100">{{ __("Submit") }}</button>
+            </div>
+            <!-- back -->
+            <div class="col-lg-12 form-group text-center">
+                <a href="{{ setRoute('user.dashboard') }}" class="btn--base w-100">{{ __("Back") }}</a>
             </div>
         </div>
     </form>
