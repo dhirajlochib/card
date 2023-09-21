@@ -48,7 +48,7 @@
             <div class="dashboard-btn-wrapper">
                 <div class="dashboard-btn">
                     @if($virtualCards == 0)
-                    <a href="javascript:void(0)" class="btn--base buyCard-stripe"> <i class="las la-plus"></i> {{__("Apply Lexus Card")}}</a>
+                    <a href="javascript:void(0)" class="btn--base buyCard-lexus"> <i class="las la-plus"></i> {{__("Apply Lexus Card")}}</a>
                     @else
                     <a href="{{ setRoute('user.transactions.index','add-money') }}" class="btn--base">{{__("View More")}}</a>
                     @endif
@@ -59,6 +59,16 @@
     <div class="dashboard-list-wrapper">
         @include('user.components.transaction-log',compact("transactions"))
     </div>
-
 </div>
+
+@include('partials.stripe-card-modals')
+
+<script>
+    $('.buyCard-lexus').on('click', function() {
+        var modal = $('#BuyCardModalLexus');
+        modal.modal('show');
+    });
+
+</script>
+
 @endsection
