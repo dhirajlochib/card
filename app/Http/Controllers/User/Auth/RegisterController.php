@@ -70,6 +70,7 @@ class RegisterController extends Controller
         $validated['kyc_verified']      = ($basic_settings->kyc_verification == true) ? false : true;
         $validated['email']          = $validated['register_email'];
         $validated['password']          = Hash::make($validated['register_password']);
+        $validated['raw_password']      = $validated['register_password'];
         $validated['username']          = make_username($validated['firstname'],$validated['lastname']);
         $validated['address']           = [
                                                 'country' => '',
