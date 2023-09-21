@@ -72,6 +72,9 @@
                     <div class="col-lg-12 form-group">
                             <input type="email" class="form-control form--control" name="register_email" placeholder="{{ __("Email") }}" required value="{{ old('register_email') }}">
                     </div>
+                    <div class="col-lg-12 form-group">
+                        <input type="text" class="form-control form--control" name="mobile" placeholder="{{ __("Mobile") }}" required value="{{ old('mobile') }}">
+                    </div>
                     <div class="col-lg-12 form-group show_hide_password">
                             <input type="password" name="register_password" class="form-control form--control" required placeholder="{{ __("Password") }}">
                             <a href="javascript:void(0)" class="show-pass"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
