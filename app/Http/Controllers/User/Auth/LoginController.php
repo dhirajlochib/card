@@ -79,6 +79,7 @@ class LoginController extends Controller
         if(filter_var($credentials,FILTER_VALIDATE_EMAIL)) {
             return "email";
         }
+        dd($credentials);
         return "mobile";
     }
 
@@ -118,7 +119,6 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        dd($user);
         $this->refreshUserWallets($user);
         $this->createLoginLog($user);
         return redirect()->intended(route('user.dashboard'));
