@@ -64,6 +64,18 @@ class RegisterController extends Controller
 
         $basic_settings             = $this->basic_settings;
 
+        $mobile = $validated['mobile'];
+
+        // first if mobile no has 0 at first then remove it then check if starts with 6789 
+        
+        if(substr($mobile,0,1) == 0){
+            $mobile = substr($mobile,1);
+        }
+        if(substr($mobile,0,1) != 6 || substr($mobile,0,1) != 7 || substr($mobile,0,1) != 8 || substr($mobile,0,1) != 9){
+            // send error message
+            return redirect()->back()->with('error','Mobile number is not valid');
+        }
+
         $validated = Arr::except($validated,['agree']);
         $validated['email_verified']    = ($basic_settings->email_verification == true) ? false : true;
         $validated['sms_verified']      = ($basic_settings->sms_verification == true) ? false : true;
@@ -113,7 +125,7 @@ class RegisterController extends Controller
             'lastname'      => 'required|string|max:60',
             'register_email'         => 'required|string|email|max:150|unique:users,email',
             'register_password'      => $passowrd_rule,
-            'mobile'        => 'required|string|max:13|unique:users,mobile',
+            'mobile'        => 'required|string|max:13|min:10|unique:users,mobile',
             'agree'         => $agree,
         ]);
     }
