@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User\Auth;
 
+use App\Constants\GlobalConst;
 use App\Http\Controllers\Controller;
 use App\Providers\Admin\BasicSettingsProvider;
 use Illuminate\Http\Request;
@@ -83,8 +84,6 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($validated)));
         $this->guard()->login($user);
-
-
         return $this->registered($request, $user);
     }
 
@@ -107,9 +106,6 @@ class RegisterController extends Controller
         }else{
             $agree ='';
         }
-
-
-
 
         return Validator::make($data,[
             'firstname'     => 'required|string|max:60',
@@ -153,6 +149,19 @@ class RegisterController extends Controller
     {
 
         $this->createUserWallets($user);
+        $basic_settings = BasicSettingsProvider::get();
+        if($basic_settings->kyc_verification) {
+            $user = auth()->user();
+            if($user->kyc_verified != GlobalConst::APPROVED) {
+                $smg = "Please verify your KYC information before any transactional action";
+                if($user->kyc_verified == GlobalConst::PENDING) {
+                    $smg = "Your KYC information is pending. Please wait for admin confirmation.";
+                }
+                if(auth()->guard("web")->check()) {
+                    return redirect()->route("user.authorize.kyc")->with(['warning' => [$smg]]);
+                }
+            }
+        }
         return redirect()->intended(route('user.dashboard'));
     }
 }
