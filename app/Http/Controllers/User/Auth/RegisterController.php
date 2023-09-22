@@ -109,17 +109,6 @@ class RegisterController extends Controller
         }
 
 
-        $mobile = $data['mobile'];
-
-
-        if(substr($mobile,0,1) == 0){
-            $mobile = substr($mobile,1);
-        }
-
-        if(substr($mobile,0,1) != 6 || substr($mobile,0,1) != 7 || substr($mobile,0,1) != 8 || substr($mobile,0,1) != 9){
-            // send error message
-            $data['mobile'] = '';
-        }
 
 
         return Validator::make($data,[
