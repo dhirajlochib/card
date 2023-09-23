@@ -516,9 +516,7 @@
     $('.account-section').addClass('active');
     $('.account-section').addClass('reg-open');
     if ($('.account-section').hasClass('reg-open')) {
-      
-    }else {
-    $('.account-area').toggleClass('change-form');
+      $('.account-area').toggleClass('change-form');
     }
   });
   $('.account-close, .account-bg').on('click', function () {
