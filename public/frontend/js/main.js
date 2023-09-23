@@ -513,19 +513,16 @@ $('.reg-dashboard-btn').on('click', function () {
 });
 $('.account-close, .account-bg').on('click', function () {
   $('.account-section').addClass('duration');
-  setTimeout(signupRemoveClass, 200);
-  setTimeout(signupRemoveClass2, 200);
+  setTimeout(signupRemoveClass, 100);
+  setTimeout(signupRemoveClass2, 100);
 });
 function signupRemoveClass() {
+  $('.account-section').toggleClass("change-form");
   $('.account-section').removeClass("active");
 }
 function signupRemoveClass2() {
   $('.account-section').removeClass("duration");
 }
-$('.reg-dashboard-btn').on('click', function () {
-  $('.account-area').toggleClass('change-form');
-})
-
 
 
 $(".buy-btn").click(function(){
