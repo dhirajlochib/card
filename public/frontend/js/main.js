@@ -504,8 +504,8 @@
   $('.account-close, .account-bg').on('click', function () {
     $('.account-section').addClass('duration');
     if ($('.account-section').hasClass('register')) {
-      $('.account-section').removeClass('register');
-  $('.account-area').toggleClass('change-form');
+      $('.account-section').removeClass('active register');
+      $('.account-area').toggleClass('change-form');
     }
 
     setTimeout(signupRemoveClass, 200);
