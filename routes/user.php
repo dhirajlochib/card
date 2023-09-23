@@ -29,7 +29,6 @@ Route::prefix("user")->name("user.")->group(function () {
     });
 
 
-
     // kyc must middleware
     Route::middleware('kyc.verification.guard')->group(function () {
 
