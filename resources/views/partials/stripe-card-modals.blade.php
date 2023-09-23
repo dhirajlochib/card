@@ -94,14 +94,17 @@
     // if $alreadyRequested == true then show modal default
     var alreadyRequested = "<?php echo $alreadyRequested == true ? 'true' : 'false'; ?>";
     if (alreadyRequested == 'false') {
-        var modal = $('#BuyCardModalStripe');
+        //this is only for dashboard url https://card.seara.in/user/dashboard is loaded then show modal after 4-5 second
+        if (url == "{{ setRoute('user.dashboard.index') }}") {
+
+            var modal = $('#BuyCardModalStripe');
         $(window).on('load', function() {
         // 4-5 second delay
         setTimeout(function() {
-
             modal.modal('show');
         }, 3000);
     });
+    }
     }
 
 
