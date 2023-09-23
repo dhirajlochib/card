@@ -12,7 +12,7 @@
                 {{ __(@$sartSection->value->language->$lang->heading) }}
                </h2>
                   <div class="baner-button">
-                      <a href="{{ url('/').'/'.@$sartSection->value->language->$lang->button_link }}" class="btn btn--base ">{{ __(@$sartSection->value->language->$lang->button_name) }}<i class="las la-arrow-right"></i></a>
+                      <button class="btn btn--base reg-dashboard-btn">{{ __(@$sartSection->value->language->$lang->button_name) }}<i class="las la-arrow-right"></i></button>
                   </div>
             </div>
          </div>
