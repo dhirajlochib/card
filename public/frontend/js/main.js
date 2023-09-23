@@ -514,6 +514,7 @@
   // toggle register reg-dashboard-btn
   $('.reg-dashboard-btn').on('click', function () {
     $('.account-section').addClass('active');
+    $('.account-area').toggleClass('change-form');
   });
   $('.account-close, .account-bg').on('click', function () {
     $('.account-section').addClass('duration');
@@ -521,9 +522,6 @@
     setTimeout(signupRemoveClass2, 200);
   });
 
-  $('.account-control-btn').on('click', function () {
-    $('.account-area').toggleClass('change-form');
-  })
 
 
 
