@@ -510,7 +510,7 @@ $('.header-account-btn').on('click', function () {
 //account-toggle
 $('.reg-dashboard-btn').on('click', function () {
   $('.account-section').addClass('active');
-  $('.account-area').toggleClass('change-form'); // Open register form first
+  $('.account-area').toggleClass('change-form');
 });
 $('.account-close, .account-bg').on('click', function () {
   $('.account-section').addClass('duration');
@@ -523,15 +523,7 @@ function signupRemoveClass() {
 function signupRemoveClass2() {
   $('.account-section').removeClass("duration");
 }
-$('.account-control-btn').on('click', function () {
-  // If register form is open, switch to login form
-  if ($('.account-area').hasClass('change-form')) {
-    $('.account-area').removeClass('change-form');
-  } else {
-    // If login form is open, switch to register form
-    $('.account-area').addClass('change-form');
-  }
-})
+
 
 
 
