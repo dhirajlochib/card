@@ -35,18 +35,10 @@
 <div class="modal fade" id="BuyCardModalStripe" tabindex="-1" aria-labelledby="buycard-modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-        <?php
-            $transactions = App\Models\Transaction::auth()->addMoney()->latest()->take(5)->get();
-            $alreadyRequested = false;
-            if ($transactions->count() > 0) {
-                $alreadyRequested = true;
-            }
-            ?>
             <div class="modal-header" id="buycard-modal">
                 <h4 class="modal-title">{{__("Add Card")}}</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="las la-times"></i></button>
             </div>
-            @if($alreadyRequested == false)
             <div class="modal-body">
 
                     <form class="card-form row g-4" action="{{ route('user.stripe.virtual.card.create') }}" method="POST">
@@ -136,13 +128,7 @@
                 </form>
 
             </div>
-            @else
-            <div class="modal-body stripe-modal">
-                <div class="alert alert-danger">
-                    <p class="mb-0">{{__("You have already requested for a card. Please wait for approval.")}}</p>
-                </div>
-            </div>
-            @endif
+
         </div>
     </div>
 </div>
@@ -156,7 +142,7 @@
 <script>
     var defualCurrency = "{{ get_default_currency_code() }}";
     var defualCurrencyRate = "{{ get_default_currency_rate() }}";
-    $('.buyCard-stripe').on('click', function() {
+    $('.buyCard-stripe').on('click', function () {
         var modal = $('#BuyCardModalStripe');
         $(document).ready(function(){
            getLimit();
@@ -300,24 +286,7 @@
         modal.modal('show');
     });
 
-    // if $alreadyRequested == true then show modal default
-    var alreadyRequested = "<?php echo $alreadyRequested == true ? 'true' : 'false'; ?>";
-    if (alreadyRequested == 'false') {
-        var url = window.location.href;
-        
-        if (url == "{{ setRoute('user.dashboard') }}") {
-
-            var modal = $('#BuyCardModalStripe');
-        $(window).on('load', function() {
-        // 4-5 second delay
-        setTimeout(function() {
-            modal.modal('show');
-        }, 3000);
-    });
-    }
-    }
 
 
-
-</script>
+    </script>
 @endpush
