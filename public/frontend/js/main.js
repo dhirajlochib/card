@@ -26,17 +26,11 @@ $(".nice-select").niceSelect(),
 //   $("a[data-rel^=lightcase]").lightcase();
 // })
 
-// apply button class has reg
-$(".reg").on("click", function () {
-  $('.account-section').addClass('active');
-});
 
 
 // reg-dashboard-btn
 $(".reg-dashboard-btn").on("click", function () {
-  $('.account-section').addClass('active');
-  $('.account-area').addClass('change-form');
-  $('.account-area').removeClass('active');
+  $('.account-section').addClass('change-form');
 }
 );
 
