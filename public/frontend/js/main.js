@@ -512,7 +512,15 @@
 
   //account-toggle register
   $('.reg-dashboard-btn').on('click', function () {
+    
     $('.account-section').addClass('active');
+
+    
+    if (!$('.account-area').hasClass('change-form')) {
+      $('.account-area').toggleClass('change-form');
+    }
+  });
+
     $('.account-area').toggleClass('change-form');
   });
   $('.account-close, .account-bg').on('click', function () {
@@ -523,7 +531,7 @@
   $('.account-control-btn').on('click', function () {
     $('.account-area').toggleClass('change-form');
   })
-  
+
 
 
   });
