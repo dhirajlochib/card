@@ -267,8 +267,8 @@
 
        }
        function enterLimit(){
-        var min_limit = parseFloat("{{getAmount($cardCharge->min_limit)}}");
-        var max_limit =parseFloat("{{getAmount($cardCharge->max_limit)}}");
+        var min_limit = parseFloat("{{getAmount($cardCharge->min_limit ?? 0)}}");
+        var max_limit =parseFloat("{{getAmount($cardCharge->max_limit ?? 0)}}");
         var currencyRate = acceptVar().currencyRate;
         var sender_amount = parseFloat($("input[name=fund_amount]").val());
 
