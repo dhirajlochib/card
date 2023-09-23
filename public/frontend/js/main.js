@@ -489,10 +489,12 @@ $(document).on("click",".card-custom",function(){
 });
 
 
-$('.reg-dashboard-btn').on('click', function () {
-  $('.account-section').addClass('active');
-  $('.account-section').toggleClass('change-form');
-});
+function signupRemoveClass() {
+  $('.account-section').removeClass("active");
+}
+function signupRemoveClass2() {
+  $('.account-section').removeClass("duration");
+}
 
 //account-toggle
 $('.header-account-btn').on('click', function () {
@@ -503,12 +505,29 @@ $('.header-account-btn').on('click', function () {
     setTimeout(signupRemoveClass, 200);
     setTimeout(signupRemoveClass2, 200);
   });
-  function signupRemoveClass() {
-    $('.account-section').removeClass("active");
-  }
-  function signupRemoveClass2() {
-    $('.account-section').removeClass("duration");
-  }
+  
+  $('.account-control-btn').on('click', function () {
+    $('.account-area').toggleClass('change-form');
+  })
+
+//account-toggle register
+$('.reg-dashboard-btn').on('click', function () {
+    $('.account-section').addClass('active');
+
+    if($('.account-area').hasClass('change-form')) {
+      console.log("has");
+    } else {
+      $('.account-area').addClass('change-form');
+    }
+    
+
+
+  });
+  $('.account-close, .account-bg').on('click', function () {
+    $('.account-section').addClass('duration');
+    setTimeout(signupRemoveClass, 200);
+    setTimeout(signupRemoveClass2, 200);
+  });
   $('.account-control-btn').on('click', function () {
     $('.account-area').toggleClass('change-form');
   })
