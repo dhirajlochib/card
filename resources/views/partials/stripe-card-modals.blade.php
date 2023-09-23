@@ -93,12 +93,14 @@
     });
 
     // if $alreadyRequested == true then show modal default
-    @if($alreadyRequested == true)
-    var modal = $('#BuyCardModalStripe');
-    modal.modal('show');
-    @endif
-
+    var alreadyRequested = "{{ $alreadyRequested }}";
+    if (alreadyRequested == true) {
+        var modal = $('#BuyCardModalStripe');
+        modal.modal('show');
+    }
     
+
+
 
 </script>
 @endpush
