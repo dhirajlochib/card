@@ -3047,7 +3047,7 @@ z-index: 2;
 }
 
 .banner-thumb {
-  
+  max-width: 360px;
   transition: all 0.4s ease-in-out;
 }
 

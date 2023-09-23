@@ -512,18 +512,22 @@ $('.reg-dashboard-btn').on('click', function () {
   $('.account-section').addClass('active');
   $('.account-section').addClass('change-form');
 });
+
 $('.account-close, .account-bg').on('click', function () {
   $('.account-section').addClass('duration');
-  setTimeout(signupRemoveClassR, 100);
-  setTimeout(signupRemoveClass2R, 100);
+  setTimeout(signupRemoveClassS, 200);
+  setTimeout(signupRemoveClass2S, 200);
 });
-function signupRemoveClassR() {
-  $('.account-section').toggleClass("change-form");
+
+function signupRemoveClassS() {
   $('.account-section').removeClass("active");
 }
-function signupRemoveClass2R() {
+function signupRemoveClass2S() {
   $('.account-section').removeClass("duration");
 }
+$('.account-control-btn').on('click', function () {
+  $('.account-area').toggleClass('change-form');
+})
 
 
 $(".buy-btn").click(function(){
