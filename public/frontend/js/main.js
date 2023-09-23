@@ -514,7 +514,12 @@
   // toggle register reg-dashboard-btn
   $('.reg-dashboard-btn').on('click', function () {
     $('.account-section').addClass('active');
+    $('.account-section').addClass('reg-open');
+    if ($('.account-section').hasClass('reg-open')) {
+      
+    }else {
     $('.account-area').toggleClass('change-form');
+    }
   });
   $('.account-close, .account-bg').on('click', function () {
     $('.account-section').addClass('duration');
