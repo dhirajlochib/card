@@ -495,8 +495,8 @@ $('.header-account-btn').on('click', function () {
 
 //account-toggle
 $('.reg-dashboard-btn').on('click', function () {
-  $('.account-section').addClass('active');
   $('.account-area').toggleClass('change-form');
+  $('.account-section').addClass('active');
 });
 
 $(".buy-btn").click(function(){
