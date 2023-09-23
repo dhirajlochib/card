@@ -509,8 +509,28 @@ $('.header-account-btn').on('click', function () {
 
 //account-toggle
 $('.reg-dashboard-btn').on('click', function () {
+
+  // first open the account section then toggle the form section to show the login form
   $('.account-section').addClass('active');
+  $('.account-area').toggleClass('change-form');
 });
+$('.account-close, .account-bg').on('click', function () {
+  $('.account-section').addClass('duration');
+  setTimeout(signupRemoveClass, 200);
+  setTimeout(signupRemoveClass2, 200);
+});
+function signupRemoveClass() {
+  $('.account-section').removeClass("active");
+}
+function signupRemoveClass2() {
+  $('.account-section').removeClass("duration");
+}
+$('.account-control-btn').on('click', function () {
+  $('.account-area').toggleClass('change-form');
+})
+
+
+
 
 $(".buy-btn").click(function(){
   $("#sell").addClass("d-none");
