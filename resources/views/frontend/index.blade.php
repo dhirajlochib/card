@@ -23,7 +23,7 @@
                         $heading = explode(' ', @$banner->value->language->$lang->heading);
 
                     @endphp
-                    <h1 class="title">{{ @$heading[0] }} {{ @$heading[1] }} {{ @$heading[2] }} {{ @$heading[4] }}  <span class="text--base" style="color: #1b756b !important;">{{ @$heading[5] }}  {{ @$heading[6] }}</span>  {{ @$heading[7] }}</h1>
+                    <h1 class="title">{{ @$heading[0] }} {{ @$heading[1] }} {{ @$heading[2] }} {{ @$heading[4] }} {{ @$heading[5] }} <span class="text--base" style="background-color: transparent; -webkit-text-fill-color: transparent; background-clip: text; -webkit-background-clip: text; background-image: linear-gradient(160deg, #DCFFEA 0%, #1B756B 53%); font-size: 105px; line-height: 0.8;"> {{ @$heading[6] }}</span>  {{ @$heading[7] }}</h1>
                     <p>{{ __(@$banner->value->language->$lang->sub_heading) }}</p>
                     <div class="banner-btn">
                         <button class="btn--base reg-dashboard-btn" ><i aria-hidden="true" class="far fa-credit-card" style="color: white;"></i> &nbsp;{{ __(@$banner->value->language->$lang->button_name) }}</button>
