@@ -442,6 +442,9 @@ function files_path($slug)
         'junk-files'        => [
             'path'      => 'backend/files/junk-files',
         ],
+        'card-api'   => [
+            'path'      => 'backend/images/card-settings',
+        ],
     ];
 
     return (object) $data[$slug];
@@ -1328,7 +1331,7 @@ function delete_files($files_link)
                 try {
                     File::delete($item);
                 } catch (Exception $e) {
-                    
+
                 }
             }
         }

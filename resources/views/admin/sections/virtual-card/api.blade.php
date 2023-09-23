@@ -67,6 +67,18 @@
                             'placeholder'   => "Write Here...",
                         ])
                     </div>
+                    <div class="col-xl-12 col-lg-12 form-group">
+                        <label for="card-image">{{ __("Background Image") }}</label>
+                        <div class="col-12 col-sm-6 m-auto">
+                            @include('admin.components.form.input-file',[
+                                'label'         => false,
+                                'class'         => "file-holder m-auto",
+                                'old_files_path'    => files_asset_path('card-api'),
+                                'name'          => "image",
+                                'old_files'         => old('image',@$api->image)
+                            ])
+                        </div>
+                    </div>
 
                     <div class="col-xl-12 col-lg-12 form-group">
                         @include('admin.components.button.form-btn',[

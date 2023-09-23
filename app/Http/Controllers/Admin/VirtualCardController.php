@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use App\Models\VirtualCardApi;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,6 +26,7 @@ class VirtualCardController extends Controller
             'stripe_secret_key'             => 'required_if:api_method,stripe',
             'stripe_url'                => 'required_if:api_method,stripe',
             'card_details'              => 'required|string',
+            'image'                     => "nullable|mimes:png,jpg,jpeg,webp,svg",
         ]);
         if($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -35,6 +37,15 @@ class VirtualCardController extends Controller
         $api->card_details = $request->card_details;
         $api->config = $data;
 
+        if ($request->hasFile("image")) {
+            try {
+                $image = get_files_from_fileholder($request, "image");
+                $upload_file = upload_files_from_path_dynamic($image, "card-api");
+                $api->image = $upload_file;
+            } catch (Exception $e) {
+                return back()->with(['error' => ['Ops! Faild to upload image.']]);
+            }
+        }
         $api->save();
 
         return back()->with(['success' => ['Card API has been updated.']]);

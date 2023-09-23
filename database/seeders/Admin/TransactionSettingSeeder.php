@@ -27,7 +27,19 @@ class TransactionSettingSeeder extends Seeder
                 'monthly_limit'     => 0,
                 'daily_limit'       => 0,
             ],
+            [
+                'admin_id'          => 1,
+                'slug'              => "virtual_card",
+                'title'             => "Virtual Card Charges",
+                'fixed_charge'      => 2,
+                'percent_charge'    => 1,
+                'min_limit'         => 100,
+                'max_limit'         => 50000,
+                'monthly_limit'     => 0,
+                'daily_limit'       => 0,
+            ],
         ];
+        TransactionSetting::truncate();
         TransactionSetting::insert($data);
     }
 }

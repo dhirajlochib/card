@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="card-custom">
                                     <div class="flip">
-                                        <div class="front bg_img" data-background="{{ asset('public/frontend/') }}/images/element/card.png">
+                                        <div class="front bg_img" data-background="{{ get_image(@$cardApi->image ,'card-api') }}">
                                             <img class="logo" src="{{ get_fav($basic_settings) }}"
                                             alt="site-logo">
                                             <div class="investor">{{ @$basic_settings->site_name }}</div>
@@ -65,8 +65,7 @@
                                             </div>
                                             <div class="card-holder">{{ auth()->user()->fullname }}</div>
                                             <div class="master">
-                                                <div class="circle master-red"></div>
-                                                <div class="circle master-yellow"></div>
+                                                <h3 class="title">{{ __("VISA") }}</h4>
                                             </div>
                                         </div>
                                         <div class="back">
@@ -87,7 +86,7 @@
                                 </div>
                             </div>
                             <div class="card-balance">
-                              
+
                                 <div class="card-content d-flex justify-content-center mt-3">
                                     <div class="card-details">
                                         <a href="{{ setRoute('user.stripe.virtual.card.details',$myCard->card_id) }}">

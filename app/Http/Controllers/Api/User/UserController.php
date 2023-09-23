@@ -233,6 +233,10 @@ class UserController extends Controller
 
         try{
             // $user->delete();
+            // block user 
+            $user->update([
+                'status' => 0,
+            ]);
             $message =  ['success'=>['User deleted successfully']];
             return Helpers::onlysuccess($message);
         }catch(Exception $e) {

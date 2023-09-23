@@ -27,6 +27,7 @@ class StripeVirtualController extends Controller
         $cardApi = VirtualCardApi::first();
         $this->api =  $cardApi;
     }
+
     public function index()
     {
         $page_title = "Virtual Card";
@@ -110,6 +111,10 @@ class StripeVirtualController extends Controller
     }
     public function cardBuy(Request $request)
     {
+        $request->validate([
+            'fund_amount' => 'required|numeric|gt:0',
+        ]);
+
         $basic_setting = BasicSettings::first();
         $user = auth()->user();
         if($basic_setting->kyc_verification){
@@ -121,32 +126,87 @@ class StripeVirtualController extends Controller
                 return redirect()->route('user.authorize.kyc')->with(['error' => ['Admin rejected your kyc information, Please re-submit again']]);
             }
         }
-
-        $amount = BasicSettings::first()->virtual_card_price; 
+        $amount = $request->fund_amount;
         $wallet = UserWallet::where('user_id',$user->id)->first();
         if(!$wallet){
             return back()->with(['error' => ['Wallet not found']]);
         }
         $cardCharge = TransactionSetting::where('slug','virtual_card')->where('status',1)->first();
         $baseCurrency = Currency::default();
-        $rate = $baseCurrency->rate;
+
         if(!$baseCurrency){
             return back()->with(['error' => ['Default currency not setup yet']]);
         }
+        $rate = $baseCurrency->rate;
+        $minLimit =  $cardCharge->min_limit *  $rate;
+        $maxLimit =  $cardCharge->max_limit *  $rate;
 
-        $fixedCharge = 0;
-        $percent_charge = 0;
-        $total_charge = 0;
-        $payable = 0;
+        if($amount < $minLimit || $amount > $maxLimit) {
+            return back()->with(['error' => ['Please follow the transaction limit']]);
+        }
 
+        //charge calculations
+        $fixedCharge = $cardCharge->fixed_charge *  $rate;
+        $percent_charge = ($amount / 100) * $cardCharge->percent_charge;
+        $total_charge = $fixedCharge + $percent_charge;
+        $payable = $total_charge + $amount;
+        if($payable > $wallet->balance ){
+            return back()->with(['error' => ['Sorry, insufficient balance']]);
+        }
+
+        //create connected account
+       if( $user->stripe_connected_account == null){
+        $c_account =  createConnectAccount($user);
+        if( isset($c_account['status'])){
+           if($c_account['status'] == false){
+            return back()->with(['error' => [$c_account['message']]]);
+           }
+        }
+        $stripe_connected_account_data =[
+            'id' => $c_account['data']['id'],
+            'object' => $c_account['data']['object'],
+            'business_profile' => $c_account['data']['business_profile'],
+            'business_type' => $c_account['data']['business_type'],
+            'capabilities' => $c_account['data']['capabilities'],
+            'charges_enabled' => $c_account['data']['charges_enabled'],
+            'country' => $c_account['data']['country'],
+            'created' => $c_account['data']['created'],
+            'default_currency' => $c_account['data']['default_currency'],
+            'details_submitted' => $c_account['data']['details_submitted'],
+            'external_accounts' => $c_account['data']['external_accounts'],
+            'future_requirements' => $c_account['data']['future_requirements'],
+            'metadata' => $c_account['data']['metadata'],
+            'payouts_enabled' => $c_account['data']['payouts_enabled'],
+            'requirements' => $c_account['data']['requirements'],
+            'settings' => $c_account['data']['settings'],
+            'tos_acceptance' => $c_account['data']['tos_acceptance'],
+            'type' => $c_account['data']['type'],
+
+        ];
+        $stripe_connected_account_data = (object)$stripe_connected_account_data;
+        $user->stripe_connected_account = $stripe_connected_account_data;
+        $user->save();
+        $c_account = $user->stripe_connected_account->id;
+
+       }else{
+        $c_account = $user->stripe_connected_account->id;
+       }
+
+
+        //create card holder
        if( $user->stripe_card_holders == null){
-        $card_holder =  createCardHolders($user);
+        $card_holder =  createCardHolders($user,$c_account);
         if( isset($card_holder['status'])){
            if($card_holder['status'] == false){
             return back()->with(['error' => [$card_holder['message']]]);
            }
         }
-        $user->stripe_card_holders =   (object)$card_holder['data'];
+        $stripe_card_holders_data =[
+            'id' => $c_account['data']['id'],
+        ];
+        $stripe_card_holders_data = (object)$stripe_card_holders_data;
+
+        $user->stripe_card_holders =   (object)$stripe_card_holders_data;
         $user->save();
         $card_holder_id = $user->stripe_card_holders->id;
 
@@ -154,12 +214,28 @@ class StripeVirtualController extends Controller
         $card_holder_id = $user->stripe_card_holders->id;
        }
        //create card now
-       $created_card = createVirtualCard($card_holder_id);
+       $created_card = createVirtualCard($card_holder_id,$c_account);
        if(isset($created_card['status'])){
             if($created_card['status'] == false){
                 return back()->with(['error' => [$created_card['message']]]);
             }
        }
+        //account update
+        $account_update = updateAccount($c_account);
+        if(isset($account_update['status'])){
+            if($account_update['status'] == false){
+                return back()->with(['error' => [$account_update['message']]]);
+            }
+        }
+
+       //now funded amount
+       $funded_amount = transfer($amount,  $c_account);
+       if(isset($funded_amount['status'])){
+            if($funded_amount['status'] == false){
+                return back()->with(['error' => [$funded_amount['message']]]);
+            }
+        }
+
        if($created_card['status']  = true){
             $card_info = (object)$created_card['data'];
             $v_card = new StripeVirtualCard();
@@ -185,7 +261,7 @@ class StripeVirtualController extends Controller
                 $this->insertBuyCardCharge( $fixedCharge,$percent_charge, $total_charge,$user,$sender,$v_card->maskedPan);
                 return redirect()->route("user.stripe.virtual.card.index")->with(['success' => ['Virtual Card Buy Successfully']]);
             }catch(Exception $e){
-                return back()->with(['error' => ["The email cannot be sent as the recipient's email address is invalid."]]);
+                return back()->with(['error' => ["Something Is Wrong."]]);
             }
 
        }
@@ -263,8 +339,8 @@ class StripeVirtualController extends Controller
     }
 
     //update user balance
-    public function updateSenderWalletBalance($authWalle,$afterCharge) {
-        $authWalle->update([
+    public function updateSenderWalletBalance($authWallet,$afterCharge) {
+        $authWallet->update([
             'balance'   => $afterCharge,
         ]);
     }

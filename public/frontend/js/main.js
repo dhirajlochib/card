@@ -21,10 +21,10 @@ $(window).on('load', function() {
 // nice-select
 $(".nice-select").niceSelect(),
 
-// // lightcase
-//  $(window).on('load', function () {
-//   $("a[data-rel^=lightcase]").lightcase();
-// })
+// lightcase
+ $(window).on('load', function () {
+  $("a[data-rel^=lightcase]").lightcase();
+});
 
 
 
@@ -355,6 +355,20 @@ $(document).ready(function () {
   });
 });
 
+// sidebar
+$(".sidebar-menu-item > a").on("click", function () {
+    var element = $(this).parent("li");
+    if (element.hasClass("active")) {
+      element.removeClass("active");
+      element.children("ul").slideUp(500);
+    }
+    else {
+      element.siblings("li").removeClass('active');
+      element.addClass("active");
+      element.siblings("li").find("ul").slideUp(500);
+      element.children('ul').slideDown(500);
+    }
+  });
 // active menu JS
 function splitSlash(data) {
   return data.split('/').pop();
@@ -495,7 +509,6 @@ $('.header-account-btn').on('click', function () {
 
 //account-toggle
 $('.reg-dashboard-btn').on('click', function () {
-  $('.account-area').toggleClass('change-form');
   $('.account-section').addClass('active');
 });
 

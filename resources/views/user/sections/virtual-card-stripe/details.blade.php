@@ -79,8 +79,7 @@
                                     </div>
                                     <div class="card-holder">{{ auth()->user()->fullname }}</div>
                                     <div class="master">
-                                        <div class="circle master-red"></div>
-                                        <div class="circle master-yellow"></div>
+                                        <h3 class="title">{{ __("VISA") }}</h4>
                                     </div>
                                 </div>
                                 <div class="back">
@@ -235,7 +234,7 @@
                             <span id="cvv">{{ __("***") }}</span>
                         </div>
                     </div>
-                   
+
                     <div class="preview-list-item">
                         <div class="preview-list-left">
                             <div class="preview-list-user-wrapper">

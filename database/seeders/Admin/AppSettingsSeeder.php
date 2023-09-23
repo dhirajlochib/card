@@ -16,7 +16,7 @@ class AppSettingsSeeder extends Seeder
     public function run()
     {
         $data = [
-            'version'   => '1.0.0',
+            'version'   => '1.2.0',
             'splash_screen_image'   => 'seeder/splash_screen.png',
             'url_title'   => 'App Url',
             'android_url'   => 'https://play.google.com/store',
@@ -24,6 +24,7 @@ class AppSettingsSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
               'updated_at' => date('Y-m-d H:i:s'),
         ];
+        AppSettings::truncate();
         AppSettings::firstOrCreate($data);
 
         //create onboard data
@@ -50,6 +51,7 @@ class AppSettingsSeeder extends Seeder
             ],
 
           ];
+          AppOnboardScreens::truncate();
           AppOnboardScreens::insert($onboard);
     }
 }

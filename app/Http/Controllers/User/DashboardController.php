@@ -55,6 +55,9 @@ class DashboardController extends Controller
 
         try{
             // $user->delete();
+            // ban user
+            $user->status = 0;
+            $user->save();
             return redirect()->route('index')->with(['success' => ['User deleted successfully!']]);
         }catch(Exception $e) {
             return back()->with(['error' => ['Something went wrong! Please try again.']]);

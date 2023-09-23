@@ -20,7 +20,12 @@
         padding-bottom: 10px;
     }
     .card-custom {
-        width: 100%;
+        width: 350px;
+    }
+}
+@media only screen and (max-width: 370px) {
+    .card-custom {
+        width: 300px;
     }
 }
 .flip {
@@ -173,8 +178,8 @@ perspective: 1000;
 transform: rotateY(180deg);
 }
 .back {
-transform: rotateY(180deg) translateZ(0);
-background: #9e9e9e;
+    transform: rotateY(180deg) translateZ(0);
+    background: #3A3773;
 }
 .back .strip-black {
 position: absolute;

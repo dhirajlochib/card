@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{{ asset('public/backend/css/lightcase.css') }}">
 
     <!-- Fileholder CSS CDN -->
-    <link rel="stylesheet" href="https://rokon.appdevs.net/fileholder-laravel/public/fileholder/css/fileholder-style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.appdevs.net/fileholder/v1.0/css/fileholder-style.css" type="text/css">
 
     <!-- main style css link -->
     <link rel="stylesheet" href="{{ asset('public/backend/css/style.css') }}">
@@ -105,10 +105,10 @@
     var fileHolderAfterLoad = {};
 </script>
 
-<script src="https://rokon.appdevs.net/fileholder-laravel/public/fileholder/js/fileholder-script.js" type="module"></script>
+<script src="https://cdn.appdevs.net/fileholder/v1.0/js/fileholder-script.js" type="module"></script>
 <script type="module">
-    import { fileHolderSettings } from "https://rokon.appdevs.net/fileholder-laravel/public/fileholder/js/fileholder-settings.js";
-    import { previewFunctions } from "https://rokon.appdevs.net/fileholder-laravel/public/fileholder/js/fileholder-script.js";
+    import { fileHolderSettings } from "https://cdn.appdevs.net/fileholder/v1.0/js/fileholder-settings.js";
+    import { previewFunctions } from "https://cdn.appdevs.net/fileholder/v1.0/js/fileholder-script.js";
 
     var inputFields = document.querySelector(".file-holder");
     fileHolderAfterLoad.previewReInit = function(inputFields){
