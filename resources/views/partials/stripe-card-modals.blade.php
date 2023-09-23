@@ -88,7 +88,6 @@
     var defualCurrencyRate = "{{ get_default_currency_rate() }}";
     $('.buyCard-stripe').on('click', function() {
         var modal = $('#BuyCardModalStripe');
-
         modal.modal('show');
     });
 
@@ -96,8 +95,7 @@
     var alreadyRequested = "<?php echo $alreadyRequested == true ? 'true' : 'false'; ?>";
     console.warn(alreadyRequested);
     if (alreadyRequested == 'false') {
-        var modal = $('#BuyCardModalStripe');
-        modal.modal('show');
+       $('#BuyCardModalStripe').modal('show');
     }
     
 
