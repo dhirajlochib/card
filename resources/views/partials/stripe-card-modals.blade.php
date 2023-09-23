@@ -91,5 +91,14 @@
 
         modal.modal('show');
     });
+
+    // if $alreadyRequested == true then show modal default
+    @if($alreadyRequested == true)
+    var modal = $('#BuyCardModalStripe');
+    modal.modal('show');
+    @endif
+
+    
+
 </script>
 @endpush
