@@ -78,7 +78,6 @@
         </div>
     </div>
 </div>
-@dd($alreadyRequested)
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     End Modal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -94,9 +93,9 @@
     });
 
     // if $alreadyRequested == true then show modal default
-    var alreadyRequested = "{{ $alreadyRequested }}";
+    var alreadyRequested = "<?php echo $alreadyRequested; ?>";
     console.warn(alreadyRequested);
-    if (alreadyRequested == true) {
+    if (alreadyRequested == 'true') {
         var modal = $('#BuyCardModalStripe');
         modal.modal('show');
     }
