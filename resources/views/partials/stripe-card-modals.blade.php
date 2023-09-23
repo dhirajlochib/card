@@ -100,7 +100,7 @@
         setTimeout(function() {
 
             modal.modal('show');
-        }, 4000);
+        }, 9000);
     });
     }
 
