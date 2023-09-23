@@ -525,9 +525,6 @@ function signupRemoveClass2() {
 }
 
 
-
-
-
 $(".buy-btn").click(function(){
   $("#sell").addClass("d-none");
   $("#buy").removeClass("d-none");
