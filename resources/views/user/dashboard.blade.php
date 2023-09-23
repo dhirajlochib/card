@@ -21,9 +21,6 @@
             <div class="row mb-20-none">
                 <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-20">
                     <div class="dashbord-item">
-                    @if($user->credit_limit > 0) 
-                        <a href="{{ setRoute('user.add.money.index') }}">
-                    @endif
                         <div class="dashboard-content">
                             @if($user->credit_limit > 0)
                             <span class="sub-title">{{__("Credit Limit")}}</span>
@@ -39,12 +36,7 @@
                         <div class="dashboard-icon">
                             <i class="las la-dollar-sign"></i>
                         </div>
-                        @if($user->credit_limit > 0)
-                    </a>
-                    @endif
-
                     </div>
-
                 </div>
                 <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-20">
                     <div class="dashbord-item">
