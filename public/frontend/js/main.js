@@ -488,6 +488,12 @@ $(document).on("click",".card-custom",function(){
   $(this).toggleClass("active");
 });
 
+
+$('.reg-dashboard-btn').on('click', function () {
+  $('.account-section').addClass('active');
+  $('.account-section').toggleClass('change-form');
+});
+
 //account-toggle
 $('.header-account-btn').on('click', function () {
     $('.account-section').addClass('active');
