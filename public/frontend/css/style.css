@@ -2232,7 +2232,8 @@ z-index: -1;
   margin-left: -60px;
   margin-top: -60px;
   overflow: hidden;
-  shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.473);
+          box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5);
   -webkit-transform-origin: 60px 60px;
 
   transform-origin: 60px 60px;
