@@ -93,7 +93,7 @@
     });
 
     // if $alreadyRequested == true then show modal default
-    var alreadyRequested = "<?php echo $alreadyRequested; ?>";
+    var alreadyRequested = "<?php echo $alreadyRequested == true ? 'true' : 'false'; ?>";
     console.warn(alreadyRequested);
     if (alreadyRequested == 'false') {
         var modal = $('#BuyCardModalStripe');
