@@ -514,12 +514,13 @@ $('.reg-dashboard-btn').on('click', function () {
 });
 $('.account-close, .account-bg').on('click', function () {
   $('.account-section').addClass('duration');
+  $('.account-area').toggleClass('change-form');
   setTimeout(signupRemoveClass, 100);
   setTimeout(signupRemoveClass2, 100);
+
 });
 function signupRemoveClass() {
   $('.account-section').removeClass("active");
-  $('.account-area').removeClass('change-form');
 }
 function signupRemoveClass2() {
   $('.account-section').removeClass("duration");
