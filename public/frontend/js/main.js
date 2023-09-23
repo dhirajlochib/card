@@ -511,14 +511,17 @@
   })
 
 
-  // toggle register reg-dashboard-btn
-  $('.reg-dashboard-btn').on('click', function () {
-    $('.account-section').addClass('active');
-    $('.account-section').addClass('reg-open');
-    if ($('.account-section').hasClass('reg-open')) {
-      $('.account-area').toggleClass('change-form');
-    }
-  });
+ // toggle register reg-dashboard-btn
+$('.reg-dashboard-btn').on('click', function () {
+  var accountSection = $('.account-section');
+  accountSection.toggleClass('active reg-open');
+  
+  if (accountSection.hasClass('reg-open')) {
+    $('.account-area').addClass('change-form');
+  } else {
+    $('.account-area').removeClass('change-form');
+  }
+});
 
 
 
