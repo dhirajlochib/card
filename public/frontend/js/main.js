@@ -519,7 +519,7 @@ $('.reg-dashboard-btn').on('click', function () {
   if (accountSection.hasClass('reg-open')) {
     $('.account-area').addClass('change-form');
   } else {
-    $('.account-area').removeClass('change-form');
+    $('.account-area').toggleClass('change-form');
   }
 });
 
