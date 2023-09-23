@@ -28,7 +28,7 @@ $banner = App\Models\Admin\SiteSections::getData( $banner_slug)->first();
                     <div class="banner-btn">
                         <button class="btn--base reg-dashboard-btn"><i aria-hidden="true" class="far fa-credit-card" style="color: white;"></i> &nbsp;{{ __(@$banner->value->language->$lang->button_name) }}</button>
                         <a class="text--base" href="{{ route('about') }}">
-                                <span class="base--text">Learn More <i class="fas fa-arrow-right"></i></span>
+                            <span class="base--text" style="color: #1b756b;"> Learn More <i class="fas fa-arrow-right"></i></span>
                         </a>
                     </div>
                 </div>
