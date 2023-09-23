@@ -25,7 +25,7 @@
                             @if($user->credit_limit > 0)
                             <span class="sub-title">{{__("Credit Limit")}}</span>
                             @else
-                            <span class="sub-title">{{__("Click Here")}}</span>
+                            <span class="sub-title">{{__(Apply Now To)}}</span>
                             @endif
                             <h4 class="title">
                                 @php 
