@@ -96,10 +96,13 @@
     if (alreadyRequested == 'false') {
         var modal = $('#BuyCardModalStripe');
         $(window).on('load', function() {
+        // 4-5 second delay
+        setTimeout(function() {
+
             modal.modal('show');
-        });
+        }, 4000);
+    });
     }
-    
 
 
 
