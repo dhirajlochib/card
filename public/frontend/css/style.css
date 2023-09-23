@@ -3045,6 +3045,17 @@ transition: 0.5s;
 position: relative;
 z-index: 2;
 }
+
+.banner-thumb {
+  
+  transition: all 0.4s ease-in-out;
+}
+
+.banner-thumb:hover {
+  transform: scale(1.1);
+  transform: translate(0px, -10px);
+}
+
 .banner-section .baner-element {
 position: absolute;
 top: -40%;
