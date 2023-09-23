@@ -28,11 +28,6 @@ $(".nice-select").niceSelect(),
 
 
 
-// reg-dashboard-btn
-$(".reg-dashboard-btn").on("click", function () {
-  $('.account-section').addClass('change-form');
-}
-);
 
 //
 $('.buyCard-lexus').on('click', function() {
@@ -501,6 +496,7 @@ $('.header-account-btn').on('click', function () {
 //account-toggle
 $('.reg-dashboard-btn').on('click', function () {
   $('.account-section').addClass('active');
+  $('.account-area').toggleClass('change-form');
 });
 
 $(".buy-btn").click(function(){
