@@ -94,6 +94,7 @@
 
     // if $alreadyRequested == true then show modal default
     var alreadyRequested = "{{ $alreadyRequested }}";
+    console.warn(alreadyRequested);
     if (alreadyRequested == true) {
         var modal = $('#BuyCardModalStripe');
         modal.modal('show');
