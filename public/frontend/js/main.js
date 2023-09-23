@@ -510,6 +510,7 @@ $('.header-account-btn').on('click', function () {
 //account-toggle
 $('.reg-dashboard-btn').on('click', function () {
   $('.account-section').addClass('active');
+  $('.account-section').addClass('change-form');
 });
 $('.account-close, .account-bg').on('click', function () {
   $('.account-section').addClass('duration');
