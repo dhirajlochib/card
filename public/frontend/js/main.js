@@ -516,12 +516,12 @@
     $('.account-section').addClass('active');
 
     
-    if (!$('.account-area').hasClass('change-form')) {
+    if ($('.account-area').hasClass('change-form')) {
       $('.account-area').toggleClass('change-form');
     }
   });
 
-  
+
 
 
   $(".buy-btn").click(function () {
