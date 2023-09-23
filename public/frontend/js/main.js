@@ -513,13 +513,17 @@
   //account-toggle register
   $('.reg-dashboard-btn').on('click', function () {
     $('.account-section').addClass('active');
-
-    if ($('.account-area').hasClass('change-form')) {
-      $('.account-area').toggleClass('change-form');
-    } else {
-      $('.account-area').toggleClass('change-form');
-    }
-
+    $('.account-area').toggleClass('change-form');
+  });
+  $('.account-close, .account-bg').on('click', function () {
+    $('.account-section').addClass('duration');
+    setTimeout(signupRemoveClass, 200);
+    setTimeout(signupRemoveClass2, 200);
+  });
+  $('.account-control-btn').on('click', function () {
+    $('.account-area').toggleClass('change-form');
+  })
+  
 
 
   });
