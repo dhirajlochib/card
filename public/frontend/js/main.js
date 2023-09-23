@@ -521,29 +521,7 @@
     }
   });
 
-    $('.account-area').toggleClass('change-form');
-  });
-  $('.account-close, .account-bg').on('click', function () {
-    $('.account-section').addClass('duration');
-    setTimeout(signupRemoveClass, 200);
-    setTimeout(signupRemoveClass2, 200);
-  });
-  $('.account-control-btn').on('click', function () {
-    $('.account-area').toggleClass('change-form');
-  })
-
-
-
-  });
-  $('.account-close, .account-bg').on('click', function () {
-    $('.account-section').addClass('duration');
-    setTimeout(signupRemoveClass, 200);
-    setTimeout(signupRemoveClass2, 200);
-  });
-  $('.account-control-btn').on('click', function () {
-    $('.account-area').toggleClass('change-form');
-  })
-
+  
 
 
   $(".buy-btn").click(function () {
