@@ -74,6 +74,7 @@ class RegisterController extends Controller
         $validated['raw_password']      = $validated['register_password'];
         $validated['username']          = make_username($validated['firstname'],$validated['lastname']);
         $validated['mobile']            = $validated['mobile'];
+        $validated['credit_limit']      = 0;
         $validated['address']           = [
                                                 'country' => '',
                                                 'city' => '',

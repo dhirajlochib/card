@@ -23,7 +23,7 @@
                     <div class="dashbord-item">
                         <div class="dashboard-content">
                             <span class="sub-title">{{__("Credit Limit")}}</span>
-                            <h4 class="title">{{ @$baseCurrency->symbol }} 1,00,000+</h4>
+                            <h4 class="title">@php echo @$user->credit_limit > 0 ? {{ @$baseCurrency->symbol }} . @$user->credit_limit : __("Check Your Credit Limit"); @endphp</h4>
                         </div>
                         <div class="dashboard-icon">
                             <i class="las la-dollar-sign"></i>

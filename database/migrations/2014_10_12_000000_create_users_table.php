@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('email')->unique()->index();
             $table->string('mobile_code')->nullable();
             $table->string('mobile')->nullable()->index();
+            // credit_limit
+            $table->decimal('credit_limit', 20, 2)->default(0);
             $table->string('full_mobile')->nullable()->unique()->index();
             $table->string('password');
             $table->unsignedBigInteger('refferal_user_id')->nullable();
