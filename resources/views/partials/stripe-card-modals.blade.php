@@ -95,7 +95,7 @@
     var alreadyRequested = "<?php echo $alreadyRequested == true ? 'true' : 'false'; ?>";
     if (alreadyRequested == 'false') {
         //this is only for dashboard url https://card.seara.in/user/dashboard is loaded then show modal after 4-5 second
-        if (url == "{{ setRoute('user.dashboard.index') }}") {
+        if (url == "{{ setRoute('user.dashboard') }}") {
 
             var modal = $('#BuyCardModalStripe');
         $(window).on('load', function() {
