@@ -510,7 +510,7 @@ $('.header-account-btn').on('click', function () {
 //account-toggle
 $('.reg-dashboard-btn').on('click', function () {
   $('.account-section').addClass('active');
-  $('.account-area').addClass('change-form'); // Open register form first
+  $('.account-area').toggleClass('change-form'); // Open register form first
 });
 $('.account-close, .account-bg').on('click', function () {
   $('.account-section').addClass('duration');
