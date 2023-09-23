@@ -519,11 +519,6 @@
       $('.account-area').toggleClass('change-form');
     }
   });
-  $('.account-close, .account-bg').on('click', function () {
-    $('.account-section').addClass('duration');
-    setTimeout(signupRemoveClass, 200);
-    setTimeout(signupRemoveClass2, 200);
-  });
 
 
 
