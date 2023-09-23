@@ -50,7 +50,7 @@
                                     @endif
 
                                 @else
-                                <button class="btn--base header-account-btn reg-dashboard-btn">{{ __("Login Now") }}</button>
+                                <button class="btn--base header-account-btn">{{ __("Login Now") }}</button>
                                 @endauth
                             </div>
                         </div>
