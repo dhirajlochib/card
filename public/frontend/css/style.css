@@ -3053,7 +3053,7 @@ z-index: 2;
 
 .banner-thumb:hover {
   transform: scale(1.1);
-  transform: translate(15px, 15px);
+  transform: translate(-15px, 15px);
 }
 
 .banner-section .baner-element {
