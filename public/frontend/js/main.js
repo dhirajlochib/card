@@ -500,8 +500,14 @@
   $('.header-account-btn').on('click', function () {
     $('.account-section').addClass('active');
   });
+
   $('.account-close, .account-bg').on('click', function () {
     $('.account-section').addClass('duration');
+    if ($('.account-section').hasClass('register')) {
+      $('.account-section').removeClass('register');
+  $('.account-area').toggleClass('change-form');
+    }
+
     setTimeout(signupRemoveClass, 200);
     setTimeout(signupRemoveClass2, 200);
   });
@@ -513,17 +519,9 @@
 
  // toggle register reg-dashboard-btn
 $('.reg-dashboard-btn').on('click', function () {
-  var accountSection = $('.account-section');
-  accountSection.toggleClass('active reg-open');
-  
-  if (accountSection.hasClass('reg-open')) {
-    $('.account-area').addClass('change-form');
-  } else {
-    $('.account-area').toggleClass('change-form');
-  }
+  $('.account-section').addClass('active register');
+  $('.account-area').toggleClass('change-form');
 });
-
-
 
 
   $(".buy-btn").click(function () {
