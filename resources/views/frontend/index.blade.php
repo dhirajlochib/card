@@ -45,7 +45,8 @@ $banner = App\Models\Admin\SiteSections::getData( $banner_slug)->first();
 $('.reg-dashboard-btn').on('click', function () {
   $('.account-section').addClass('active');
   if ($('.account-section').hasClass('change-form')) {
-    return true;
+        // /do nothing 
+        
   } else{
     $('.account-section').addClass('change-form');
   }
