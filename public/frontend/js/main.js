@@ -32,6 +32,14 @@ $(".reg").on("click", function () {
 });
 
 
+// reg-dashboard-btn
+$(".reg-dashboard-btn").on("click", function () {
+  $('.account-section').addClass('active');
+  $('.account-area').addClass('change-form');
+  $('.account-area').removeClass('active');
+}
+);
+
 //
 $('.buyCard-lexus').on('click', function() {
     var modal = $('#BuyCardModalLexus');
