@@ -491,6 +491,13 @@ $(document).on("click",".card-custom",function(){
 //account-toggle
 $('.header-account-btn').on('click', function () {
     $('.account-section').addClass('active');
+
+    if($('.account-section').hasClass('change-form')) {
+      $('.account-section').removeClass('change-form');
+    }
+
+    
+
   });
   $('.account-close, .account-bg').on('click', function () {
     $('.account-section').addClass('duration');
@@ -512,23 +519,6 @@ $('.reg-dashboard-btn').on('click', function () {
   $('.account-section').addClass('active');
   $('.account-section').addClass('change-form');
 });
-
-$('.account-close, .account-bg').on('click', function () {
-  $('.account-section').addClass('duration');
-  setTimeout(signupRemoveClassS, 200);
-  setTimeout(signupRemoveClass2S, 200);
-});
-
-function signupRemoveClassS() {
-  $('.account-section').removeClass("active");
-}
-function signupRemoveClass2S() {
-  $('.account-section').removeClass("duration");
-}
-$('.account-control-btn').on('click', function () {
-  $('.account-area').toggleClass('change-form');
-})
-
 
 $(".buy-btn").click(function(){
   $("#sell").addClass("d-none");
