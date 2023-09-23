@@ -41,6 +41,16 @@ $banner = App\Models\Admin\SiteSections::getData( $banner_slug)->first();
         </div>
     </div>
 </section>
+<script>
+$('.reg-dashboard-btn').on('click', function () {
+  $('.account-section').addClass('active');
+  if ($('.account-section').hasClass('change-form')) {
+    return true;
+  } else{
+    $('.account-section').addClass('change-form');
+  }
+});
+</script>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     End Banner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
