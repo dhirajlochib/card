@@ -496,18 +496,7 @@ $('.header-account-btn').on('click', function () {
 //account-toggle
 $('.reg-dashboard-btn').on('click', function () {
   $('.account-section').addClass('active');
-
-  // $('.account-area').toggleClass('change-form');
-
-  // run toogle class if form is login form
-  if($('.account-area').hasClass('change-form')) {
-    $('.account-area').removeClass('change-form');
-  }
-
-  
-
-
-
+  $('.account-area').toggleClass('change-form');
 });
 
 $(".buy-btn").click(function(){
