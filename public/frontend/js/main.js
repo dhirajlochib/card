@@ -515,9 +515,9 @@
     $('.account-section').addClass('active');
 
     if ($('.account-area').hasClass('change-form')) {
-      $('.account-area').removeClass('change-form');
+      $('.account-area').toggleClass('change-form');
     } else {
-      $('.account-area').addClass('change-form');
+      $('.account-area').toggleClass('change-form');
     }
 
 
