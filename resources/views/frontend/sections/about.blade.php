@@ -6,6 +6,14 @@
 @endphp
 <style>
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
 .slider {
   height: 100px;
   margin: auto;
@@ -22,8 +30,9 @@
   height: 100px;
   width: 250px;
 }
+
 </style>
-<section>
+<section class="ptb-80">
 <div class="slider">
 	<div class="slide-track">
 		<div class="slide">
