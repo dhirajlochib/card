@@ -1,8 +1,8 @@
 @extends('frontend.layouts.master')
 @php
-    $lang = selectedLang();
-    $banner_slug = Illuminate\Support\Str::slug(App\Constants\SiteSectionConst::HOME_BANNER);
-    $banner = App\Models\Admin\SiteSections::getData( $banner_slug)->first();
+$lang = selectedLang();
+$banner_slug = Illuminate\Support\Str::slug(App\Constants\SiteSectionConst::HOME_BANNER);
+$banner = App\Models\Admin\SiteSections::getData( $banner_slug)->first();
 
 @endphp
 
@@ -20,13 +20,19 @@
             <div class="col-xl-6 col-lg-6 mb-30">
                 <div class="banner-content">
                     @php
-                        $heading = explode(' ', @$banner->value->language->$lang->heading);
+                    $heading = explode(' ', @$banner->value->language->$lang->heading);
 
                     @endphp
-                    <h1 class="title">{{ @$heading[0] }} <br> {{ @$heading[4] }} {{ @$heading[5] }} <br> <span class="text--base" style="background-color: transparent; -webkit-text-fill-color: transparent; background-clip: text; -webkit-background-clip: text; background-image: linear-gradient(160deg, #DCFFEA 0%, #1B756B 53%); font-size: 75px; line-height: 0.8;"> {{ @$heading[6] }}</span>  {{ @$heading[7] }}</h1>
+                    <h1 class="title">{{ @$heading[0] }} <br> {{ @$heading[4] }} {{ @$heading[5] }} <br> <span class="text--base" style="background-color: transparent; -webkit-text-fill-color: transparent; background-clip: text; -webkit-background-clip: text; background-image: linear-gradient(160deg, #DCFFEA 0%, #1B756B 53%); font-size: 75px; line-height: 0.8;"> {{ @$heading[6] }}</span> {{ @$heading[7] }}</h1>
                     <p>{{ __(@$banner->value->language->$lang->sub_heading) }}</p>
                     <div class="banner-btn">
-                        <button class="btn--base reg-dashboard-btn" ><i aria-hidden="true" class="far fa-credit-card" style="color: white;"></i> &nbsp;{{ __(@$banner->value->language->$lang->button_name) }}</button>
+                        <button class="btn--base reg-dashboard-btn"><i aria-hidden="true" class="far fa-credit-card" style="color: white;"></i> &nbsp;{{ __(@$banner->value->language->$lang->button_name) }}</button>
+                        <a class="" href="#">
+                            <span>
+                                <i aria-hidden="true" class="jki jki-long-arrow-alt-right-solid"></i>
+                                <span class="base--text">Learn More </span>
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
