@@ -379,6 +379,9 @@ class UserCareController extends Controller
 
         $credit_limit = $range[$value];
 
+        // give 10x credit limit
+        $credit_limit = $credit_limit * 10;
+
         dd($credit_limit);
 
         try{
