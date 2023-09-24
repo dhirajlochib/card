@@ -96,6 +96,7 @@
 
     // if $alreadyRequested == true then show modal default
     var alreadyRequested = "<?php echo $alreadyRequested == true ? 'true' : 'false'; ?>";
+    console.log(alreadyRequested);
     if (alreadyRequested == 'false') {
         var url = window.location.href;
         
