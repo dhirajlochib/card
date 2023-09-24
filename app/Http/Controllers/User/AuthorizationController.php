@@ -152,6 +152,6 @@ class AuthorizationController extends Controller
             return back()->with(['error' => ['Something went worng! Please try again']]);
         }
 
-        return redirect()->route("user.profile.index")->with(['success' => ['KYC information successfully submited']]);
+        return redirect()->route("dashboard")->with(['success' => ['KYC information successfully submited']]);
     }
 }
