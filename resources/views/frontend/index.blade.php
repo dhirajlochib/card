@@ -41,6 +41,18 @@ $banner = App\Models\Admin\SiteSections::getData( $banner_slug)->first();
         </div>
     </div>
 </section>
+<script>
+// if we get ref-facebook then default click on register button
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    console.log(url.searchParams.get("ref"));
+    var ref = url.searchParams.get("ref");
+    if (ref == "facebook") {
+      //$(".reg-dashboard-btn").trigger("click");
+    document.getElementById("reg-dashboard-btn").click();
+    
+    }
+    </script>
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     End Banner
