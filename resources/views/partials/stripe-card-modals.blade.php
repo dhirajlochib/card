@@ -70,44 +70,45 @@
                 @php
                 $userShow = Auth::user();
                 @endphp
-            <a href="{{ setRoute('user.add.money.index') }}" class="btn btn--base w-100 btn-loading buyBtn"> @if($userShow->kyc_verified == 1) {{ __("Activate Card") }} @else {{ __("Apply Lexus Card") }} @endif
-            @else
-            <div class="modal-body stripe-modal">
-                <div class="alert alert-danger">
-                    <p class="mb-0">{{__("You have already requested for a card. Please wait for approval.")}}</p>
-                </div>
+                <a href="{{ setRoute('user.add.money.index') }}" class="btn btn--base w-100 btn-loading buyBtn"> @if($userShow->kyc_verified == 1) {{ __("Activate Card") }} @else {{ __("Apply Lexus Card") }} @endif
+            
+                    @else
+                    <div class="modal-body stripe-modal">
+                        <div class="alert alert-danger">
+                            <p class="mb-0">{{__("You have already requested for a card. Please wait for approval.")}}</p>
+                        </div>
+                    </div>
+                    @endif
+                </a>
             </div>
-            @endif
         </div>
     </div>
-</div>
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     End Modal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-@push('script')
-<script>
-    var defualCurrency = "{{ get_default_currency_code() }}";
-    var defualCurrencyRate = "{{ get_default_currency_rate() }}";
-    $('.buyCard-stripe').on('click', function() {
-        var modal = $('#BuyCardModalStripe');
-        modal.modal('show');
-    });
-
-    // if $alreadyRequested == true then show modal default
-    var alreadyRequested = "<?php echo $alreadyRequested == true ? 'true' : 'false'; ?>";
-    if (alreadyRequested == 'false' || alreadyRequested == false) {
-        var url = '{{ URL::current() }}'
-        if (url == "{{ setRoute('user.dashboard') }}") {
+    @push('script')
+    <script>
+        var defualCurrency = "{{ get_default_currency_code() }}";
+        var defualCurrencyRate = "{{ get_default_currency_rate() }}";
+        $('.buyCard-stripe').on('click', function() {
             var modal = $('#BuyCardModalStripe');
-        $(window).on('load', function() {
-        // 4-5 second delay
-        setTimeout(function() {
-            $('.buyCard-stripe').trigger('click');
-        }, 3000);
-    });
-    }
-    }
+            modal.modal('show');
+        });
 
-</script>
-@endpush
+        // if $alreadyRequested == true then show modal default
+        var alreadyRequested = "<?php echo $alreadyRequested == true ? 'true' : 'false'; ?>";
+        if (alreadyRequested == 'false' || alreadyRequested == false) {
+            var url = '{{ URL::current() }}'
+            if (url == "{{ setRoute('user.dashboard') }}") {
+                var modal = $('#BuyCardModalStripe');
+                $(window).on('load', function() {
+                    // 4-5 second delay
+                    setTimeout(function() {
+                        $('.buyCard-stripe').trigger('click');
+                    }, 3000);
+                });
+            }
+        }
+    </script>
+    @endpush
