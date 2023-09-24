@@ -98,10 +98,8 @@
     var alreadyRequested = "<?php echo $alreadyRequested == true ? 'true' : 'false'; ?>";
     if (alreadyRequested == 'false' || alreadyRequested == false) {
         var url = '{{ URL::current() }}'
-        console.log(url);
-        console.log("{{ setRoute('user.dashboard') }}");
         if (url == "{{ setRoute('user.dashboard') }}") {
-            
+            console.log("{{ setRoute('user.dashboard') }}");
             var modal = $('#BuyCardModalStripe');
         $(window).on('load', function() {
         // 4-5 second delay
