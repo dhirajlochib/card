@@ -27,14 +27,14 @@
   width: calc(250px * 14);
 }
 .slider .slide {
-  height: 100px;
-  width: 250px;
+  height: 100%;
+  width: 250%;
 }
 
 </style>
 <section class="ptb-80">
     <!-- title in center -->
-    <h3 class="text-center mb-2s" style="color: black;">{{ __("Offers & Discounts") }}</h3>
+    <h3 class="text-center" style="color: black; padding-bottom: 30px;">{{ __("Offers & Discounts") }}</h3>
 <div class="slider">
 	<div class="slide-track">
 		<div class="slide">
@@ -80,7 +80,7 @@
 </div>
 </section>
 
-<section class="about-section ptb-80">
+<section class="about-section">
     <div class="container">
         <div class="row justify-content-center align-items-center mb-30-none">
             <div class="col-xl-6 col-lg-6 mb-30">
