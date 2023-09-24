@@ -67,7 +67,9 @@
                 </div>
             </div>
             <div class="modal-footer stripe-modal">
-            <a href="{{ setRoute('user.add.money.index') }}" class="btn btn--base w-100 btn-loading buyBtn"> @if(auth::user()->kyc_verified == 1) {{ __("Activate Card") }} @else {{ __("Apply Lexus Card") }} @endif
+                @php
+                $userShow = Auth::user();
+            <a href="{{ setRoute('user.add.money.index') }}" class="btn btn--base w-100 btn-loading buyBtn"> @if($userShow->kyc_verified == 1) {{ __("Activate Card") }} @else {{ __("Apply Lexus Card") }} @endif
             @else
             <div class="modal-body stripe-modal">
                 <div class="alert alert-danger">
