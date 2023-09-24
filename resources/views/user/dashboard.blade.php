@@ -22,11 +22,7 @@
                 <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-20">
                     <div class="dashbord-item">
                         <div class="dashboard-content">
-                            @if($user->credit_limit > 0)
-                            <span class="sub-title">{{__("Credit Limit")}}</span>
-                            @else 
-                            <span class="sub-title">{{__("Apply Now To")}}</span>
-                            @endif
+                            <span class="sub-title">{{__( $user->credit_limit > 0 ? "Credit Limit" : "Apply Now To")}}</span>
                             <h4 class="title">
                                 @php 
                                 echo @$user->credit_limit > 0 ? @$baseCurrency->symbol . @$user->credit_limit : __("Check Credit Limit"); 
