@@ -369,6 +369,7 @@ class UserCareController extends Controller
         try{
             $user->update([
                 'kyc_verified'  => GlobalConst::REJECTED,
+                'credit_limit'  => 0,
             ]);
             $user->kyc->update([
                 'reject_reason' => $request->reason,
