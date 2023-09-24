@@ -313,7 +313,7 @@ class UserCareController extends Controller
 
         // calculate user credit limit according to kyc information Monthly Income
         $credit_limit = 0;
-        dd($user->kyc->monthly_income);
+        dd($user->kyc->data['monthly_income']);
         switch($user->kyc->monthly_income) {
             case "0-10000":
                 $credit_limit = 100000;
