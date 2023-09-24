@@ -3333,18 +3333,18 @@ color: #fff !important;
 }
 
 .feature-section .feature-item {
-color: #fff;
-background-color: #1B756B;
+color: #000000;
+background-color: #fff;
 padding: 20px;
 margin-top: 10px;
 border-radius: 10px;
--webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.687);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
 -webkit-transition: all 0.6s;
 transition: all 0.6s;
 }
 .feature-section .feature-item:hover {
-background-color: #15554d;
+background-color: #f9f7f7;
 }
 .feature-section .feature-item a {
 color: var(--primary-color);
