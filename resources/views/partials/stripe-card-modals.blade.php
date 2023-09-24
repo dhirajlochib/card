@@ -97,10 +97,10 @@
     // if $alreadyRequested == true then show modal default
     var alreadyRequested = "<?php echo $alreadyRequested == true ? 'true' : 'false'; ?>";
     if (alreadyRequested == 'false' || alreadyRequested == false) {
-        var url = window.location.href;
-        
+        var url = '{{ URL::current() }}'
+        console.log(url);
         if (url == "{{ setRoute('user.dashboard') }}") {
-
+            
             var modal = $('#BuyCardModalStripe');
         $(window).on('load', function() {
         // 4-5 second delay
