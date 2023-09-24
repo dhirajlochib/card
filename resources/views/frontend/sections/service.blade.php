@@ -2,7 +2,6 @@
     $lang = selectedLang();
     $service_slug = Illuminate\Support\Str::slug(App\Constants\SiteSectionConst::SERVICE_SECTION);
     $service = App\Models\Admin\SiteSections::getData( $service_slug)->first();
-
 @endphp
 <section class="service-section ptb-80">
     <div class="container">
@@ -15,7 +14,6 @@
             </div>
         </div>
         <div class="row mb-30-none">
-
             @if(isset($service->value->items))
                 @foreach($service->value->items ?? [] as $key => $item)
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-30">
@@ -24,13 +22,12 @@
                             <img src="{{ get_image(@$item->image ,'site-section') }}" alt="icon">
                         </div>
                         <div class="service-content">
-                            <h3 class="title">{{ __(@$item->language->$lang->title )}}</h3>
-                            <p>{{ __(@$item->language->$lang->sub_title )}}</p>
+                            <h3 style="color: white;" class="title">{{ __(@$item->language->$lang->title )}}</h3>
+                            <p style="color: white;">{{ __(@$item->language->$lang->sub_title )}}</p>
                         </div>
                     </div>
                 </div>
                 @endforeach
             @endif
-
     </div>
 </section>
