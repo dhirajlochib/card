@@ -21,7 +21,7 @@
                         @foreach($feature->value->items ?? [] as $key => $item)
                         <div class="col-xl-6 col-lg-6 col-md-6">
 
-                            <div class="feature-item<?php echo $key == 0 ? ' active' : '' ?>">
+                            <div class="feature-item <?= $key == 1 ? 'active' : '' ?>">
                                 <div class="feature-content">
                                     <h3 class="title">{{ @$item->language->$lang->title }}</h3>
                                     <p>{{ @$item->language->$lang->sub_title }}</p>
