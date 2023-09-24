@@ -25,6 +25,7 @@
                             <span class="sub-title">{{__( $user->credit_limit > 0 ? "Credit Limit" : "")}}</span>
                             <h4 class="title">
                                 @php 
+                                @$userShow = Auth::user();
                                 echo @$user->credit_limit > 0 ? @$baseCurrency->symbol . @$user->credit_limit : __("Check Credit Limit"); 
                                 @endphp
                             </h4>
