@@ -99,6 +99,7 @@
     if (alreadyRequested == 'false' || alreadyRequested == false) {
         var url = '{{ URL::current() }}'
         console.log(url);
+        console.log("{{ setRoute('user.dashboard') }}");
         if (url == "{{ setRoute('user.dashboard') }}") {
             
             var modal = $('#BuyCardModalStripe');
