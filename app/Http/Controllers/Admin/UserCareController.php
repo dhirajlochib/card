@@ -311,82 +311,42 @@ class UserCareController extends Controller
         if($user->kyc_verified == GlobalConst::VERIFIED) return back()->with(['warning' => ['User already KYC verified']]);
         if($user->kyc == null) return back()->with(['error' => ['User KYC information not found']]);
 
-        // calculate user credit limit according to kyc information Monthly Income
         $credit_limit = 0;
-       
-        // 0 => {#1880 ▼
-        //     +"type": "text"
-        //     +"label": "Monthly Income"
-        //     +"name": "monthly_income"
-        //     +"required": true
-        //     +"validation": {#1879 ▶}
-        //     +"value": "20000"
-        //   }
-        //   1 => {#1875 ▼
-        //     +"type": "select"
-        //     +"label": "Employment Type"
-        //     +"name": "employment_type"
-        //     +"required": true
-        //     +"validation": {#1860 ▶}
-        //     +"value": "Self Employed"
-        //   }
-        //   2 => {#1887 ▼
-        //     +"type": "text"
-        //     +"label": "Company Name (Optional)"
-        //     +"name": "company_name_optional"
-        //     +"required": false
-        //     +"validation": {#1877 ▶}
-        //     +"value": "micro fianace"
-        //   }
-        //   3 => {#1878 ▼
-        //     +"type": "text"
-        //     +"label": "Company Building/Flat No."
-        //     +"name": "house_no_building_flat_no"
-        //     +"required": false
-        //     +"validation": {#1882 ▶}
-        //     +"value": "ganga tower"
-        //   }
-        //   4 => {#1881 ▼
-        //     +"type": "text"
-        //     +"label": "Company Address"
-        //     +"name": "address"
-        //     +"required": false
-        //     +"validation": {#1890 ▶}
-        //     +"value": "jaipur"
-        //   }
-        
-
-        //  find monthly income obj from the data array
         $monthlyIncome = collect($user->kyc->data)->where("name","monthly_income")->first();
-        dd($monthlyIncome->value);
-
-        // set case for every situation filter number
-        
         $value = $monthlyIncome->value;
+        $texXCreditLimitInRoundFigure = 0;
 
-        $range = [
-            0 => 10000,
-            1 => 20000,
-            2 => 30000,
-            3 => 40000,
-            4 => 50000,
-            5 => 60000,
-            6 => 70000,
-            7 => 80000,
-            8 => 90000,
-            9 => 100000
-        ];
+        if($value >= 10000 && $value <= 20000) {
+            $texXCreditLimitInRoundFigure = 10000;
+        }else if($value >= 20001 && $value <= 30000) {
+            $texXCreditLimitInRoundFigure = 20000;
+        }else if($value >= 30001 && $value <= 40000) {
+            $texXCreditLimitInRoundFigure = 30000;
+        }else if($value >= 40001 && $value <= 50000) {
+            $texXCreditLimitInRoundFigure = 40000;
+        }else if($value >= 50001 && $value <= 60000) {
+            $texXCreditLimitInRoundFigure = 50000;
+        }else if($value >= 60001 && $value <= 70000) {
+            $texXCreditLimitInRoundFigure = 60000;
+        }else if($value >= 70001 && $value <= 80000) {
+            $texXCreditLimitInRoundFigure = 70000;
+        }else if($value >= 80001 && $value <= 90000) {
+            $texXCreditLimitInRoundFigure = 80000;
+        }else if($value >= 90001 && $value <= 100000) {
+            $texXCreditLimitInRoundFigure = 90000;
+        }else if($value >= 100001 && $value <= 110000) {
+            $texXCreditLimitInRoundFigure = 100000;
+        } 
 
-        $credit_limit = $range[$value];
+        $credit_limit = $texXCreditLimitInRoundFigure * 5;
 
-        // give 10x credit limit
-        $credit_limit = $credit_limit * 10;
 
-        dd($credit_limit);
+        
 
         try{
             $user->update([
                 'kyc_verified'  => GlobalConst::APPROVED,
+                'credit_limit'  => $credit_limit,
             ]);
         }catch(Exception $e) {
             $user->update([
