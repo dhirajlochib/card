@@ -34,7 +34,7 @@
 </style>
 <section class="ptb-80">
     <!-- title in center -->
-    <h4 class="text-center" style="color: black;">{{ __("Offers & Discounts") }}</h4>
+    <h3 class="text-center mb-2s" style="color: black;">{{ __("Offers & Discounts") }}</h3>
 <div class="slider">
 	<div class="slide-track">
 		<div class="slide">
