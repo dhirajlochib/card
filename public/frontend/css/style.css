@@ -3324,6 +3324,12 @@ margin-right: 10px;
 color: #000000 !important;
 }
 
+/* feature item active */
+.feature-item.active {
+  -webkit-box-shadow: 3px 8px 20px 0px rgba(27.000000000000007, 117, 107.00000000000003, 0.24);
+        box-shadow: 3px 8px 20px 0px rgba(27.000000000000007, 117, 107.00000000000003, 0.24)
+}
+
 .how-it-work-title h3 {
 color: #fff !important;
 }
@@ -3338,8 +3344,7 @@ background-color: #fff;
 padding: 20px;
 margin-top: 10px;
 border-radius: 10px;
--webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 -webkit-transition: all 0.6s;
 transition: all 0.6s;
 }
