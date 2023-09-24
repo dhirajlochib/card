@@ -17,7 +17,7 @@
       return bg;
     });
   })();
-
+ 
   // nice-select
   $(".nice-select").niceSelect(),
 
