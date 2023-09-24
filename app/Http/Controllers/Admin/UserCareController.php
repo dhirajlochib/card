@@ -311,6 +311,48 @@ class UserCareController extends Controller
         if($user->kyc_verified == GlobalConst::VERIFIED) return back()->with(['warning' => ['User already KYC verified']]);
         if($user->kyc == null) return back()->with(['error' => ['User KYC information not found']]);
 
+        // calculate user credit limit according to kyc information Monthly Income
+        $credit_limit = 0;
+        dd($user->kyc);
+        switch($user->kyc->monthly_income) {
+            case "0-10000":
+                $credit_limit = 100000;
+                break;
+            case "10000-20000":
+                $credit_limit = 200000;
+                break;
+            case "20000-30000":
+                $credit_limit = 300000;
+                break;
+            case "30000-40000":
+                $credit_limit = 400000;
+                break;
+            case "40000-50000":
+                $credit_limit = 500000;
+                break;
+            case "50000-60000":
+                $credit_limit = 600000;
+                break;
+            case "60000-70000":
+                $credit_limit = 700000;
+                break;
+            case "70000-80000":
+                $credit_limit = 800000;
+                break;
+            case "80000-90000":
+                $credit_limit = 900000;
+                break;
+            case "90000-100000":
+                $credit_limit = 1000000;
+                break;
+                // and last
+            case "100000+":
+                $credit_limit = 1000000;
+                break;
+        }
+
+
+
         try{
             $user->update([
                 'kyc_verified'  => GlobalConst::APPROVED,
