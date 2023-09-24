@@ -56,7 +56,7 @@
 			<img src="{{asset('public/fileholder/img/7.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="{{asset('public/fileholder/img/1.jpg')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/8.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
 			<img src="{{asset('public/fileholder/img/2.jpg')}}" height="100" width="250" alt="" />
