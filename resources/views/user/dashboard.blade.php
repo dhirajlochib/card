@@ -30,7 +30,7 @@
                             </h4>
                         </div>
                         <div class="dashboard-icon">
-                            <i class="las la-dollar-sign"></i>
+                        <i class="fas fa-rupee-sign"></i>
                         </div>
                     </div>
                 </div>
