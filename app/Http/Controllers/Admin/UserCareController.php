@@ -358,45 +358,28 @@ class UserCareController extends Controller
 
         //  find monthly income obj from the data array
         $monthlyIncome = collect($user->kyc->data)->where("name","monthly_income")->first();
-        dd($monthlyIncome);
-        switch($user->kyc->monthly_income) {
-            case "0-10000":
-                $credit_limit = 100000;
-                break;
-            case "10000-20000":
-                $credit_limit = 200000;
-                break;
-            case "20000-30000":
-                $credit_limit = 300000;
-                break;
-            case "30000-40000":
-                $credit_limit = 400000;
-                break;
-            case "40000-50000":
-                $credit_limit = 500000;
-                break;
-            case "50000-60000":
-                $credit_limit = 600000;
-                break;
-            case "60000-70000":
-                $credit_limit = 700000;
-                break;
-            case "70000-80000":
-                $credit_limit = 800000;
-                break;
-            case "80000-90000":
-                $credit_limit = 900000;
-                break;
-            case "90000-100000":
-                $credit_limit = 1000000;
-                break;
-                // and last
-            case "100000+":
-                $credit_limit = 1000000;
-                break;
-        }
+        dd($monthlyIncome->value);
 
+        // set case for every situation filter number
+        
+        $value = $monthlyIncome->value;
 
+        $range = [
+            0 => 10000,
+            1 => 20000,
+            2 => 30000,
+            3 => 40000,
+            4 => 50000,
+            5 => 60000,
+            6 => 70000,
+            7 => 80000,
+            8 => 90000,
+            9 => 100000
+        ];
+
+        $credit_limit = $range[$value];
+
+        dd($credit_limit);
 
         try{
             $user->update([
