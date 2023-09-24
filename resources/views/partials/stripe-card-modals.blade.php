@@ -96,7 +96,7 @@
 
     // if $alreadyRequested == true then show modal default
     var alreadyRequested = "<?php echo $alreadyRequested == true ? 'true' : 'false'; ?>";
-    if (alreadyRequested == 'false' && alreadyRequested == false) {
+    if (alreadyRequested == 'false' || alreadyRequested == false) {
         var url = window.location.href;
         
         if (url == "{{ setRoute('user.dashboard') }}") {
