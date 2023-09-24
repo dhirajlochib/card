@@ -47,8 +47,9 @@ $banner = App\Models\Admin\SiteSections::getData( $banner_slug)->first();
     var url = new URL(url_string);
     var ref = url.searchParams.get("ref");
     if (ref == "facebook") {
-        console.log("ref-facebook");
-      document.getElementById("reg-dashboard-btn").click();
+       document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById("reg-dashboard-btn").click();
+        });
     }
     </script>
 
