@@ -38,43 +38,43 @@
 <div class="slider">
 	<div class="slide-track">
 		<div class="slide">
-			<img src="{{asset('public/fileHolder/img/2.png')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/2.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="{{asset('public/fileHolder/img/3.png')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/3.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="{{asset('public/fileHolder/img/4.png')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/4.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="{{asset('public/fileHolder/img/5.png')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/5.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="{{asset('public/fileHolder/img/6.png')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/6.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="{{asset('public/fileHolder/img/7.png')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/7.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="{{asset('public/fileHolder/img/1.png')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/1.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="{{asset('public/fileHolder/img/2.png')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/2.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="{{asset('public/fileHolder/img/3.png')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/3.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="{{asset('public/fileHolder/img/4.png')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/4.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="{{asset('public/fileHolder/img/5.png')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/5.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="{{asset('public/fileHolder/img/6.png')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/6.jpg')}}" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="{{asset('public/fileHolder/img/7.png')}}" height="100" width="250" alt="" />
+			<img src="{{asset('public/fileholder/img/7.jpg')}}" height="100" width="250" alt="" />
 		</div>
 	</div>
 </div>
