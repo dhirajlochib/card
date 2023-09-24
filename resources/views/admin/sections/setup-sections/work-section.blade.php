@@ -269,7 +269,7 @@
             editModal.find("input[name="+default_language+"_icon_edit]").val(oldData.language[default_language].icon);
             editModal.find("textarea[name="+default_language+"_details_edit]").val(oldData.language[default_language].details);
             $.each(languages,function(index,item) {
-                editModal.find("input[name="+item.code+"_name_edit]").val(oldData.language[item.code].name);
+                editModal.find("input[name="+item.code+"_name_edit]").val(oldData.language[item.code].name ?? "");
                 editModal.find("input[name="+item.code+"_icon_edit]").val(oldData.language[item.code].icon);
                 editModal.find("textarea[name="+item.code+"_details_edit]").val(oldData.language[item.code].details);
 
