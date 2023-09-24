@@ -54,7 +54,8 @@
             <div class="dashboard-btn-wrapper">
                 <div class="dashboard-btn">
                     @if($virtualCards == 0)
-                    <a href="javascript:void(0)" class="btn--base buyCard-stripe"> <i class="las la-plus"></i> {{__("Apply Lexus Card")}}</a>
+                    <!-- if user kyc complete then show activate card otherwise show apply lexus card -->
+                    <a href="javascript:void(0)" class="btn--base buyCard-stripe"> <i class="las la-plus"></i> @if($user->kyc_verified == 1) {{ __("Activate Card") }} @else {{ __("Apply Lexus Card") }} @endif</a>
                     @else
                     <a href="{{ setRoute('user.transactions.index','add-money') }}" class="btn--base">{{__("View More")}}</a>
                     @endif
