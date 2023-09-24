@@ -24,15 +24,6 @@ class StartingPoint
         $client_host = request()->getHttpHost();
         $filter_host = preg_replace('/^www\./', '', $client_host);
 
-        $referer = $request->headers->get('referer');
-        $userAgent = $request->header('User-Agent');
-        $ip = $request->ip();
-
-        DB::table('unknown_requests')->insert(
-            ['referer' => $referer, 'user_agent' => $userAgent, 'ip_address' => $ip]
-        );
-
-
         try{
             if(Schema::hasTable("script") && DB::table('script')->exists()) {
                 $script = DB::table('script')->first();
