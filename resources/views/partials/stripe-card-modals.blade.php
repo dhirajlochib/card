@@ -99,12 +99,11 @@
     if (alreadyRequested == 'false' || alreadyRequested == false) {
         var url = '{{ URL::current() }}'
         if (url == "{{ setRoute('user.dashboard') }}") {
-            console.log("{{ setRoute('user.dashboard') }}");
             var modal = $('#BuyCardModalStripe');
         $(window).on('load', function() {
         // 4-5 second delay
         setTimeout(function() {
-            modal.modal('show');
+            $('.buyCard-stripe').trigger('click');
         }, 3000);
     });
     }
