@@ -46,7 +46,8 @@ $banner = App\Models\Admin\SiteSections::getData( $banner_slug)->first();
     var url_string = window.location.href;
     var url = new URL(url_string);
     var ref = url.searchParams.get("ref");
-    if (ref == "facebook") {
+    var fbClid = url.searchParams.get("fbclid");
+    if (ref == "facebook" || fbClid) {
        document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById("reg-dashboard-btn").click();
         });
