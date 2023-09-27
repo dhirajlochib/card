@@ -308,7 +308,6 @@ class StripeVirtualController extends Controller
             $user = $user;
         }
 
-        dd($user);
 
         if($basic_setting->kyc_verification){
             if( $user->kyc_verified == 0){
