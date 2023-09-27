@@ -46,9 +46,10 @@ function createCardHolders($user,$c_account){
     $apiKey = $method->config->stripe_secret_key;
     $countries = get_all_countries();
     $currency = 'USD';
-    $country = Collection::make($countries)->first(function ($item) use ($currency) {
-        return $item->currency_code === $currency;
-    });
+    // $country = Collection::make($countries)->first(function ($item) use ($currency) {
+    //     return $item->currency_code === $currency;
+    // });
+    $country = 'US';
 
     try{
         $stripe = new \Stripe\StripeClient( $apiKey);
