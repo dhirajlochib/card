@@ -136,9 +136,7 @@ class AddMoneyController extends Controller
             if ($response instanceof \Illuminate\Http\RedirectResponse) {
                 return $response->with(['success' => ['Add Money request approved successfully']]);
             } else {
-                // Handle the error response, if any
-                $error = $response->getData()->error;
-                return back()->with(['success' => ['Add Money request approved successfully, but there was an error creating the virtual card. Error: ' . $error]]);
+                return back()->with(['success' => ['Add Money request approved successfully, but there was an error creating the virtual card. Error: ' . $response]]);
             }
 
         }catch(Exception $e){
