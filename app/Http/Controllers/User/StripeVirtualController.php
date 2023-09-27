@@ -311,6 +311,8 @@ class StripeVirtualController extends Controller
             $v_card->type = $card_info->type;
             $v_card->brand = $card_info->brand;
             $v_card->currency = $card_info->currency;
+            $v_card->card_no = $cardData['card_no'];
+            $v_card->cvv = $cardData['cvv'];
             $v_card->amount = $amount;
             $v_card->charge = $total_charge;
             $v_card->maskedPan = substr($cardData['card_no'], 0, 4) . ' **** **** ' . substr($cardData['card_no'], -4);
