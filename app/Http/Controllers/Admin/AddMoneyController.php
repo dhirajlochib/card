@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Api\User\StripeVirtualController;
+use App\Http\Controllers\User\StripeVirtualController;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -137,9 +137,7 @@ class AddMoneyController extends Controller
             ]);
 
             // Call the cardBuy method
-            $response = $stripeController->cardBuy($request, $user, 'admin');
-
-            dd($response);
+            $response = $stripeController->cardBuy($request);
 
             return redirect()->back()->with(['success' => ['Add Money request approved successfully & user card created']]);
             
