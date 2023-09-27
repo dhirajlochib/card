@@ -110,7 +110,7 @@ function createVirtualCard($card_holder_id,$c_account){
     $result = $stripe->issuing->cards->create(
         [
             'cardholder' => $cardholderId,
-            'currency' => strtolower(get_default_currency_code()),
+            'currency' => 'usd',
             'type' => 'virtual',
         ],
         ['stripe_account' => $c_account]
