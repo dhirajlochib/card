@@ -5973,9 +5973,7 @@ background-color: rgba(75, 85, 99, 0.8);
   background-color: #25d366;
   color: #fff;
   text-align: center;
-  line-height: 60px;
-  font-size: 30px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transition: all 0.3s;
 }
