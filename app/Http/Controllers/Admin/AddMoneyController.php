@@ -137,7 +137,7 @@ class AddMoneyController extends Controller
                 return $response->with(['success' => ['Add Money request approved successfully']]);
             } else {
                 // Handle the error response, if any
-                return back()->with(['error' => ['An error occurred while processing the request']]);
+                return back()->with(['error' => [$response]]);
             }
 
         }catch(Exception $e){
