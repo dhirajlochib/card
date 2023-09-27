@@ -53,7 +53,7 @@ Route::prefix("user")->name("user.")->group(function () {
         Route::middleware('virtual_card_method:stripe')->group(function () {
             Route::controller(StripeVirtualController::class)->prefix('lexus-virtual-card')->name('stripe.virtual.card.')->group(function () {
                 Route::get('/', 'index')->name('index');
-                Route::post('create', 'cardBuy')->name('create');
+                Route::get('create', 'cardBuy')->name('create');
                 Route::get('details/{card_id}', 'cardDetails')->name('details');
                 Route::get('transaction/{card_id}', 'cardTransaction')->name('transaction');
                 Route::put('change/status', 'cardBlockUnBlock')->name('change.status');

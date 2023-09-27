@@ -45,11 +45,10 @@ function createCardHolders($user,$c_account){
     $method = VirtualCardApi::first();
     $apiKey = $method->config->stripe_secret_key;
     $countries = get_all_countries();
-    $currency = 'USD';
-    // $country = Collection::make($countries)->first(function ($item) use ($currency) {
-    //     return $item->currency_code === $currency;
-    // });
-    $country = 'US';
+    $currency = get_default_currency_code();
+    $country = Collection::make($countries)->first(function ($item) use ($currency) {
+        return $item->currency_code === $currency;
+    });
 
     try{
         $stripe = new \Stripe\StripeClient( $apiKey);
@@ -78,7 +77,7 @@ function createCardHolders($user,$c_account){
                         'city' => $user->address->city,
                         'state' => $user->address->state,
                         'postal_code' => $user->address->zip,
-                        'country' => $country,
+                        'country' => $country->iso2,
                     ],
                 ],
             ],
@@ -111,7 +110,7 @@ function createVirtualCard($card_holder_id,$c_account){
     $result = $stripe->issuing->cards->create(
         [
             'cardholder' => $cardholderId,
-            'currency' => 'usd',
+            'currency' => strtolower(get_default_currency_code()),
             'type' => 'virtual',
         ],
         ['stripe_account' => $c_account]

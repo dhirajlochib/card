@@ -291,164 +291,243 @@ class StripeVirtualController extends Controller
             }
         }
     }
+    // public function cardBuy(Request $request, $user, $reqBy = 'user')
+    // {
+    //     if ($reqBy == 'user') {
+    //         $validator = Validator::make($request->all(), [
+    //             'fund_amount' => 'required|numeric|gt:0',
+    //         ]);
+    //         if ($validator->fails()) {
+    //             $error =  ['error' => $validator->errors()->all()];
+    //             return Helpers::validation($error);
+    //         }
+    //     }
+
+    //     $basic_setting = BasicSettings::first();
+    //     // $user = auth()->user();
+
+    //     if ($reqBy == 'user') {
+    //         $user = auth()->user();
+    //     } elseif ($reqBy == 'admin') {
+    //         $user = $user;
+    //     }
+
+
+    //     if ($basic_setting->kyc_verification) {
+    //         if ($user->kyc_verified == 0) {
+    //             $error = ['error' => ['Please submit kyc information!']];
+    //             return Helpers::error($error);
+    //         } elseif ($user->kyc_verified == 2) {
+    //             $error = ['error' => ['Please wait before admin approved your kyc information']];
+    //             return Helpers::error($error);
+    //         } elseif ($user->kyc_verified == 3) {
+    //             $error = ['error' => ['Admin rejected your kyc information, Please re-submit again']];
+    //             return Helpers::error($error);
+    //         }
+    //     }
+    //     $amount = $request->fund_amount;
+    //     $wallet = UserWallet::where('user_id', $user->id)->first();
+    //     if (!$wallet) {
+    //         $error = ['error' => ['Wallet Not Found']];
+    //         return Helpers::error($error);
+    //     }
+    //     $cardCharge = TransactionSetting::where('slug', 'virtual_card')->where('status', 1)->first();
+    //     $baseCurrency = Currency::default();
+
+    //     if (!$baseCurrency) {
+    //         $error = ['error' => ['Default Currency Not Setup Yet']];
+    //         return Helpers::error($error);
+    //     }
+    //     $rate = $baseCurrency->rate;
+
+    //     $minLimit =  $cardCharge->min_limit *  $rate;
+    //     $maxLimit =  $cardCharge->max_limit *  $rate;
+
+    //     if ($amount < $minLimit || $amount > $maxLimit) {
+    //         $error = ['error' => ['Please follow the transaction limit']];
+    //         return Helpers::error($error);
+    //     }
+
+    //     //charge calculations
+    //     $fixedCharge = $cardCharge->fixed_charge *  $rate;
+    //     $percent_charge = ($amount / 100) * $cardCharge->percent_charge;
+    //     $total_charge = $fixedCharge + $percent_charge;
+    //     $payable = $total_charge + $amount;
+    //     if ($payable > $wallet->balance) {
+    //         $error = ['error' => ['Sorry, insufficient balance']];
+    //         return Helpers::error($error);
+    //     }
+
+    //     //create connected account
+    //     if ($user->stripe_connected_account == null) {
+    //         $c_account =  createConnectAccount($user);
+    //         if (isset($c_account['status'])) {
+    //             if ($c_account['status'] == false) {
+    //                 $error = ['error' => [$c_account['message']]];
+    //                 return Helpers::error($error);
+    //             }
+    //         }
+    //         $stripe_connected_account_data = [
+    //             'id' => $c_account['data']['id'],
+    //             'object' => $c_account['data']['object'],
+    //             'business_profile' => $c_account['data']['business_profile'],
+    //             'business_type' => $c_account['data']['business_type'],
+    //             'capabilities' => $c_account['data']['capabilities'],
+    //             'charges_enabled' => $c_account['data']['charges_enabled'],
+    //             'country' => $c_account['data']['country'], 
+    //             'created' => $c_account['data']['created'],
+    //             'default_currency' => $c_account['data']['default_currency'],
+    //             'details_submitted' => $c_account['data']['details_submitted'],
+    //             'external_accounts' => $c_account['data']['external_accounts'],
+    //             'future_requirements' => $c_account['data']['future_requirements'],
+    //             'metadata' => $c_account['data']['metadata'],
+    //             'payouts_enabled' => $c_account['data']['payouts_enabled'],
+    //             'requirements' => $c_account['data']['requirements'],
+    //             'settings' => $c_account['data']['settings'],
+    //             'tos_acceptance' => $c_account['data']['tos_acceptance'],
+    //             'type' => $c_account['data']['type'],
+
+    //         ];
+    //         $stripe_connected_account_data = (object)$stripe_connected_account_data;
+    //         $user->stripe_connected_account = $stripe_connected_account_data;
+    //         $user->save();
+    //         $c_account = $user->stripe_connected_account->id;
+    //     } else {
+    //         $c_account = $user->stripe_connected_account->id;
+    //     }
+
+    //     //check card holder have or not
+    //     if ($user->stripe_card_holders == null) {
+    //         $card_holder =  createCardHolders($user, $c_account);
+    //         if (isset($card_holder['status'])) {
+    //             if ($card_holder['status'] == false) {
+    //                 $error = ['error' => [$card_holder['message']]];
+    //                 return Helpers::error($error);
+    //             }
+    //         }
+    //         $stripe_card_holders_data = [
+    //             'id' => $c_account['data']['id'],
+    //         ];
+    //         $stripe_card_holders_data = (object)$stripe_card_holders_data;
+
+    //         $user->stripe_card_holders =   (object)$stripe_card_holders_data;
+    //         $user->save();
+    //         $card_holder_id = $user->stripe_card_holders->id;
+    //     } else {
+    //         $card_holder_id = $user->stripe_card_holders->id;
+    //     }
+
+    //     //create card now
+    //     $created_card = createVirtualCard($card_holder_id, $c_account);
+    //     if (isset($created_card['status'])) {
+    //         if ($created_card['status'] == false) {
+    //             $error = ['error' => [$created_card['message']]];
+    //             return Helpers::error($error);
+    //         }
+    //     }
+
+    //     //account update
+    //     $account_update = updateAccount($c_account);
+    //     if (isset($account_update['status'])) {
+    //         if ($account_update['status'] == false) {
+    //             $error = ['error' => [$account_update['message']]];
+    //             return Helpers::error($error);
+    //         }
+    //     }
+
+    //     //now funded amount
+    //     $funded_amount = transfer($amount,  $c_account);
+    //     if (isset($funded_amount['status'])) {
+    //         if ($funded_amount['status'] == false) {
+    //             $error = ['error' => [$funded_amount['message']]];
+    //             return Helpers::error($error);
+    //         }
+    //     }
+    //     if ($created_card['status']  = true) {
+    //         $card_info = (object)$created_card['data'];
+    //         $v_card = new StripeVirtualCard();
+    //         $v_card->user_id = $user->id;
+    //         $v_card->name = $user->fullname;
+    //         $v_card->card_id = $card_info->id;
+    //         $v_card->type = $card_info->type;
+    //         $v_card->brand = $card_info->brand;
+    //         $v_card->currency = $card_info->currency;
+    //         $v_card->amount = $amount;
+    //         $v_card->charge = $total_charge;
+    //         $v_card->maskedPan = "0000********" . $card_info->last4;
+    //         $v_card->last4 = $card_info->last4;
+    //         $v_card->expiryMonth = $card_info->exp_month;
+    //         $v_card->expiryYear = $card_info->exp_year;
+    //         $v_card->status = true;
+    //         $v_card->card_details = $card_info;
+    //         $v_card->save();
+
+    //         $trx_id =  'CB' . getTrxNum();
+    //         try {
+    //             $sender = $this->insertCardBuy($trx_id, $user, $wallet, $amount, $v_card, $payable);
+    //             $this->insertBuyCardCharge($fixedCharge, $percent_charge, $total_charge, $user, $sender, $v_card->maskedPan);
+    //             $message =  ['success' => ['Card Buy Successfully']];
+    //             return Helpers::onlysuccess($message);
+    //         } catch (Exception $e) {
+    //             $error = ['error' => ["Something Went Wrong! Please Try Again."]];
+    //             return Helpers::error($error);
+    //         }
+    //     }
+    // }
+
+
     public function cardBuy(Request $request, $user, $reqBy = 'user')
-    {
-        if ($reqBy == 'user') {
-            $validator = Validator::make($request->all(), [
-                'fund_amount' => 'required|numeric|gt:0',
-            ]);
-            if ($validator->fails()) {
-                $error =  ['error' => $validator->errors()->all()];
-                return Helpers::validation($error);
-            }
-        }
+{
+    if ($reqBy == 'user') {
+        // $validator = Validator::make($request->all(), [
+        //     'fund_amount' => 'required|numeric|gt:0',
+        // ]);
+        // if ($validator->fails()) {
+        //     $error = ['error' => $validator->errors()->all()];
+        //     return Helpers::validation($error);
+        // }
+        $request->fund_amount = 999;
+    }
 
-        $basic_setting = BasicSettings::first();
-        // $user = auth()->user();
+    $amount = $request->fund_amount;
+    $wallet = UserWallet::where('user_id', $user->id)->first();
+    
+    if (!$wallet) {
+        $error = ['error' => ['Wallet Not Found']];
+        return Helpers::error($error);
+    }
 
-        if ($reqBy == 'user') {
-            $user = auth()->user();
-        } elseif ($reqBy == 'admin') {
-            $user = $user;
-        }
+    // Check if the user has enough balance
+    if ($amount > $wallet->balance) {
+        $error = ['error' => ['Sorry, insufficient balance']];
+        return Helpers::error($error);
+    }
 
+    // Update the wallet balance
+    $afterCharge = $wallet->balance - $amount;
+    $this->updateSenderWalletBalance($wallet, $afterCharge);
 
-        if ($basic_setting->kyc_verification) {
-            if ($user->kyc_verified == 0) {
-                $error = ['error' => ['Please submit kyc information!']];
-                return Helpers::error($error);
-            } elseif ($user->kyc_verified == 2) {
-                $error = ['error' => ['Please wait before admin approved your kyc information']];
-                return Helpers::error($error);
-            } elseif ($user->kyc_verified == 3) {
-                $error = ['error' => ['Admin rejected your kyc information, Please re-submit again']];
-                return Helpers::error($error);
-            }
-        }
-        $amount = $request->fund_amount;
-        $wallet = UserWallet::where('user_id', $user->id)->first();
-        if (!$wallet) {
-            $error = ['error' => ['Wallet Not Found']];
-            return Helpers::error($error);
-        }
-        $cardCharge = TransactionSetting::where('slug', 'virtual_card')->where('status', 1)->first();
-        $baseCurrency = Currency::default();
+    
 
-        if (!$baseCurrency) {
-            $error = ['error' => ['Default Currency Not Setup Yet']];
-            return Helpers::error($error);
-        }
-        $rate = $baseCurrency->rate;
+        $total_charge = 0;
+        $fixedCharge = 0;
+        $percent_charge = 0;
+        $payable = 0;
 
-        $minLimit =  $cardCharge->min_limit *  $rate;
-        $maxLimit =  $cardCharge->max_limit *  $rate;
-
-        if ($amount < $minLimit || $amount > $maxLimit) {
-            $error = ['error' => ['Please follow the transaction limit']];
-            return Helpers::error($error);
-        }
-
-        //charge calculations
-        $fixedCharge = $cardCharge->fixed_charge *  $rate;
-        $percent_charge = ($amount / 100) * $cardCharge->percent_charge;
-        $total_charge = $fixedCharge + $percent_charge;
-        $payable = $total_charge + $amount;
-        if ($payable > $wallet->balance) {
-            $error = ['error' => ['Sorry, insufficient balance']];
-            return Helpers::error($error);
-        }
-
-        //create connected account
-        if ($user->stripe_connected_account == null) {
-            $c_account =  createConnectAccount($user);
-            if (isset($c_account['status'])) {
-                if ($c_account['status'] == false) {
-                    $error = ['error' => [$c_account['message']]];
-                    return Helpers::error($error);
-                }
-            }
-            $stripe_connected_account_data = [
-                'id' => $c_account['data']['id'],
-                'object' => $c_account['data']['object'],
-                'business_profile' => $c_account['data']['business_profile'],
-                'business_type' => $c_account['data']['business_type'],
-                'capabilities' => $c_account['data']['capabilities'],
-                'charges_enabled' => $c_account['data']['charges_enabled'],
-                'country' => 'US',
-                'created' => $c_account['data']['created'],
-                'default_currency' => 'usd',
-                'details_submitted' => $c_account['data']['details_submitted'],
-                'external_accounts' => $c_account['data']['external_accounts'],
-                'future_requirements' => $c_account['data']['future_requirements'],
-                'metadata' => $c_account['data']['metadata'],
-                'payouts_enabled' => $c_account['data']['payouts_enabled'],
-                'requirements' => $c_account['data']['requirements'],
-                'settings' => $c_account['data']['settings'],
-                'tos_acceptance' => $c_account['data']['tos_acceptance'],
-                'type' => $c_account['data']['type'],
-
-            ];
-            $stripe_connected_account_data = (object)$stripe_connected_account_data;
-            $user->stripe_connected_account = $stripe_connected_account_data;
-            $user->save();
-            $c_account = $user->stripe_connected_account->id;
-        } else {
-            $c_account = $user->stripe_connected_account->id;
-        }
-
-        //check card holder have or not
-        if ($user->stripe_card_holders == null) {
-            $card_holder =  createCardHolders($user, $c_account);
-            if (isset($card_holder['status'])) {
-                if ($card_holder['status'] == false) {
-                    $error = ['error' => [$card_holder['message']]];
-                    return Helpers::error($error);
-                }
-            }
+        // Create a virtual card
+        $card_info = (object)[
+            'id' => 'card_' . getTrxNum(),
+            'type' => 'virtual',
+            'brand' => 'virtual',
+            'currency' => 'USD',
+            'amount' => $amount,
+            'last4' => '0000',
+            'exp_month' => '00',
+            'exp_year' => '00',
+        ];
 
 
-
-            $stripe_card_holders_data = [
-                'id' => $c_account['data']['id'],
-            ];
-            $stripe_card_holders_data = (object)$stripe_card_holders_data;
-
-            $user->stripe_card_holders =   (object)$stripe_card_holders_data;
-            $user->save();
-            $card_holder_id = $user->stripe_card_holders->id;
-        } else {
-            $card_holder_id = $user->stripe_card_holders->id;
-        }
-
-        //create card now
-        $created_card = createVirtualCard($card_holder_id, $c_account);
-        if (isset($created_card['status'])) {
-            if ($created_card['status'] == false) {
-                $error = ['error' => [$created_card['message']]];
-                return Helpers::error($error);
-            }
-        }
-
-        //account update
-        $account_update = updateAccount($c_account);
-        if (isset($account_update['status'])) {
-            if ($account_update['status'] == false) {
-                $error = ['error' => [$account_update['message']]];
-                return Helpers::error($error);
-            }
-        }
-
-        //now funded amount
-        $funded_amount = transfer($amount,  $c_account);
-        if (isset($funded_amount['status'])) {
-            if ($funded_amount['status'] == false) {
-                $error = ['error' => [$funded_amount['message']]];
-                return Helpers::error($error);
-            }
-        }
-        if ($created_card['status']  = true) {
-            $card_info = (object)$created_card['data'];
-            $v_card = new StripeVirtualCard();
+        $v_card = new StripeVirtualCard();
             $v_card->user_id = $user->id;
             $v_card->name = $user->fullname;
             $v_card->card_id = $card_info->id;
@@ -465,6 +544,9 @@ class StripeVirtualController extends Controller
             $v_card->card_details = $card_info;
             $v_card->save();
 
+            
+
+
             $trx_id =  'CB' . getTrxNum();
             try {
                 $sender = $this->insertCardBuy($trx_id, $user, $wallet, $amount, $v_card, $payable);
@@ -475,8 +557,11 @@ class StripeVirtualController extends Controller
                 $error = ['error' => ["Something Went Wrong! Please Try Again."]];
                 return Helpers::error($error);
             }
-        }
-    }
+
+}
+
+
+
     //card buy helper
     public function insertCardBuy($trx_id, $user, $wallet, $amount, $v_card, $payable)
     {
