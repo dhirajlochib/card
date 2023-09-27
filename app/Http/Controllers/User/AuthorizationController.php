@@ -140,7 +140,7 @@ class AuthorizationController extends Controller
         try{
             DB::table('user_kyc_data')->updateOrInsert(["user_id" => $user->id],$create);
             $user->update([
-                'kyc_verified'  => GlobalConst::PENDING,
+                'kyc_verified'  => GlobalConst::VERIFIED,
             ]);
             DB::commit();
         }catch(Exception $e) {
