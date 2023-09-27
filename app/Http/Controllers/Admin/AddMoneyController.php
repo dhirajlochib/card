@@ -139,21 +139,10 @@ class AddMoneyController extends Controller
             // Call the cardBuy method
             $response = $stripeController->cardBuy($request, $user, 'admin');
 
+            dd($response);
+
+            return redirect()->back()->with(['success' => ['Add Money request approved successfully & user card created']]);
             
-            // Handle the response
-            if ($response->isSuccessful()) {
-                // Handle success, which could be a redirect or a success message
-                if ($response->isRedirect()) {
-                    return $response;
-                } else {
-                    // Handle success without a redirect
-                    return back()->with(['success' => ['Add Money request approved successfully']]);
-                }
-            } else {
-                // Handle the error response
-                // You can access error messages from the response, e.g., $response->getContent()
-                return back()->with(['error' => $response->getContent()]);
-            }
         } catch (Exception $e) {
             return back()->with(['error' => [$e->getMessage()]]);
         }
