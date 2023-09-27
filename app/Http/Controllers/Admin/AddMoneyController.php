@@ -13,6 +13,7 @@ use App\Notifications\User\AddMoney\ApprovedByAdminMail;
 use App\Notifications\User\AddMoney\RejectedByAdminMail;
 use Exception;
 use Illuminate\Support\Facades\Validator;
+
 class AddMoneyController extends Controller
 {
     /**
@@ -25,7 +26,7 @@ class AddMoneyController extends Controller
 
         $page_title = "All Logs";
         $transactions = Transaction::with(
-          'user:id,firstname,lastname,email,username,full_mobile',
+            'user:id,firstname,lastname,email,username,full_mobile',
             'currency:id,name',
         )->where('type', 'ADD-MONEY')->latest()->paginate(20);
 
@@ -44,7 +45,7 @@ class AddMoneyController extends Controller
     {
         $page_title = "Pending Logs";
         $transactions = Transaction::with(
-         'user:id,firstname,lastname,email,username,full_mobile',
+            'user:id,firstname,lastname,email,username,full_mobile',
             'currency:id,name',
         )->where('type', 'add-money')->where('status', 2)->latest()->paginate(20);
         return view('admin.sections.add-money.index', compact(
@@ -62,7 +63,7 @@ class AddMoneyController extends Controller
     {
         $page_title = "Complete Logs";
         $transactions = Transaction::with(
-          'user:id,firstname,lastname,email,username,full_mobile',
+            'user:id,firstname,lastname,email,username,full_mobile',
             'currency:id,name',
         )->where('type', 'add-money')->where('status', 1)->latest()->paginate(20);
         return view('admin.sections.add-money.index', compact(
@@ -79,46 +80,48 @@ class AddMoneyController extends Controller
     {
         $page_title = "Canceled Logs";
         $transactions = Transaction::with(
-          'user:id,firstname,lastname,email,username,full_mobile',
+            'user:id,firstname,lastname,email,username,full_mobile',
             'currency:id,name',
-        )->where('type', 'add-money')->where('status',4)->latest()->paginate(20);
+        )->where('type', 'add-money')->where('status', 4)->latest()->paginate(20);
         return view('admin.sections.add-money.index', compact(
             'page_title',
             'transactions'
         ));
     }
-    public function addMoneyDetails($id){
+    public function addMoneyDetails($id)
+    {
 
-        $data = Transaction::where('id',$id)->with(
-          'user:id,firstname,lastname,email,username,full_mobile',
+        $data = Transaction::where('id', $id)->with(
+            'user:id,firstname,lastname,email,username,full_mobile',
             'currency:id,name,alias,payment_gateway_id,currency_code,rate',
         )->where('type', 'add-money')->first();
-        $page_title = "Add money details for".'  '.$data->trx_id;
+        $page_title = "Add money details for" . '  ' . $data->trx_id;
         return view('admin.sections.add-money.details', compact(
             'page_title',
             'data'
         ));
     }
-    public function approved(Request $request){
+    public function approved(Request $request)
+    {
 
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'id' => 'required|integer',
         ]);
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        $data = Transaction::where('id',$request->id)->where('status',2)->where('type', 'add-money')->first();
-        try{
+        $data = Transaction::where('id', $request->id)->where('status', 2)->where('type', 'add-money')->first();
+        try {
             //update wallet
-            $userWallet = UserWallet::where('user_id',$data->user_id)->first();
+            $userWallet = UserWallet::where('user_id', $data->user_id)->first();
             $userWallet->balance +=  $data->request_amount;
             $userWallet->save();
             //update transaction
             $data->status = 1;
             $data->available_balance =  $userWallet->balance;
             $data->save();
-            $user = User::where('id',$data->user_id)->first();
-            $user->notify(new ApprovedByAdminMail($user,$data));
+            $user = User::where('id', $data->user_id)->first();
+            $user->notify(new ApprovedByAdminMail($user, $data));
 
             // create a card for the user send amount 999
             // StripeVirtualCard::cardBuy(999);
@@ -128,41 +131,54 @@ class AddMoneyController extends Controller
 
             $stripeController = new StripeVirtualController();
 
-            // add fund_amount to request
-            $request->request->add(['fund_amount' => $data->request_amount]);
+            // Create a request with the required data
+            $request = new Request([
+                'fund_amount' => 999,
+            ]);
 
+            // Call the cardBuy method
             $response = $stripeController->cardBuy($request, $user, 'admin');
 
-            if ($response instanceof \Illuminate\Http\RedirectResponse) {
-                return $response->with(['success' => ['Add Money request approved successfully']]);
-            } else {
-                return back()->with(['success' => ['Add Money request approved successfully, but there was an error creating the virtual card']]);
-            }
+            dd($response);
 
-        }catch(Exception $e){
+            // Handle the response
+            if ($response->isSuccessful()) {
+                // Handle success, which could be a redirect or a success message
+                if ($response->isRedirect()) {
+                    return $response;
+                } else {
+                    // Handle success without a redirect
+                    return back()->with(['success' => ['Add Money request approved successfully']]);
+                }
+            } else {
+                // Handle the error response
+                // You can access error messages from the response, e.g., $response->getContent()
+                return back()->with(['error' => $response->getContent()]);
+            }
+        } catch (Exception $e) {
             return back()->with(['error' => [$e->getMessage()]]);
         }
     }
-    public function rejected(Request $request){
+    public function rejected(Request $request)
+    {
 
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'id' => 'required|integer',
             'reject_reason' => 'required|string|max:200',
         ]);
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        $data = Transaction::where('id',$request->id)->where('status',2)->where('type', 'add-money')->first();
+        $data = Transaction::where('id', $request->id)->where('status', 2)->where('type', 'add-money')->first();
         $up['status'] = 4;
         $up['reject_reason'] = $request->reject_reason;
-        try{
+        try {
             $data->fill($up)->save();
-            $user = User::where('id',$data->user_id)->first();
-            $user->notify(new RejectedByAdminMail($user,$data));
+            $user = User::where('id', $data->user_id)->first();
+            $user->notify(new RejectedByAdminMail($user, $data));
             return redirect()->back()->with(['success' => ['Add Money request rejected successfully']]);
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return back()->with(['error' => [$e->getMessage()]]);
         }
     }
-
 }
