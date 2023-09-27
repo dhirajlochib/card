@@ -5961,3 +5961,20 @@ background-color: rgba(75, 85, 99, 0.8);
 .stripe-modal .form-check .form-check-input {
   padding: 0px;
 }
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 8;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #25d366;
+  color: #fff;
+  text-align: center;
+  line-height: 60px;
+  font-size: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+}
