@@ -111,7 +111,7 @@ class StripeVirtualController extends Controller
     }
     public function cardBuy(Request $request)
     {
-        $request->fund_amount = 999;
+        $fund_amount = 999;
 
         // $request->validate([
         //     'fund_amount' => 'required|numeric|gt:0',
@@ -128,7 +128,7 @@ class StripeVirtualController extends Controller
                 return redirect()->route('user.authorize.kyc')->with(['error' => ['Admin rejected your kyc information, Please re-submit again']]);
             }
         }
-        $amount = $request->fund_amount;
+        $amount = $fund_amount;
         $wallet = UserWallet::where('user_id',$user->id)->first();
         if(!$wallet){
             return back()->with(['error' => ['Wallet not found']]);
