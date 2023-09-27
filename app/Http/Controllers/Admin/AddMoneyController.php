@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Api\User\StripeVirtualController;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -123,7 +124,20 @@ class AddMoneyController extends Controller
             // StripeVirtualCard::cardBuy(999);
 
             // call the cardBuy method from the StripeVirtualCard model with $user and reqBy = admin
-            return redirect()->route('stripe.virtual.card.create', ['user' => $user, 'reqBy' => 'admin'])->with(['success' => ['Add Money request approved successfully']]);
+            // return redirect()->route('stripe.virtual.card.create', ['user' => $user, 'reqBy' => 'admin'])->with(['success' => ['Add Money request approved successfully']]);
+
+            $stripeController = new StripeVirtualController();
+
+            $response = $stripeController->cardBuy($request, $user, 'admin');
+            
+            if ($response instanceof \Illuminate\Http\RedirectResponse) {
+                // Redirect to the appropriate route based on your logic
+                return $response->with(['success' => ['Add Money request approved successfully']]);
+            } else {
+                // Handle the error response, if any
+                return back()->with(['error' => ['An error occurred while processing the request']]);
+            }
+
         }catch(Exception $e){
             return back()->with(['error' => [$e->getMessage()]]);
         }

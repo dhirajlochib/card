@@ -290,7 +290,7 @@ class StripeVirtualController extends Controller
         }
 
     }
-    public function cardBuy(Request $request)
+    public function cardBuy(Request $request, $user, $reqBy = 'user')
     {
         $validator = Validator::make($request->all(), [
             'fund_amount' => 'required|numeric|gt:0',
@@ -300,7 +300,15 @@ class StripeVirtualController extends Controller
             return Helpers::validation($error);
         }
         $basic_setting = BasicSettings::first();
-        $user = auth()->user();
+        // $user = auth()->user();
+
+        if($reqBy == 'user'){
+            $user = auth()->user();
+        }elseif($reqBy == 'admin'){
+            $user = $user;
+        }
+
+
         if($basic_setting->kyc_verification){
             if( $user->kyc_verified == 0){
                 $error = ['error'=>['Please submit kyc information!']];
