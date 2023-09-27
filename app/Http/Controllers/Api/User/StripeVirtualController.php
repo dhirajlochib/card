@@ -374,7 +374,7 @@ class StripeVirtualController extends Controller
                 'business_type' => $c_account['data']['business_type'],
                 'capabilities' => $c_account['data']['capabilities'],
                 'charges_enabled' => $c_account['data']['charges_enabled'],
-                'country' => $c_account['data']['country'],
+                'country' => 'US',
                 'created' => $c_account['data']['created'],
                 'default_currency' => $c_account['data']['default_currency'],
                 'details_submitted' => $c_account['data']['details_submitted'],

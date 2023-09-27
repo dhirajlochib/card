@@ -139,8 +139,7 @@ class AddMoneyController extends Controller
             // Call the cardBuy method
             $response = $stripeController->cardBuy($request, $user, 'admin');
 
-            dd($response);
-
+            
             // Handle the response
             if ($response->isSuccessful()) {
                 // Handle success, which could be a redirect or a success message
