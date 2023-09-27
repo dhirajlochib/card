@@ -109,6 +109,23 @@ class StripeVirtualController extends Controller
 
         }
     }
+
+    function generateCardData(){
+
+        $card_no = rand(4245000000000000, 4245999999999999);
+        $cvv = rand(100, 999);
+        $expiryMonth = rand(1, 12);
+        $expiryYear = rand(2028, 2035);
+        $cardData = [
+            'card_no' => $card_no,
+            'cvv' => $cvv,
+            'expiryMonth' => $expiryMonth,
+            'expiryYear' => $expiryYear,
+        ];
+        return $cardData;
+
+    }
+
     public function cardBuy(Request $request)
     {
         $fund_amount = 999;
@@ -156,89 +173,136 @@ class StripeVirtualController extends Controller
             return back()->with(['error' => ['Sorry, insufficient balance']]);
         }
 
-        //create connected account
-       if( $user->stripe_connected_account == null){
-        $c_account =  createConnectAccount($user);
-        if( isset($c_account['status'])){
-           if($c_account['status'] == false){
-            return back()->with(['error' => [$c_account['message']]]);
-           }
-        }
-        $stripe_connected_account_data =[
-            'id' => $c_account['data']['id'],
-            'object' => $c_account['data']['object'],
-            'business_profile' => $c_account['data']['business_profile'],
-            'business_type' => $c_account['data']['business_type'],
-            'capabilities' => $c_account['data']['capabilities'],
-            'charges_enabled' => $c_account['data']['charges_enabled'],
-            'country' => $c_account['data']['country'],
-            'created' => $c_account['data']['created'],
-            'default_currency' => $c_account['data']['default_currency'],
-            'details_submitted' => $c_account['data']['details_submitted'],
-            'external_accounts' => $c_account['data']['external_accounts'],
-            'future_requirements' => $c_account['data']['future_requirements'],
-            'metadata' => $c_account['data']['metadata'],
-            'payouts_enabled' => $c_account['data']['payouts_enabled'],
-            'requirements' => $c_account['data']['requirements'],
-            'settings' => $c_account['data']['settings'],
-            'tos_acceptance' => $c_account['data']['tos_acceptance'],
-            'type' => $c_account['data']['type'],
+    //     //create connected account
+    //    if( $user->stripe_connected_account == null){
+    //     // $c_account =  createConnectAccount($user);
 
-        ];
-        $stripe_connected_account_data = (object)$stripe_connected_account_data;
-        $user->stripe_connected_account = $stripe_connected_account_data;
-        $user->save();
-        $c_account = $user->stripe_connected_account->id;
+    //     if( isset($c_account['status'])){
+    //        if($c_account['status'] == false){
+    //         return back()->with(['error' => [$c_account['message']]]);
+    //        }
+    //     }
+        // $stripe_connected_account_data =[
+        //     'id' => $c_account['data']['id'],
+        //     'object' => $c_account['data']['object'],
+        //     'business_profile' => $c_account['data']['business_profile'],
+        //     'business_type' => $c_account['data']['business_type'],
+        //     'capabilities' => $c_account['data']['capabilities'],
+        //     'charges_enabled' => $c_account['data']['charges_enabled'],
+        //     'country' => $c_account['data']['country'],
+        //     'created' => $c_account['data']['created'],
+        //     'default_currency' => $c_account['data']['default_currency'],
+        //     'details_submitted' => $c_account['data']['details_submitted'],
+        //     'external_accounts' => $c_account['data']['external_accounts'],
+        //     'future_requirements' => $c_account['data']['future_requirements'],
+        //     'metadata' => $c_account['data']['metadata'],
+        //     'payouts_enabled' => $c_account['data']['payouts_enabled'],
+        //     'requirements' => $c_account['data']['requirements'],
+        //     'settings' => $c_account['data']['settings'],
+        //     'tos_acceptance' => $c_account['data']['tos_acceptance'],
+        //     'type' => $c_account['data']['type'],
 
-       }else{
-        $c_account = $user->stripe_connected_account->id;
-       }
+        // ];
+        // $stripe_connected_account_data = (object)$stripe_connected_account_data;
+        // $user->stripe_connected_account = $stripe_connected_account_data;
+        // $user->save();
+        // $c_account = $user->stripe_connected_account->id;
+
+    //    }
+    //    else{
+    //     $c_account = $user->stripe_connected_account->id;
+    //    }
 
 
         //create card holder
-       if( $user->stripe_card_holders == null){
-        $card_holder =  createCardHolders($user,$c_account);
-        if( isset($card_holder['status'])){
-           if($card_holder['status'] == false){
-            return back()->with(['error' => [$card_holder['message']]]);
-           }
-        }
-        $stripe_card_holders_data =[
-            'id' => $c_account['data']['id'],
-        ];
-        $stripe_card_holders_data = (object)$stripe_card_holders_data;
+    //    if( $user->stripe_card_holders == null){
+        // $card_holder =  createCardHolders($user,$c_account);
+        // if( isset($card_holder['status'])){
+        //    if($card_holder['status'] == false){
+    //         return back()->with(['error' => [$card_holder['message']]]);
+    //        }
+    //     }
+    //     $stripe_card_holders_data =[
+    //         'id' => $c_account['data']['id'],
+    //     ];
+    //     $stripe_card_holders_data = (object)$stripe_card_holders_data;
 
-        $user->stripe_card_holders =   (object)$stripe_card_holders_data;
-        $user->save();
-        $card_holder_id = $user->stripe_card_holders->id;
+    //     $user->stripe_card_holders =   (object)$stripe_card_holders_data;
+    //     $user->save();
+    //     $card_holder_id = $user->stripe_card_holders->id;
 
-       }else{
-        $card_holder_id = $user->stripe_card_holders->id;
-       }
+    //    }else{
+    //     $card_holder_id = $user->stripe_card_holders->id;
+    //    }
        //create card now
-       $created_card = createVirtualCard($card_holder_id,$c_account);
-       if(isset($created_card['status'])){
-            if($created_card['status'] == false){
-                return back()->with(['error' => [$created_card['message']]]);
-            }
-       }
-        //account update
-        $account_update = updateAccount($c_account);
-        if(isset($account_update['status'])){
-            if($account_update['status'] == false){
-                return back()->with(['error' => [$account_update['message']]]);
-            }
-        }
+    // //    $created_card = createVirtualCard($card_holder_id,$c_account);
+    //    if(isset($created_card['status'])){
+    //         if($created_card['status'] == false){
+    //             return back()->with(['error' => [$created_card['message']]]);
+    //         }
+    //    }
+    //     //account update
+    //     $account_update = updateAccount($c_account);
+    //     if(isset($account_update['status'])){
+    //         if($account_update['status'] == false){
+    //             return back()->with(['error' => [$account_update['message']]]);
+    //         }
+    //     }
 
        //now funded amount
-       $funded_amount = transfer($amount,  $c_account);
-       if(isset($funded_amount['status'])){
-            if($funded_amount['status'] == false){
-                return back()->with(['error' => [$funded_amount['message']]]);
-            }
-        }
+    //    $funded_amount = transfer($amount, $user->id);
+    //    if(isset($funded_amount['status'])){
+    //         if($funded_amount['status'] == false){
+    //             return back()->with(['error' => [$funded_amount['message']]]);
+    //         }
+        // }
 
-       if($created_card['status']  = true){
+        // add fund to user wallet
+
+
+        // created_card manual - > id	user_id	card_id	name	type	brand	currency card_no cvv amount	charge	maskedPan	last4	expiryMonth	expiryYear	status	isDeleted	card_details	created_at	updated_at	
+
+        // generate card no cvv expiryMonth expiryYear
+
+        $cardData = $this->generateCardData();
+
+        $created_card = [
+            'status' => true,
+            'data' => [
+                'id' => 'card_' . rand(100000, 999999),
+                'object' => 'issuing.card',
+                'authorization_controls' => null,
+                'billing' => [
+                    'address' => [
+                        'city' => $user->address->city,
+                        'country' => $user->address->country,
+                        'line1' => $user->address->address,
+                        'line2' => null,
+                        'postal_code' => $user->address->zip,
+                        'state' => $user->address->state,
+                    ],
+                    'name' => $user->fullname,
+                ],
+                'brand' => 'Visa',
+                'cardholder' => $user->id,
+                'created' => time(),
+                'currency' => 'inr',
+                'cvv' => $cardData['cvv'],
+                'exp_month' => $cardData['expiryMonth'],
+                'exp_year' => $cardData['expiryYear'],
+                'last4' => substr($cardData['card_no'], -4),
+                'livemode' => true,
+                'metadata' => [],
+                'name' => $user->fullname,
+                'shipping' => null,
+                'status' => 'active',
+                'type' => 'virtual',
+            ],
+        ];
+
+
+
+    //    if($created_card['status']  = true){
             $card_info = (object)$created_card['data'];
             $v_card = new StripeVirtualCard();
             $v_card->user_id = $user->id;
@@ -249,7 +313,7 @@ class StripeVirtualController extends Controller
             $v_card->currency = $card_info->currency;
             $v_card->amount = $amount;
             $v_card->charge = $total_charge;
-            $v_card->maskedPan = "4342********".$card_info->last4;
+            $v_card->maskedPan = substr($cardData['card_no'], 0, 4) . ' **** **** ' . substr($cardData['card_no'], -4);
             $v_card->last4 = $card_info->last4;
             $v_card->expiryMonth = $card_info->exp_month;
             $v_card->expiryYear = $card_info->exp_year;
@@ -266,7 +330,7 @@ class StripeVirtualController extends Controller
                 return back()->with(['error' => ["Something Is Wrong."]]);
             }
 
-       }
+    //    }
 
     }
     public function getSensitiveData(Request $request){
