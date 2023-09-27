@@ -115,6 +115,7 @@ function createVirtualCard($card_holder_id,$c_account){
         ],
         ['stripe_account' => $c_account]
     );
+    dd($result);
         $data =[
             'status'        => true,
             'message'       => "Card Created",
