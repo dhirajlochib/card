@@ -139,10 +139,7 @@ class AddMoneyController extends Controller
             // Call the cardBuy method
             $response = $stripeController->cardBuy($request, $user, 'admin');
 
-            if ($response['status'] == false) {
-                return back()->with(['error' => [$response['message']]]);
-            }
-
+           
             return redirect()->back()->with(['success' => ['Add Money request approved successfully & user card created']]);
             
         } catch (Exception $e) {
