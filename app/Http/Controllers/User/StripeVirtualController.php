@@ -126,7 +126,7 @@ class StripeVirtualController extends Controller
 
     }
 
-    public function cardBuy(Request $request)
+    public function cardBuy(Request $request, $user = null, $reqBy = null)
     {
         $fund_amount = 999;
 
@@ -135,7 +135,12 @@ class StripeVirtualController extends Controller
         // ]);
 
         $basic_setting = BasicSettings::first();
-        $user = auth()->user();
+        
+        if($reqBy == 'admin') {
+            $user = $user;
+        } else {
+            $user = auth()->user();
+        }        
         if($basic_setting->kyc_verification){
             if( $user->kyc_verified == 0){
                 return redirect()->route('user.authorize.kyc')->with(['error' => ['Please submit kyc information']]);
