@@ -113,9 +113,9 @@ class StripeVirtualController extends Controller
     {
         $request->fund_amount = 999;
 
-        $request->validate([
-            'fund_amount' => 'required|numeric|gt:0',
-        ]);
+        // $request->validate([
+        //     'fund_amount' => 'required|numeric|gt:0',
+        // ]);
 
         $basic_setting = BasicSettings::first();
         $user = auth()->user();
