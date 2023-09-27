@@ -129,9 +129,8 @@ class AddMoneyController extends Controller
             $stripeController = new StripeVirtualController();
 
             $response = $stripeController->cardBuy($request, $user, 'admin');
-            
+
             if ($response instanceof \Illuminate\Http\RedirectResponse) {
-                // Redirect to the appropriate route based on your logic
                 return $response->with(['success' => ['Add Money request approved successfully']]);
             } else {
                 // Handle the error response, if any
