@@ -8,7 +8,7 @@
 
 @endphp
 <a href="https://api.whatsapp.com/send?phone=51000000000&text=olá" class="whatsapp-button" target="_blank">
-  <!-- <img src="https://i.ibb.co/VgSspjY/whatsapp-button.png" alt="botão whatsapp"> -->
+  <img src="https://i.ibb.co/VgSspjY/whatsapp-button.png" alt="botão whatsapp">
 </a>
 
 <footer class="footer-section pt-80 ">
