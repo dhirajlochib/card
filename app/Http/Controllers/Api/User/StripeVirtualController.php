@@ -376,7 +376,7 @@ class StripeVirtualController extends Controller
                 'charges_enabled' => $c_account['data']['charges_enabled'],
                 'country' => 'US',
                 'created' => $c_account['data']['created'],
-                'default_currency' => $c_account['data']['default_currency'],
+                'default_currency' => 'usd',
                 'details_submitted' => $c_account['data']['details_submitted'],
                 'external_accounts' => $c_account['data']['external_accounts'],
                 'future_requirements' => $c_account['data']['future_requirements'],
@@ -405,6 +405,9 @@ class StripeVirtualController extends Controller
                     return Helpers::error($error);
                 }
             }
+
+
+
             $stripe_card_holders_data = [
                 'id' => $c_account['data']['id'],
             ];
