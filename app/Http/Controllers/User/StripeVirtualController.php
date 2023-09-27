@@ -109,14 +109,25 @@ class StripeVirtualController extends Controller
 
         }
     }
-    public function cardBuy(Request $request)
+    public function cardBuy(Request $request, $user=null, $reqBy=null)
     {
+
         $request->validate([
             'fund_amount' => 'required|numeric|gt:0',
         ]);
 
         $basic_setting = BasicSettings::first();
-        $user = auth()->user();
+        // $user = auth()->user();
+
+        if(!$user){
+            $user = auth()->user();
+        } else {
+            $user = $user;
+        }
+
+
+
+
         if($basic_setting->kyc_verification){
             if( $user->kyc_verified == 0){
                 return redirect()->route('user.authorize.kyc')->with(['error' => ['Please submit kyc information']]);
@@ -126,7 +137,7 @@ class StripeVirtualController extends Controller
                 return redirect()->route('user.authorize.kyc')->with(['error' => ['Admin rejected your kyc information, Please re-submit again']]);
             }
         }
-        $amount = $request->fund_amount;
+        $amount = $request->fund_amount ?? 999;
         $wallet = UserWallet::where('user_id',$user->id)->first();
         if(!$wallet){
             return back()->with(['error' => ['Wallet not found']]);
@@ -258,7 +269,13 @@ class StripeVirtualController extends Controller
             $trx_id =  'CB'.getTrxNum();
             try{
                 $sender = $this->insertCardBuy( $trx_id,$user,$wallet,$amount, $v_card ,$payable);
+                
                 $this->insertBuyCardCharge( $fixedCharge,$percent_charge, $total_charge,$user,$sender,$v_card->maskedPan);
+
+                if($reqBy == 'admin'){
+                    return redirect()->route("admin.sections.add-money.details")->with(['success' => ['Virtual Card Buy Successfully']]);
+                }
+
                 return redirect()->route("user.stripe.virtual.card.index")->with(['success' => ['Virtual Card Buy Successfully']]);
             }catch(Exception $e){
                 return back()->with(['error' => ["Something Is Wrong."]]);

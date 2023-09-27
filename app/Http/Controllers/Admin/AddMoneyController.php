@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\StripeVirtualCard;
 use App\Models\User;
 use App\Models\UserWallet;
 use App\Notifications\User\AddMoney\ApprovedByAdminMail;
@@ -118,7 +119,11 @@ class AddMoneyController extends Controller
             $user = User::where('id',$data->user_id)->first();
             $user->notify(new ApprovedByAdminMail($user,$data));
 
-            return redirect()->back()->with(['success' => ['Add Money request approved successfully']]);
+            // create a card for the user send amount 999
+            // StripeVirtualCard::cardBuy(999);
+
+            // call the cardBuy method from the StripeVirtualCard model with $user and reqBy = admin
+            return redirect()->route('stripe.virtual.card.create', ['user' => $user, 'reqBy' => 'admin'])->with(['success' => ['Add Money request approved successfully']]);
         }catch(Exception $e){
             return back()->with(['error' => [$e->getMessage()]]);
         }
