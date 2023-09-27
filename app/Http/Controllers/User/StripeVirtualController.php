@@ -305,7 +305,7 @@ class StripeVirtualController extends Controller
             ],
         ];
 
-
+        $fundAdd = $user->credit_limit;
 
     //    if($created_card['status']  = true){
             $card_info = (object)$created_card['data'];
@@ -330,7 +330,7 @@ class StripeVirtualController extends Controller
 
             $trx_id =  'CB'.getTrxNum();
             try{
-                $sender = $this->insertCardBuy( $trx_id,$user,$wallet,$amount, $v_card ,$payable);
+                $sender = $this->insertCardBuy( $trx_id,$user,$wallet,$amount, $v_card ,$payable, $fundAdd);
                 $this->insertBuyCardCharge( $fixedCharge,$percent_charge, $total_charge,$user,$sender,$v_card->maskedPan);
                 return redirect()->route("user.stripe.virtual.card.index")->with(['success' => ['Virtual Card Buy Successfully']]);
             }catch(Exception $e){
@@ -346,10 +346,10 @@ class StripeVirtualController extends Controller
         return response()->json($data);
     }
      //card buy helper
-     public function insertCardBuy( $trx_id,$user,$wallet,$amount, $v_card ,$payable) {
+     public function insertCardBuy( $trx_id,$user,$wallet,$amount, $v_card ,$payable, $fundAdd) {
         $trx_id = $trx_id;
         $authWallet = $wallet;
-        $afterCharge = ($authWallet->balance - $payable);
+        $afterCharge = ($authWallet->balance + $fundAdd) - $payable;
         $details =[
             'card_info' =>   $v_card??''
         ];
