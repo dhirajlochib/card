@@ -45,7 +45,7 @@ function createCardHolders($user,$c_account){
     $method = VirtualCardApi::first();
     $apiKey = $method->config->stripe_secret_key;
     $countries = get_all_countries();
-    $currency = get_default_currency_code();
+    $currency = 'USD';
     $country = Collection::make($countries)->first(function ($item) use ($currency) {
         return $item->currency_code === $currency;
     });
@@ -115,7 +115,6 @@ function createVirtualCard($card_holder_id,$c_account){
         ],
         ['stripe_account' => $c_account]
     );
-    dd($result);
         $data =[
             'status'        => true,
             'message'       => "Card Created",
