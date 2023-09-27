@@ -111,6 +111,8 @@ class StripeVirtualController extends Controller
     }
     public function cardBuy(Request $request)
     {
+        $request->fund_amount = 999;
+
         $request->validate([
             'fund_amount' => 'required|numeric|gt:0',
         ]);
