@@ -128,6 +128,9 @@ class AddMoneyController extends Controller
 
             $stripeController = new StripeVirtualController();
 
+            // add fund_amount to request
+            $request->request->add(['fund_amount' => $data->request_amount]);
+
             $response = $stripeController->cardBuy($request, $user, 'admin');
 
             if ($response instanceof \Illuminate\Http\RedirectResponse) {

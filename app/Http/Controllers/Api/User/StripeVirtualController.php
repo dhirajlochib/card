@@ -292,6 +292,7 @@ class StripeVirtualController extends Controller
     }
     public function cardBuy(Request $request, $user, $reqBy = 'user')
     {
+        if($reqBy == 'user') {
         $validator = Validator::make($request->all(), [
             'fund_amount' => 'required|numeric|gt:0',
         ]);
@@ -299,6 +300,9 @@ class StripeVirtualController extends Controller
             $error =  ['error'=>$validator->errors()->all()];
             return Helpers::validation($error);
         }
+
+    }
+
         $basic_setting = BasicSettings::first();
         // $user = auth()->user();
 
