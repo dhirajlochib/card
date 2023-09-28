@@ -139,7 +139,7 @@ class AuthorizationController extends Controller
         $get_values = $this->placeValueWithFields($user_kyc_fields,$validated);
 
         // find and get the credit limit from the $get_values array
-        $credit_limit = $this->find_value_by_key("credit_limit",$get_values);
+        $credit_limit = $this->find_value_by_key("monthly_income",$get_values);
 
         dd($credit_limit);
 
