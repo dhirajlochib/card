@@ -338,19 +338,43 @@
     //     });
     // });
 
-    // card-show-hide for card details and mask card number
-    $(document).ready(function() {
-        $('.card-show-hide').click(function() {
+    // // card-show-hide for card details and mask card number
+    // $(document).ready(function() {
+    //     $('.card-show-hide').click(function() {
+    //         $('.card-n').innerHTML = '';
+    //         <?php foreach ($card_pan as $key => $value) { ?>
+    //             $('.card-n').append('<div class="section card-num">{{ $value }}</div>');
+    //         <?php } ?>
+    //         $('#cvv').text('{{ $myCard->cvv }}')
+    //     });
+    // });
+
+
+
+    function handleToggleChangeCard(toggle) {
+        const selectedValue = toggle.checked ? 1 : 0;
+        if (selectedValue === 1) {
+            $(toggle).parent().find("i").removeClass('la-eye').addClass("la-eye-slash")
+            getSecureDataCard();
+        } else {
+            $(toggle).parent().find("i").removeClass('la-eye-slash').addClass("la-eye")
+            
             $('.card-n').innerHTML = '';
             <?php foreach ($card_pan as $key => $value) { ?>
                 $('.card-n').append('<div class="section card-num">{{ $value }}</div>');
             <?php } ?>
-            
-            
-            $('#cvv').text('{{ $myCard->cvv }}')
+            $('#cardCvv').text('{{ $myCard->cvv }}')
 
-        });
-    });
+        }
+
+    }
+
+    function getSecureDataCard() {
+        var card_id = "{{ $myCard->card_id }}";
+        $('.cardNumber').text('{{ $myCard->card_no }}');
+        $('#cardCvv').text('{{ $myCard->cvv }}')
+
+    }
 
 
 
