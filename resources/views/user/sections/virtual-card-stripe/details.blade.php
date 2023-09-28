@@ -3,38 +3,40 @@
 @push('css')
 <link rel="stylesheet" href="{{ asset('public/frontend/') }}/css/virtual-card.css">
 <style>
-.btn-ring {
-    position: absolute;
-   top: 0px;
-    right: 0px;
+    .btn-ring {
+        position: absolute;
+        top: 0px;
+        right: 0px;
 
-}
-.cardNumber iframe{
-    display: block;
-    width: 163px;
-    height: 28px;
-    background: #fff;
-    padding: 5px;
-    border-radius: 3px;
-}
-#cvv iframe {
-    display: block;
-    width: 37px;
-    height: 28px;
-    background: #fff;
-    padding: 5px;
-    border-radius: 3px;
-}
+    }
+
+    .cardNumber iframe {
+        display: block;
+        width: 163px;
+        height: 28px;
+        background: #fff;
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+    #cvv iframe {
+        display: block;
+        width: 37px;
+        height: 28px;
+        background: #fff;
+        padding: 5px;
+        border-radius: 3px;
+    }
 </style>
 @endpush
 
 @section('breadcrumb')
-    @include('user.components.breadcrumb',['breadcrumbs' => [
-        [
-            'name'  => __("Dashboard"),
-            'url'   => setRoute("user.dashboard"),
-        ]
-    ], 'active' => __(@$page_title)])
+@include('user.components.breadcrumb',['breadcrumbs' => [
+[
+'name' => __("Dashboard"),
+'url' => setRoute("user.dashboard"),
+]
+], 'active' => __(@$page_title)])
 @endsection
 
 @section('content')
@@ -51,8 +53,7 @@
                         <div class="card-custom">
                             <div class="flip">
                                 <div class="front bg_img" data-background="{{ asset('public/frontend/') }}/images/element/card.png">
-                                    <img class="logo" src="{{ get_fav($basic_settings) }}"
-                                    alt="site-logo">
+                                    <img class="logo" src="{{ get_fav($basic_settings) }}" alt="site-logo">
                                     <div class="investor">{{ @$basic_settings->site_name }}</div>
                                     <div class="chip">
                                         <div class="chip-line"></div>
@@ -67,7 +68,7 @@
                                         <path d="M7.584 11.438c.227.031.438.144.594.312 2.953 2.863 4.781 6.875 4.781 11.313 0 4.433-1.828 8.449-4.781 11.312-.398.387-1.035.383-1.422-.016-.387-.398-.383-1.035.016-1.421 2.582-2.504 4.187-5.993 4.187-9.875 0-3.883-1.605-7.372-4.187-9.875-.321-.282-.426-.739-.266-1.133.164-.395.559-.641.984-.617h.094zM1.178 15.531c.121.02.238.063.344.125 2.633 1.414 4.437 4.215 4.437 7.407 0 3.195-1.797 5.996-4.437 7.406-.492.258-1.102.07-1.36-.422-.257-.492-.07-1.102.422-1.359 2.012-1.075 3.375-3.176 3.375-5.625 0-2.446-1.371-4.551-3.375-5.625-.441-.204-.676-.692-.551-1.165.122-.468.567-.785 1.051-.742h.094z"></path>
                                     </svg>
                                     @php
-                                     $card_pan = str_split($myCard->maskedPan, 4);
+                                    $card_pan = str_split($myCard->maskedPan, 4);
                                     @endphp
                                     <div class="card-number">
                                         @foreach($card_pan as $key => $value)
@@ -90,8 +91,8 @@
                                     </div>
                                     <div class="terms">
                                         @php
-                                        echo  @$card_details->card_details
-                                    @endphp
+                                        echo @$card_details->card_details
+                                        @endphp
                                     </div>
                                 </div>
                             </div>
@@ -105,10 +106,12 @@
                                 </div>
                                 <h5 class="title">{{__("Transaction")}}</h5>
                             </a>
-                                <div class="details-icon">
-                                    <i class="menu-icon las la-eye"></i>
-                                </div>
-                                <h5 class="title">{{__("Show")}}</h5>
+                        </div>
+                        <div class="card-details">
+                            <div class="details-icon">
+                                <i class="menu-icon las la-eye"></i>
+                            </div>
+                            <h5 class="title">{{__("Show")}}</h5>
                         </div>
                     </div>
 
@@ -229,7 +232,7 @@
                                 <div class="preview-list-user-icon">
                                     <i class="las la-hourglass-start"></i>
                                 </div>
-                                <div class="preview-list-user-content " >
+                                <div class="preview-list-user-content ">
                                     <span>{{ __("CVV") }}</span>
                                 </div>
                             </div>
@@ -254,11 +257,11 @@
                             <div class="toggle-container">
                                 @include('admin.components.form.switcher',[
 
-                                    'name'          => 'status',
-                                    'value'         => old('status',@$myCard->status ),
-                                    'options'       => ['Active' => 1,'Inactive' => 0],
-                                    'onload'        => true,
-                                    'data_target'   =>@$myCard->id,
+                                'name' => 'status',
+                                'value' => old('status',@$myCard->status ),
+                                'options' => ['Active' => 1,'Inactive' => 0],
+                                'onload' => true,
+                                'data_target' =>@$myCard->id,
                                 ])
                             </div>
                         </div>
