@@ -139,12 +139,8 @@ class AuthorizationController extends Controller
         $get_values = $this->placeValueWithFields($user_kyc_fields,$validated);
 
         // find and get the credit limit from the $get_values array
-        $monthlyIncome = $this->find_value_by_key("monthly_income",$get_values);
-
-        $value = $monthlyIncome->value;
+        $value = $this->find_value_by_key("monthly_income",$get_values);
         $texXCreditLimitInRoundFigure = 0;
-
-$texXCreditLimitInRoundFigure = 0;
 
         if($value >= 10000 && $value <= 20000) {
             $texXCreditLimitInRoundFigure = 10000;
