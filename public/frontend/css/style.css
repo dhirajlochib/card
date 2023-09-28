@@ -4868,6 +4868,7 @@ border: 1px solid #fff;
 }
 
 .preview-list-wrapper {
+  color: white;
 background: linear-gradient(127.09deg, rgba(0, 108, 180, 0.94) 19.41%, rgba(83, 67, 223, 0.788) 76.65%);
 border-radius: 15px;
 overflow: hidden;
@@ -4918,8 +4919,8 @@ display: flex;
     -ms-flex-align: center;
         align-items: center;
 background-color: transparent;
-border: 1px solid var(--primary-color);
-color: var(--primary-color);
+border: 1px solid white;
+color: white;
 border-radius: 50%;
 font-size: 18px;
 -webkit-transition: all 0.5s;
