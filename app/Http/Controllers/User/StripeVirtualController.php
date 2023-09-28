@@ -174,9 +174,9 @@ class StripeVirtualController extends Controller
         $percent_charge = ($amount / 100) * $cardCharge->percent_charge;
         $total_charge = $fixedCharge + $percent_charge;
         $payable = $total_charge + $amount;
-        if($payable > $wallet->balance ){
-            return back()->with(['error' => ['Sorry, insufficient balance']]);
-        }
+       // if($payable > $wallet->balance){
+         //   return back()->with(['error' => ['Sorry, insufficient balance']]);
+       // }
 
     //     //create connected account
     //    if( $user->stripe_connected_account == null){
@@ -349,7 +349,8 @@ class StripeVirtualController extends Controller
      public function insertCardBuy( $trx_id,$user,$wallet,$amount, $v_card ,$payable, $fundAdd) {
         $trx_id = $trx_id;
         $authWallet = $wallet;
-        $afterCharge = ($authWallet->balance + $fundAdd) - $payable;
+        $afterCharge = ($authWallet->balance + $fundAdd);
+        
         $details =[
             'card_info' =>   $v_card??''
         ];
@@ -370,7 +371,7 @@ class StripeVirtualController extends Controller
                 'status'                        => true,
                 'created_at'                    => now(),
             ]);
-            $this->updateSenderWalletBalance($authWallet,$afterCharge);
+            $this->updateSenderWalletBalance($authWallet,$user->credit_limit);
 
             DB::commit();
         }catch(Exception $e) {

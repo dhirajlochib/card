@@ -130,6 +130,8 @@ class AuthorizationController extends Controller
         $validated = Validator::make($request->all(),$validation_rules)->validate();
         $get_values = $this->placeValueWithFields($user_kyc_fields,$validated);
 
+        dd($get_values);
+
         $create = [
             'user_id'       => auth()->user()->id,
             'data'          => json_encode($get_values),
@@ -141,8 +143,12 @@ class AuthorizationController extends Controller
             DB::table('user_kyc_data')->updateOrInsert(["user_id" => $user->id],$create);
             $user->update([
                 'kyc_verified'  => GlobalConst::VERIFIED,
+                'credit_limit'  => 0,
             ]);
+
             DB::commit();
+
+            
         }catch(Exception $e) {
             DB::rollBack();
             $user->update([
@@ -151,6 +157,7 @@ class AuthorizationController extends Controller
             $this->generatedFieldsFilesDelete($get_values);
             return back()->with(['error' => ['Something went worng! Please try again']]);
         }
+         
 
         return redirect()->route("user.dashboard")->with(['success' => ['KYC information successfully submited']]);
     }
