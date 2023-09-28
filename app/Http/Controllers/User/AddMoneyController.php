@@ -49,12 +49,18 @@ class AddMoneyController extends Controller
             $gateway->where('status', 1);
         })->get();
         $transactions = Transaction::auth()->addMoney()->latest()->take(5)->get();
+        $activeCard = Transaction::auth()->virtualCard()->latest()->take(5)->get();
+
         $alreadyRequested = false;
+        $haveCard = false;
         if($transactions->count() > 0) {
             $alreadyRequested = true;
+            if($activeCard->count() > 0) {
+                $haveCard = true;
+            }
         }
 
-        return view('user.sections.add-money.index',compact("page_title","payment_gateways_currencies","transactions","cardFee","alreadyRequested"));
+        return view('user.sections.add-money.index',compact("page_title","payment_gateways_currencies","transactions","cardFee","alreadyRequested", "haveCard"));
     }
 
     public function getCurrenciesXml(Request $request) {

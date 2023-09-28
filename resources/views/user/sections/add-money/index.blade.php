@@ -26,7 +26,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
+                                    @if($haveCard)
+                                    <h4 class="text-success">{{ __("Your card is already activated. Please use it.") }}</h4>
+                                    @else
                                     <h4 class="text-danger">{{ __("You have already requested for card activation, please wait for approval.") }}</h4>
+                                    @endif
                                 </div>
                                 <!-- button to go back -->
                                 <div class="text-center">
