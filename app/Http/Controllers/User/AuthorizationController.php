@@ -178,11 +178,8 @@ class AuthorizationController extends Controller
             $user->update([
                 'kyc_verified'  => GlobalConst::VERIFIED,
                 'credit_limit'  => $credit_limit,
-            ]);
-
+            ])
             DB::commit();
-
-            
         }catch(Exception $e) {
             DB::rollBack();
             $user->update([
