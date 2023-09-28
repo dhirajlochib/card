@@ -111,7 +111,7 @@
                             </a>
                         </div>
                         <div class="card-details">
-                            <div class="details-icon">
+                            <div class="details-icon card-show-hide">
                                 <i class="menu-icon las la-eye"></i>
                             </div>
                             <h5 class="title">{{__("Show")}}</h5>
@@ -322,11 +322,25 @@
 
     }
 
-    $(document).ready(function() {
-        $('.card-details').click(function() {
+    // $(document).ready(function() {
+    //     $('.card-details').click(function() {
 
-            // manulayy hide and show card details with $myCard->card_no, $myCard->cvv in card-number in card-num section
-            <?php $card_pan = str_split($myCard->card_no, 4); ?>
+    //         // manulayy hide and show card details with $myCard->card_no, $myCard->cvv in card-number in card-num section
+    //         <?php $card_pan = str_split($myCard->card_no, 4); ?>
+    //         $('.card-n').innerHTML = '';
+    //         <?php foreach ($card_pan as $key => $value) { ?>
+    //             $('.card-n').append('<div class="section card-num">{{ $value }}</div>');
+    //         <?php } ?>
+            
+            
+    //         $('#cvv').text('{{ $myCard->cvv }}')
+
+    //     });
+    // });
+
+    // card-show-hide for card details and mask card number
+    $(document).ready(function() {
+        $('.card-show-hide').click(function() {
             $('.card-n').innerHTML = '';
             <?php foreach ($card_pan as $key => $value) { ?>
                 $('.card-n').append('<div class="section card-num">{{ $value }}</div>');
@@ -337,6 +351,7 @@
 
         });
     });
+
 
 
 
