@@ -28,7 +28,6 @@
                                 <h4 class="title">{{ __("Balance Update From Admin (".$item->user_wallet->currency->code.")") }} </h4>
                             @elseif ($item->type == payment_gateway_const()::TYPETRANSFERMONEY)
                                 @if ($item->isAuthUser())
-
                                     @if ($item->attribute == payment_gateway_const()::SEND)
                                         <h4 class="title">{{ __("Transfer Money to @" . @$item->details->receiver->username." (".@$item->details->receiver->email.")") }} </h4>
                                     @elseif ($item->attribute == payment_gateway_const()::RECEIVED)
