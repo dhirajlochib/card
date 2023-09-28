@@ -201,7 +201,7 @@
                             </div>
                         </div>
                         <div class="preview-list-right">
-                            <span class="cardNumber">{{ $myCard->card_no }}</span>
+                            <span class="cardNumber">{{ $myCard->maskedPan }}</span>
                         </div>
                     </div>
                     <div class="preview-list-item">
@@ -231,7 +231,7 @@
                             </div>
                         </div>
                         <div class="preview-list-right text-white">
-                            <span id="cvv">{{ $myCard->cvv??"***" }}</span>
+                            <span id="cvv">{{ __("***") }}</span>
                         </div>
                     </div>
 
@@ -288,48 +288,30 @@
 
 @push('script')
 <script>
-    $(document).ready(function(){
-       switcherAjax("{{ setRoute('user.stripe.virtual.card.change.status') }}");
-   })
+    $(document).ready(function() {
+        switcherAjax("{{ setRoute('user.stripe.virtual.card.change.status') }}");
+    })
 
-   function handleToggleChange(toggle) {
-       const selectedValue = toggle.checked ? 1 : 0;
-       if (selectedValue === 1) {
-           $(toggle).parent().find("i").removeClass('la-eye').addClass("la-eye-slash")
-           getSecureData();
-       } else {
-           var card_pan = "{{ $myCard->maskedPan }}";
-           $(toggle).parent().find("i").removeClass('la-eye-slash').addClass("la-eye")
-           $('.cardNumber').text(card_pan);
-           $('#cvv').text('***')
-       }
-   }
-   function getSecureData(){
+    function handleToggleChange(toggle) {
+        const selectedValue = toggle.checked ? 1 : 0;
+        if (selectedValue === 1) {
+            $(toggle).parent().find("i").removeClass('la-eye').addClass("la-eye-slash")
+            getSecureData();
+        } else {
+            var card_pan = "{{ $myCard->maskedPan }}";
+            $(toggle).parent().find("i").removeClass('la-eye-slash').addClass("la-eye")
+            $('.cardNumber').text(card_pan);
+            $('#cvv').text('***')
+        }
+    }
+
+    function getSecureData() {
         var card_id = "{{ $myCard->card_id }}";
-        $.ajax({
-            url: "{{route('user.stripe.virtual.card.sensitive.data')}}",
-            type: "POST",
-            data: {
-                card_id: card_id,
-                _token: '{{csrf_token()}}'
-            },
-            dataType: 'json',
-            success: function (res) {
-                var data = res.result;
-                if(data.status == true){
-                    $('.cardNumber').text(data.number);
-                    $('#cvv').text(data.cvc)
-                }else{
-                    $('.cardNumber').text("{{ $myCard->maskedPan }}");
-                    $('#cvv').text("***")
-                    throwMessage('error',[data.message]);
-                }
+        $('.cardNumber').text('{{ $myCard->card_no }}');
+        $('#cvv').text('{{ $myCard->cvv }}')
 
-            }
-        });
-
-   }
-
+    }
 </script>
+
 
 @endpush
