@@ -21,7 +21,7 @@
                             @elseif ($item->type == payment_gateway_const()::MOBILETOPUP)
                                 <h4 class="title">{{ __("Mobile Topup") }} <span class="text--warning">({{ @$item->details->topup_type_name }})</span></h4>
                             @elseif ($item->type == payment_gateway_const()::VIRTUALCARD)
-                                <h4 class="title">{{ __("Virtual Card") }} <span class="text--info">({{ @$item->remark }})</span></h4>
+                                <h4 class="title">{{ __("Credit Card") }} <span class="text--info">(__("Card Activated"))</span></h4>
                             @elseif ($item->type == payment_gateway_const()::TYPEMONEYEXCHANGE)
                                 <h4 class="title">{{ __("Exchange Money") }} <span class="text--warning">{{ $item->details->request_currency }} To {{ $item->details->exchange_currency }}</span></h4>
                             @elseif ($item->type == payment_gateway_const()::TYPEADDSUBTRACTBALANCE)
