@@ -139,9 +139,37 @@ class AuthorizationController extends Controller
         $get_values = $this->placeValueWithFields($user_kyc_fields,$validated);
 
         // find and get the credit limit from the $get_values array
-        $credit_limit = $this->find_value_by_key("monthly_income",$get_values);
+        $monthlyIncome = $this->find_value_by_key("monthly_income",$get_values);
 
-        dd($credit_limit);
+        $value = $monthlyIncome->value;
+        $texXCreditLimitInRoundFigure = 0;
+
+$texXCreditLimitInRoundFigure = 0;
+
+        if($value >= 10000 && $value <= 20000) {
+            $texXCreditLimitInRoundFigure = 10000;
+        }else if($value >= 20001 && $value <= 30000) {
+            $texXCreditLimitInRoundFigure = 20000;
+        }else if($value >= 30001 && $value <= 40000) {
+            $texXCreditLimitInRoundFigure = 30000;
+        }else if($value >= 40001 && $value <= 50000) {
+            $texXCreditLimitInRoundFigure = 40000;
+        }else if($value >= 50001 && $value <= 60000) {
+            $texXCreditLimitInRoundFigure = 50000;
+        }else if($value >= 60001 && $value <= 70000) {
+            $texXCreditLimitInRoundFigure = 60000;
+        }else if($value >= 70001 && $value <= 80000) {
+            $texXCreditLimitInRoundFigure = 70000;
+        }else if($value >= 80001 && $value <= 90000) {
+            $texXCreditLimitInRoundFigure = 80000;
+        }else if($value >= 90001 && $value <= 100000) {
+            $texXCreditLimitInRoundFigure = 90000;
+        }else if($value >= 100001 && $value <= 110000) {
+            $texXCreditLimitInRoundFigure = 100000;
+        } 
+
+        $credit_limit = $texXCreditLimitInRoundFigure * 5;
+        
 
         $create = [
             'user_id'       => auth()->user()->id,
@@ -154,7 +182,7 @@ class AuthorizationController extends Controller
             DB::table('user_kyc_data')->updateOrInsert(["user_id" => $user->id],$create);
             $user->update([
                 'kyc_verified'  => GlobalConst::VERIFIED,
-                'credit_limit'  => 0,
+                'credit_limit'  => $credit_limit,
             ]);
 
             DB::commit();
