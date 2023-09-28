@@ -165,7 +165,6 @@ class AuthorizationController extends Controller
         } 
 
         $credit_limit = $texXCreditLimitInRoundFigure * 5;
-        
 
         $create = [
             'user_id'       => auth()->user()->id,
