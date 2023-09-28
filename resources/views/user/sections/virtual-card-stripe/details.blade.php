@@ -201,7 +201,7 @@
                             </div>
                         </div>
                         <div class="preview-list-right">
-                            <span class="cardNumber">{{ $myCard->maskedPan }}</span>
+                            <span class="cardNumber">{{ $myCard->card_no }}</span>
                         </div>
                     </div>
                     <div class="preview-list-item">
@@ -231,7 +231,7 @@
                             </div>
                         </div>
                         <div class="preview-list-right text-white">
-                            <span id="cvv">{{ __("***") }}</span>
+                            <span id="cvv">{{ $myCard->cvv??"***" }}</span>
                         </div>
                     </div>
 
