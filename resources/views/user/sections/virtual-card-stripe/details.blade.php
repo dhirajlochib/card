@@ -105,6 +105,10 @@
                                 </div>
                                 <h5 class="title">{{__("Transaction")}}</h5>
                             </a>
+                                <div class="details-icon">
+                                    <i class="menu-icon las la-eye"></i>
+                                </div>
+                                <h5 class="title">{{__("Show")}}</h5>
                         </div>
                     </div>
 
