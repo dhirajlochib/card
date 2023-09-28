@@ -119,6 +119,14 @@ class AuthorizationController extends Controller
         return view('user.sections.verify-kyc',compact("page_title","kyc_fields","user_kyc"));
     }
 
+    public function find_value_by_key($key,$array) {
+        foreach ($array as $item) {
+            if($item['name'] == $key) {
+                return $item['value'];
+            }
+        }
+    }
+
     public function kycSubmit(Request $request) {
 
         $user = auth()->user();
@@ -130,7 +138,10 @@ class AuthorizationController extends Controller
         $validated = Validator::make($request->all(),$validation_rules)->validate();
         $get_values = $this->placeValueWithFields($user_kyc_fields,$validated);
 
-        dd($get_values);
+        // find and get the credit limit from the $get_values array
+        $credit_limit = $this->find_value_by_key("credit_limit",$get_values);
+
+        dd($credit_limit);
 
         $create = [
             'user_id'       => auth()->user()->id,
