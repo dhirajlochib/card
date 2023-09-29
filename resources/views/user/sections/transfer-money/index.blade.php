@@ -14,7 +14,6 @@
 @endsection
 
 @section('content')
-
 <div class="body-wrapper">
     <div class="deposit-wrapper ptb-50">
         <div class="container">
@@ -29,9 +28,16 @@
                              @csrf
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label>{{ __("Receiver Email") }}<span>*</span></label>
-                                    <input type="email" required class="form--control checkUser" placeholder="{{ __("Enter Email") }}" name="email" value="{{ old("email") }}">
-                                    <label class="exist text-start"></label>
+                                    <label>{{ __("Full Name") }}<span>*</span></label>
+                                    <input type="email" required class="form--control" placeholder="{{ __("Enter Name") }}" name="name" value="{{ old("name") }}">
+                                </div>
+                                <div class="form-group">
+                                    <label>{{ __("Account Number") }}<span>*</span></label>
+                                    <input type="email" required class="form--control" placeholder="{{ __("Enter Account No.") }}" name="account_no" value="{{ old("account_no") }}">
+                                </div>
+                                <div class="form-group">
+                                    <label>{{ __("IFSC Code") }}<span>*</span></label>
+                                    <input type="email" required class="form--control" placeholder="{{ __("Enter IFSC") }}" name="ifsc_code" value="{{ old("ifsc_code") }}">
                                 </div>
                                 <div class="form-group">
                                     <label>{{ __("Enter Amount") }}<span>*</span></label>
@@ -115,40 +121,40 @@
 
 @push('script')
 <script>
-      $('.checkUser').on('keyup',function(e){
-            var url = '{{ route('user.transfer.money.check.exist') }}';
-            var value = $(this).val();
-            var token = '{{ csrf_token() }}';
-            if ($(this).attr('name') == 'email') {
-                var data = {email:value,_token:token}
+    //   $('').on('keyup',function(e){
+    //         var url = '{{ route('user.transfer.money.check.exist') }}';
+    //         var value = $(this).val();
+    //         var token = '{{ csrf_token() }}';
+    //         if ($(this).attr('name') == 'email') {
+    //             var data = {email:value,_token:token}
 
-            }
-            $.post(url,data,function(response) {
-                if(response.own){
-                    if($('.exist').hasClass('text--success')){
-                        $('.exist').removeClass('text--success');
-                    }
-                    $('.exist').addClass('text--danger').text(response.own);
-                    $('.transferBtn').attr('disabled',true)
-                    return false
-                }
-                if(response['data'] != null){
-                    if($('.exist').hasClass('text--danger')){
-                        $('.exist').removeClass('text--danger');
-                    }
-                    $('.exist').text(`Valid user for transfer money.`).addClass('text--success');
-                    $('.transferBtn').attr('disabled',false)
-                } else {
-                    if($('.exist').hasClass('text--success')){
-                        $('.exist').removeClass('text--success');
-                    }
-                    $('.exist').text('User doesn\'t  exists.').addClass('text--danger');
-                    $('.transferBtn').attr('disabled',true)
-                    return false
-                }
+    //         }
+    //         $.post(url,data,function(response) {
+    //             if(response.own){
+    //                 if($('.exist').hasClass('text--success')){
+    //                     $('.exist').removeClass('text--success');
+    //                 }
+    //                 $('.exist').addClass('text--danger').text(response.own);
+    //                 $('.transferBtn').attr('disabled',true)
+    //                 return false
+    //             }
+    //             if(response['data'] != null){
+    //                 if($('.exist').hasClass('text--danger')){
+    //                     $('.exist').removeClass('text--danger');
+    //                 }
+    //                 $('.exist').text(`Valid user for transfer money.`).addClass('text--success');
+    //                 $('.transferBtn').attr('disabled',false)
+    //             } else {
+    //                 if($('.exist').hasClass('text--success')){
+    //                     $('.exist').removeClass('text--success');
+    //                 }
+    //                 $('.exist').text('User doesn\'t  exists.').addClass('text--danger');
+    //                 $('.transferBtn').attr('disabled',true)
+    //                 return false
+    //             }
 
-            });
-        });
+    //         });
+    //     });
 </script>
     <script>
     var defualCurrency = "{{ get_default_currency_code() }}";
