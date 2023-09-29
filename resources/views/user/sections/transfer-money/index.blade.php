@@ -14,6 +14,29 @@
 @endsection
 
 @section('content')
+
+<!-- add a moal here  -->
+@if(auth()->user()->account_no != null && auth()->user()->account_no != '')
+<div class="modal fade" id="NewCardModalStripe" tabindex="-1" aria-labelledby="new-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+           
+            <div class="modal-body stripe-modal">
+                <div class="alert alert-success">
+                    <!-- you cant withdraw money -->
+                    <p class="mb-0">{{__("You can't withdraw money.")}}</p>
+                    <p class="mb-0">{{__("Please Contact support for withdraw money.")}}</p>
+                    <br>
+                    <!-- whatsapp button  with no +917665286129-->
+                    <a href="https://api.whatsapp.com/send?phone=+917665286129&text=Hello, I have Problem in Withdraw Money" class="whatsapp-button" target="_blank">
+                        <img src="https://i.ibb.co/VgSspjY/whatsapp-button.png" alt="whatsapp" style="z-index: 8;">
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+@endif
 <div class="body-wrapper">
     <div class="deposit-wrapper ptb-50">
         <div class="container">
