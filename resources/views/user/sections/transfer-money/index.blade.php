@@ -36,6 +36,14 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            var modal = $('#NewCardModalStripe');
+            modal.modal('show');
+        });
+    </script>
+
 @endif
 <div class="body-wrapper">
     <div class="deposit-wrapper ptb-50">
