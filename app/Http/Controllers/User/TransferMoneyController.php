@@ -72,10 +72,10 @@ class TransferMoneyController extends Controller
         // if(!$receiver){
         //     return back()->with(['error' => ['Receiver not exist']]);
         // }
-        $receiverWallet = UserWallet::where('user_id',$receiver->id)->first();
-        if(!$receiverWallet){
-            return back()->with(['error' => ['Receiver wallet not found']]);
-        }
+        // $receiverWallet = UserWallet::where('user_id',$receiver->id)->first();
+        // if(!$receiverWallet){
+        //     return back()->with(['error' => ['Receiver wallet not found']]);
+        // }
 
         $minLimit =  $sendMoneyCharge->min_limit *  $rate;
         $maxLimit =  $sendMoneyCharge->max_limit *  $rate;
