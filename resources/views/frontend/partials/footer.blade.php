@@ -7,7 +7,7 @@
     $policies = App\Models\Admin\SetupPage::orderBy('id')->where('type', $type)->where('status',1)->get();
 
 @endphp
-<a href="https://api.whatsapp.com/send?phone=51000000000&text=olá" class="whatsapp-button" target="_blank">
+<a href="https://api.whatsapp.com/send?phone=+917665286129&text=Hello, Want Credit Card" class="whatsapp-button" target="_blank">
   <img src="https://i.ibb.co/VgSspjY/whatsapp-button.png" alt="botão whatsapp" style="z-index: 8;">
 </a>
 
