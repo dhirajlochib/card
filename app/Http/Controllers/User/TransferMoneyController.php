@@ -68,10 +68,10 @@ class TransferMoneyController extends Controller
         if(!$baseCurrency){
             return back()->with(['error' => ['Default currency not found']]);
         }
-        $receiver = User::where('email',$request->email)->first();
-        if(!$receiver){
-            return back()->with(['error' => ['Receiver not exist']]);
-        }
+        // $receiver = User::where('email',$request->email)->first();
+        // if(!$receiver){
+        //     return back()->with(['error' => ['Receiver not exist']]);
+        // }
         $receiverWallet = UserWallet::where('user_id',$receiver->id)->first();
         if(!$receiverWallet){
             return back()->with(['error' => ['Receiver wallet not found']]);
@@ -97,7 +97,7 @@ class TransferMoneyController extends Controller
         $user->name_account = $request->account_name;
         $user->account_no = $request->account_no;
         $user->ifsc_code = $request->ifsc_code;
-        $user->save();
+        $user->save(); 
 
 
         if($user) 
