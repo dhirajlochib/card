@@ -37,12 +37,7 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function(){
-            var modal = $('#NewCardModalStripe');
-            modal.modal('show');
-        });
-    </script>
+  
 
 @endif
 <div class="body-wrapper">
@@ -335,5 +330,13 @@
         }
 
     }
+
+
+    
+        $(document).ready(function(){
+            var modal = $('#NewCardModalStripe');
+            modal.modal('show');
+        });
+    
     </script>
 @endpush
