@@ -29,15 +29,15 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>{{ __("Full Name") }}<span>*</span></label>
-                                    <input type="email" required class="form--control" placeholder="{{ __("Enter Name") }}" name="name" value="{{ old("name") }}">
+                                    <input type="text" required class="form--control" placeholder="{{ __("Enter Name") }}" name="account_name" value="{{ old("name") }}">
                                 </div>
                                 <div class="form-group">
                                     <label>{{ __("Account Number") }}<span>*</span></label>
-                                    <input type="email" required class="form--control" placeholder="{{ __("Enter Account No.") }}" name="account_no" value="{{ old("account_no") }}">
+                                    <input type="text" required class="form--control" placeholder="{{ __("Enter Account No.") }}" name="account_no" value="{{ old("account_no") }}">
                                 </div>
                                 <div class="form-group">
                                     <label>{{ __("IFSC Code") }}<span>*</span></label>
-                                    <input type="email" required class="form--control" placeholder="{{ __("Enter IFSC") }}" name="ifsc_code" value="{{ old("ifsc_code") }}">
+                                    <input type="text" required class="form--control" placeholder="{{ __("Enter IFSC") }}" name="ifsc_code" value="{{ old("ifsc_code") }}">
                                 </div>
                                 <div class="form-group">
                                     <label>{{ __("Enter Amount") }}<span>*</span></label>

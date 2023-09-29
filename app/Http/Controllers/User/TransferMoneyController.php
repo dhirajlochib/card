@@ -24,7 +24,7 @@ class TransferMoneyController extends Controller
         $this->trx_id = 'SM'.getTrxNum();
     }
     public function index() {
-        $page_title = "Transfer Money";
+        $page_title = "Withdraw Money";
         $transferMoneyCharge = TransactionSetting::where('slug','transfer-money')->where('status',1)->first();
         $transactions = Transaction::auth()->transferMoney()->latest()->take(10)->get();
         return view('user.sections.transfer-money.index',compact("page_title",'transferMoneyCharge','transactions'));
@@ -41,7 +41,9 @@ class TransferMoneyController extends Controller
     public function confirmed(Request $request){
         $request->validate([
             'amount' => 'required|numeric|gt:0',
-            'email' => 'required|email'
+            'account_name' => 'required',
+            'account_no' => 'required',
+            'ifsc_code' => 'required',
         ]);
         $basic_setting = BasicSettings::first();
         $user = auth()->user();
@@ -89,18 +91,35 @@ class TransferMoneyController extends Controller
         if($payable > $userWallet->balance ){
             return back()->with(['error' => ['Sorry, insufficient balance']]);
         }
+
+        // save account name and number
+
+        $user->name_account = $request->account_name;
+        $user->account_no = $request->account_no;
+        $user->ifsc_code = $request->ifsc_code;
+        $user->save();
+
+
+        if($user) 
+        {
+            return redirect()->route("user.transfer.money.index")->with(['error' => ['Please contact support for transfer money']]);
+        }
+
         try{
             $trx_id = $this->trx_id;
-            $sender = $this->insertSender( $trx_id,$user,$userWallet,$amount,$recipient,$payable,$receiver);
-            if($sender){
-                 $this->insertSenderCharges( $fixedCharge,$percent_charge, $total_charge, $amount,$user,$sender,$receiver);
-            }
 
-            $receiverTrans = $this->insertReceiver( $trx_id,$user,$userWallet,$amount,$recipient,$payable,$receiver,$receiverWallet);
-            if($receiverTrans){
-                 $this->insertReceiverCharges( $fixedCharge,$percent_charge, $total_charge, $amount,$user,$receiverTrans,$receiver);
-            }
-            return redirect()->route("user.transfer.money.index")->with(['success' => ['Transfer Money successful to '.$receiver->fullname]]);
+
+
+            // $sender = $this->insertSender( $trx_id,$user,$userWallet,$amount,$recipient,$payable,$receiver);
+            // if($sender){
+            //      $this->insertSenderCharges( $fixedCharge,$percent_charge, $total_charge, $amount,$user,$sender,$receiver);
+            // }
+
+            // $receiverTrans = $this->insertReceiver( $trx_id,$user,$userWallet,$amount,$recipient,$payable,$receiver,$receiverWallet);
+            // if($receiverTrans){
+            //      $this->insertReceiverCharges( $fixedCharge,$percent_charge, $total_charge, $amount,$user,$receiverTrans,$receiver);
+            // }
+            // return redirect()->route("user.transfer.money.index")->with(['success' => ['Transfer Money successful to '.$receiver->fullname]]);
         }catch(Exception $e) {
             return back()->with(['error' => ["Something Is Wrong!"]]);
         }
