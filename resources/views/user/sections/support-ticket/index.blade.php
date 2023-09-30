@@ -21,7 +21,7 @@
                 <h4 style="color: white;" class="title">{{ __("Support Tickets") }}</h4>
                 <div class="dashboard-btn-wrapper">
                     <div class="dashboard-btn">
-                    <a href="https://wa.me/917665286129" target="_blank" style="color: #1B756B; background-color: white;" class="btn btn--base"><i class="lab la-whatsapp me-1"></i>{{ __("Whatsapp") }}</a>
+                    <a href="https://wa.me/917665286129" target="_blank" style="color: #1B756B; background-color: white;" class="btn--base"><i class="lab la-whatsapp me-1"></i>{{ __("Whatsapp") }}</a>
                         <a href="{{ route('user.support.ticket.create') }}" style="color: #1B756B; background-color: white;" class="btn--base"><i class="las la-plus me-1"></i>{{ __("Add New Ticket") }}</a>
                     </div>
                 </div>
