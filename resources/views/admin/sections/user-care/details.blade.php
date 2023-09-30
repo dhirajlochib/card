@@ -277,12 +277,7 @@
         <div class="card-header">
             <h6 class="title">{{ __("Information of Logs") }}</h6>
             <span class="{{ $user->kycStringStatus->class }}">{{ $user->kycStringStatus->value }}</span>
-            @include('admin.components.link.custom',[
-                'href'          => setRoute('admin.users.details',$user->username),
-                'text'          => "Profile",
-                'class'         => "btn btn--base",
-                'permission'    => "admin.users.details",
-            ])
+            
         </div>
         <div class="card-body">
             @if ($user->kyc != null && $user->kyc->data != null)
