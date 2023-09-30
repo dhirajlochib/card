@@ -49,19 +49,19 @@ class DashboardController extends Controller
 
         // Dashboard box data
         // Add Money
-        $add_money_balance = Transaction::toBase()->where('type', PaymentGatewayConst::TYPEADDMONEY)->where('status', 1)->sum('request_amount');
-        $add_money_total_balance = Transaction::toBase()->where('type', PaymentGatewayConst::TYPEADDMONEY)->sum('request_amount');
+        $add_money_balance = Transaction::toBase()->where('type', PaymentGatewayConst::TYPEADDMONEY)->where('status', 1)->sum('payable');
+        $add_money_total_balance = Transaction::toBase()->where('type', PaymentGatewayConst::TYPEADDMONEY)->sum('payable');
         $today_add_money =  Transaction::toBase()
                             ->where('type', PaymentGatewayConst::TYPEADDMONEY)
                             ->where('status', 1)
                             ->whereDate('created_at','>=',$this_month_start)
                             ->whereDate('created_at','<=',$this_month_end)
-                            ->sum('request_amount');
+                            ->sum('payable');
         $last_month_add_money =  Transaction::toBase()->where('status', 1)
                                             ->where('type', PaymentGatewayConst::TYPEADDMONEY)
                                             ->whereDate('created_at','>=',$last_month_start)
                                             ->whereDate('created_at','<=',$last_month_end)
-                                            ->sum('request_amount');
+                                            ->sum('payable');
         if($last_month_add_money == 0){
             $add_money_percent = 100;
         }else{
@@ -69,18 +69,18 @@ class DashboardController extends Controller
         }
 
         // Pending Add Money
-        $pending_add_money_balance = Transaction::toBase()->where('type', PaymentGatewayConst::TYPEADDMONEY)->where('status', 2)->sum('request_amount');
+        $pending_add_money_balance = Transaction::toBase()->where('type', PaymentGatewayConst::TYPEADDMONEY)->where('status', 2)->sum('payable');
         $today_pending_add_money =  Transaction::toBase()
                                     ->where('type', PaymentGatewayConst::TYPEADDMONEY)
                                     ->where('status', 2)
                                     ->whereDate('created_at','>=',$this_month_start)
                                     ->whereDate('created_at','<=',$this_month_end)
-                                    ->sum('request_amount');
+                                    ->sum('payable');
         $last_month_pending_add_money =  Transaction::toBase()->where('status', 2)
                                             ->where('type', PaymentGatewayConst::TYPEADDMONEY)
                                             ->whereDate('created_at','>=',$last_month_start)
                                             ->whereDate('created_at','<=',$last_month_end)
-                                            ->sum('request_amount');
+                                            ->sum('payable');
         if($last_month_pending_add_money == 0){
             $pending_add_money_percent = 100;
         }else{
@@ -177,27 +177,27 @@ class DashboardController extends Controller
             $start = strtotime('+1 day',$start);
         }
          // Donation
-         $donation_balance = Transaction::toBase()->where('type', PaymentGatewayConst::TYPEADDMONEY)->where('status', 1)->sum('request_amount');
+         $donation_balance = Transaction::toBase()->where('type', PaymentGatewayConst::TYPEADDMONEY)->where('status', 1)->sum('payable');
          $today_add_money_balance = Transaction::toBase()
                                      ->where('type', PaymentGatewayConst::TYPEADDMONEY)
                                      ->whereDate('created_at', $this_month_end)
                                      ->where('status', 1)
-                                     ->sum('request_amount');
+                                     ->sum('payable');
          $this_week_add_money_balance = Transaction::toBase()
                                      ->where('type', PaymentGatewayConst::TYPEADDMONEY)
                                      ->whereDate('created_at', '>=', $this_weak)
                                      ->where('status', 1)
-                                     ->sum('request_amount');
+                                     ->sum('payable');
          $this_month_add_money_balance = Transaction::toBase()
                                      ->where('type', PaymentGatewayConst::TYPEADDMONEY)
                                      ->whereDate('created_at', '>=', $this_month)
                                      ->where('status', 1)
-                                     ->sum('request_amount');
+                                     ->sum('payable');
          $this_year_add_money_balance = Transaction::toBase()
                                      ->where('type', PaymentGatewayConst::TYPEADDMONEY)
                                      ->whereDate('created_at', '>=', $this_year)
                                      ->where('status', 1)
-                                     ->sum('request_amount');
+                                     ->sum('payable');
         // Chart one
         $chart_one_data = [
             'pending_data'  => $pending_data,
