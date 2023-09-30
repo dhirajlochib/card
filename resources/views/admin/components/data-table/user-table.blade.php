@@ -20,7 +20,7 @@
                 <td><span>{{ $item->fullname }}</span></td>
                 <td>{{ $item->email }}</td>
                 <td>
-                    <span class="{{ $item->kycStatus->class }}">{{ $item->kycStringStatus->value }}</span>
+                    <span class="{{ $item->kycStringStatus->class }}">{{ $item->kycStringStatus->value }}</span>
                 </td>
                 <td>
                     @if (Route::currentRouteName() == "admin.users.kyc.unverified")
