@@ -18,10 +18,10 @@
     <div class="table-area mt-10">
         <div class="table-wrapper">
             <div class="dashboard-header-wrapper">
-                <h4 class="title">{{ __("Support Tickets") }}</h4>
+                <h4 style="color: white;" class="title">{{ __("Support Tickets") }}</h4>
                 <div class="dashboard-btn-wrapper">
                     <div class="dashboard-btn">
-                        <a href="{{ route('user.support.ticket.create') }}" class="btn--base"><i class="las la-plus me-1"></i>{{ __("Add New") }}</a>
+                        <a href="{{ route('user.support.ticket.create') }}" style="color: #1B756B; background-color: white;" class="btn--base"><i class="las la-plus me-1"></i>{{ __("Add New") }}</a>
                     </div>
                 </div>
             </div>

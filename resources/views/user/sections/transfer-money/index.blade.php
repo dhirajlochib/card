@@ -28,9 +28,7 @@
                     <p class="mb-0">{{__("Please Contact support for withdraw money.")}}</p>
                     <br>
                     <!-- whatsapp button  with no +917665286129-->
-                    <a href="https://api.whatsapp.com/send?phone=+917665286129&text=Hello, I have Problem in Withdraw Money" class="whatsapp-button" target="_blank">
-                        <img src="https://i.ibb.co/VgSspjY/whatsapp-button.png" alt="whatsapp" style="z-index: 8;">
-                    </a>
+                    <a
                 </div>
                 
             </div>
