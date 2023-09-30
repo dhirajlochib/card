@@ -87,7 +87,7 @@
                                                 @endforeach
                                                     <div class="col-xl-12 col-lg-12">
                                                             <a href="https://imjo.in/SgsJST" target="_blank" class="btn--base w-100 btn-loading"> {{ __("Pay Here") }}</a>
-                                                        <button type="submit" class="btn--base w-100 btn-loading"> {{ __("Confirm Payment") }}
+                                                        <button type="submit" class="btn--base w-100 btn-loading" style="margin-top: 20px;"> {{ __("Confirm Payment") }}
                                                             </button>
                                                     </div>
                                                 </div>
