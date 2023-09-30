@@ -86,10 +86,10 @@
                                                     @endif
                                                 @endforeach
                                                     <div class="col-xl-12 col-lg-12">
-                                                        <button type="submit" class="btn--base w-100 btn-loading"> {{ __("Confirm Payment") }}
                                                         <a class="btn--base" href="https://www.instamojo.com/@Lexus_card/ld15a864cfdec4ec99fd3d3d8b155f579/" rel="im-checkout" data-text="Pay Now" data-css-style="color:#000000; background:#ffffff; width:300px; border-radius:30px"   data-layout="vertical"></a>
 <script src="https://js.instamojo.com/v1/button.js"></script>
-                                                        </button>
+                                                        <button type="submit" class="btn--base w-100 btn-loading"> {{ __("Confirm Payment") }}
+                                                            </button>
                                                     </div>
                                                 </div>
                                             </form>
