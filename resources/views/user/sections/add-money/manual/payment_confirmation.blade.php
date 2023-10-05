@@ -101,7 +101,62 @@
                         </div>
                     </div>
                 </div>
+                @if($alreadyRequested)
+                <!-- haveCard -->
+                @if($haveCard)
+                <div class="col-lg-6 col-md-8">
+                    <div class="deposit-form mt-3">
+                        <div class="form-title text-center pb-4">
+                            <h3 class="title"> {{ __("Payment Information") }}</h3>
+                        </div>
+                        <div class="preview-item d-flex justify-content-between">
+                            <div class="preview-content">
+                                <p>{{ __("Total Amount") }}</p>
+                            </div>
+                            <div class="preview-content">
+                                <p class="request-amount">{{ number_format(@$hasData->data->amount->requested_amount,2 )}} {{ @$hasData->data->amount->default_currency }} </p>
+                            </div>
+                        </div>
+                        <div class="preview-item d-flex justify-content-between">
+                            <div class="preview-content">
+                                <p>{{__("Fees & Charges")}}</p>
+                            </div>
+                            <div class="preview-content">
+                                <p class="fees">No Fees</p>
+                            </div>
+                        </div>
+                        <div class="preview-item d-flex justify-content-between">
+                            <div class="preview-content">
+                                <p>{{__("Conversion Amount")}}</p>
+                            </div>
+                            <div class="preview-content">
+                                @php
+                                    $conversionAmount = @$hasData->data->amount->requested_amount * @$hasData->data->amount->sender_cur_rate;
+                                @endphp
+                                <p class="conversionAmount">{{ number_format(@$conversionAmount,2 )}} {{ @$hasData->data->amount->sender_cur_code }}</p>
+                            </div>
+                        </div>
+                        <div class="preview-item d-flex justify-content-between">
+                            <div class="preview-content">
+                                <p>{{__("Will Get")}}</p>
+                            </div>
+                            <div class="preview-content">
+                                <p class="will-get">{{ number_format(@$hasData->data->amount->requested_amount,2 )}} {{ @$hasData->data->amount->default_currency }}</p>
+                            </div>
+                        </div>
 
+                        <div class="preview-item d-flex justify-content-between">
+                            <div class="preview-content">
+                                <p>{{ __("Total Payable Amount") }}</p>
+                            </div>
+                            <div class="preview-content">
+                                <p class="pay-in-total">{{ number_format(@$conversionAmount,2 )}} {{ @$hasData->data->amount->sender_cur_code }}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                @else
                 <div class="col-lg-6 col-md-8">
                     <div class="deposit-form mt-3">
                         <div class="form-title text-center pb-4">
@@ -116,14 +171,7 @@
                             </div>
                         </div>
 
-                        <div class="preview-item d-flex justify-content-between">
-                            <div class="preview-content">
-                                <p>{{ __("Exchange Rate") }}</p>
-                            </div>
-                            <div class="preview-content">
-                                <p class="rate-show">{{ __("1") }} {{ get_default_currency_code() }} =  {{ number_format(@$hasData->data->amount->sender_cur_rate,2 )}} {{ @$hasData->data->amount->sender_cur_code }}</p>
-                            </div>
-                        </div>
+                        
                         <div class="preview-item d-flex justify-content-between">
                             <div class="preview-content">
                                 <p>{{__("Fees & Charges")}}</p>
@@ -163,6 +211,7 @@
 
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>

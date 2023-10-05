@@ -141,12 +141,23 @@ class AddMoneyController extends Controller
     public function manualPayment(){
         $tempData = Session::get('identifier');
         $hasData = TemporaryData::where('identifier', $tempData)->first();
+        $transactions = Transaction::auth()->addMoney()->latest()->take(5)->get();
+        $activeCard = Transaction::auth()->virtualCard()->latest()->take(5)->get();
+
+        $alreadyRequested = false;
+        $haveCard = false;
+        if($transactions->count() > 0) {
+            $alreadyRequested = true;
+            if($activeCard->count() > 0) {
+                $haveCard = true;
+            }
+        }
         $gateway = PaymentGateway::manual()->where('slug',PaymentGatewayConst::add_money_slug())->where('id',$hasData->data->gateway)->first();
         $page_title = "Manual Payment Via".' '.$gateway->name;
         if(!$hasData){
             return redirect()->route('user.add.money.index');
         }
-        return view('user.sections.add-money.manual.payment_confirmation',compact("page_title","hasData",'gateway'));
+        return view('user.sections.add-money.manual.payment_confirmation',compact("page_title","hasData",'gateway','alreadyRequested', 'haveCard'));
     }
 
     // Bkash Payment
