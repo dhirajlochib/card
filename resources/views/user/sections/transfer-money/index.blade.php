@@ -28,7 +28,6 @@
                     <p class="mb-0">{{__("You can't withdraw money.")}}</p>
                     <p class="mb-0">{{__("You Need To Pay FD Amount To Withdraw Money.")}}</p>
                     <br>
-                    <!-- whatsapp button  with no +917665286129-->
             </div>
             <div class="modal-footer">
                     
@@ -39,7 +38,41 @@
         </div>
     </div>
 
-  
+
+
+
+
+    <div class="body-wrapper">
+    <div class="deposit-wrapper ptb-50">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8 pb-30">
+                    <div class="deposit-form">
+                        <div class="form-title text-center">
+                            <h3 class="title">{{ __("Transfer Money") }}</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                                <h3 class="title">{{ __("You can't add money at this time.") }}</h3>
+                                <h3 class="title">{{ __("Please contact support for assistance.") }}</h3>
+                                <a href="{{setRoute("user.add.money.index")}}" style="color: #1B756B; background-color: white;" class="btn btn--base">{{__("View Detail")}}</a>
+                    <!-- whatsapp button  with no +917665286129-->
+                               
+                                <a href="https://api.whatsapp.com/send?phone=917665286129&text=Hi%20I%20am%20{{auth()->user()->name}}%20I%20want%20to%20withdraw%20money%20from%20my%20account%20my%20email%20is%20{{auth()->user()->email}}%20please%20help%20me%20to%20withdraw%20money%20from%20my%20account" target="_blank" style="color: #1B756B; background-color: white;" class="btn btn--base">{{__("Contact Support")}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
 
 @endif
 <div class="body-wrapper">
