@@ -23,50 +23,49 @@
 
                     <!-- check already requested or not -->
                     @if($alreadyRequested)
+                    @if($haveCard)
+                    <div class="deposit-form" style="background-color: #1b756b; color: #fff;">
+                        <div class="form-title text-center">
+                            <h3 class="title">Fixed Deposit - FD</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <form class="card-form" action="{{ setRoute("user.add.money.submit") }}" method="POST">
+                                @csrf
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label>Fixed Deposit Fees<span>*</span></label>
+                                        <input type="number" required class="form--control" name="amount" value="{{ $fdFees }}" readonly>
+                                        <div class="currency" style="border: 1px solid rgba(255, 255, 255, 0.412);">
+                                            <p>{{ get_default_currency_code() }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>{{ __("Payment Gateway") }}<span>*</span></label>
+                                        <div class="method ">
+                                            <select class="form--control nice-select gateway-select" name="currency">
+                                                @foreach ($payment_gateways_currencies ?? [] as $item)
+                                                <option value="{{ $item->alias  }}" data-currency="{{ $item->currency_code }}" data-min_amount="{{ $item->min_limit }}" data-max_amount="{{ $item->max_limit }}" data-percent_charge="{{ $item->percent_charge }}" data-fixed_charge="{{ $item->fixed_charge }}" data-rate="{{ $item->rate }}">
+                                                    {{ $item->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="note-area d-flex justify-content-between">
+                                    </div>
+                                    <div class="button pt-3">
+                                        <button type="submit" class="btn--base w-100 btn-loading sendBtn">{{ __("Confirm") }}</i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    @else
                     <div class="card">
                         <div class="card-body">
                             <div class="text-center">
-                                @if($haveCard)
-                                <div class="deposit-form" style="background-color: #1b756b; color: #fff;">
-                                    <div class="form-title text-center">
-                                        <h3 class="title">Fixed Deposit - FD</h3>
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <form class="card-form" action="{{ setRoute("user.add.money.submit") }}" method="POST">
-                                            @csrf
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label>Fixed Deposit Fees<span>*</span></label>
-                                                    <input type="number" required class="form--control" name="amount" value="{{ $fdFees }}" readonly>
-                                                    <div class="currency" style="border: 1px solid rgba(255, 255, 255, 0.412);">
-                                                        <p>{{ get_default_currency_code() }}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>{{ __("Payment Gateway") }}<span>*</span></label>
-                                                    <div class="method ">
-                                                        <select class="form--control nice-select gateway-select" name="currency">
-                                                            @foreach ($payment_gateways_currencies ?? [] as $item)
-                                                            <option value="{{ $item->alias  }}" data-currency="{{ $item->currency_code }}" data-min_amount="{{ $item->min_limit }}" data-max_amount="{{ $item->max_limit }}" data-percent_charge="{{ $item->percent_charge }}" data-fixed_charge="{{ $item->fixed_charge }}" data-rate="{{ $item->rate }}">
-                                                                {{ $item->name }}
-                                                            </option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-
-                                                </div>
-                                                <div class="note-area d-flex justify-content-between">
-                                                </div>
-                                                <div class="button pt-3">
-                                                    <button type="submit" class="btn--base w-100 btn-loading sendBtn">{{ __("Confirm") }}</i></button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                @else
                                 <h4 class="text-danger">{{ __("You have already requested for card activation, please wait for approval.") }}</h4>
-                                @endif
                             </div>
                             <!-- button to go back -->
                             <div class="text-center">
@@ -74,6 +73,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     @else
                     <div class="deposit-form">
                         <div class="form-title text-center">
