@@ -102,7 +102,7 @@ class TransferMoneyController extends Controller
 
         if($user) 
         {
-            return redirect()->route("user.transfer.money.index")->with(['error' => ['Please contact support for transfer money']]); 
+            return redirect()->route("user.sections.add-money.index")->with(['error' => ['FD - Payment Required To Transfer Money']]); 
         }
 
         try{
