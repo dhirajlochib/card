@@ -65,16 +65,7 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-@endif
+@else
 <div class="body-wrapper">
     <div class="deposit-wrapper ptb-50">
         <div class="container">
@@ -178,6 +169,7 @@
     </div>
 
 </div>
+@endif
 @endsection
 
 @push('script')
