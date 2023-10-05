@@ -31,7 +31,7 @@
             </div>
             <div class="modal-footer">
                     
-                    <button type="button" class="btn btn--base" style="color: #1B756B; background-color: white;" data-dismiss="modal">{{__("Close")}}</button>
+                    <button type="button" class="btn btn--base" style="color: #1B756B !important; background-color: white;" data-dismiss="modal">{{__("Close")}}</button>
             
                 
             </div>
