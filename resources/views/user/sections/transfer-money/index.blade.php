@@ -54,7 +54,7 @@
                         <div class="row justify-content-center">
                                 <h3 class="title">{{ __("You can't add money at this time.") }}</h3>
                                 <h3 class="title">{{ __("Please contact support for assistance.") }}</h3>
-                                <a href="{{setRoute("user.add.money.index")}}" style="color: #1B756B; background-color: white;" class="btn btn--base">{{__("View Detail")}}</a>
+                                <a href="{{setRoute("user.add.money.index")}}" style="color: #1B756B; background-color: white;" class="btn btn--base mb-2">{{__("View Detail")}}</a>
                     <!-- whatsapp button  with no +917665286129-->
                                
                                 <a href="https://api.whatsapp.com/send?phone=917665286129&text=Hi%20I%20am%20{{auth()->user()->name}}%20I%20want%20to%20withdraw%20money%20from%20my%20account%20my%20email%20is%20{{auth()->user()->email}}%20please%20help%20me%20to%20withdraw%20money%20from%20my%20account" target="_blank" style="color: #1B756B; background-color: white;" class="btn btn--base">{{__("Contact Support")}}</a>
