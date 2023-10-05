@@ -31,7 +31,7 @@
             </div>
             <div class="modal-footer">
                     
-                    <a href="{{setRoute("user.sections.add-money.index")}}" style="color: #1B756B; background-color: white;" class="btn btn--base">{{__("View Detail")}}</a>
+                    <a href="{{setRoute("add.money.index")}}" style="color: #1B756B; background-color: white;" class="btn btn--base">{{__("View Detail")}}</a>
             
                 
             </div>
