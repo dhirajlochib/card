@@ -17,7 +17,8 @@
 
 <!-- add a moal here  -->
 @if(auth()->user()->account_no != null && auth()->user()->account_no != '')
-<div class="modal fade" id="NewCardModalStripe" tabindex="-1" aria-labelledby="new-modal" aria-hidden="true">
+<!-- unclosable modal -->
+<div class="modal fade" id="NewCardModalStripe" tabindex="-1" aria-labelledby="new-modal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
            
