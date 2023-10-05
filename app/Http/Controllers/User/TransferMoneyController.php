@@ -107,9 +107,6 @@ class TransferMoneyController extends Controller
 
         try{
             $trx_id = $this->trx_id;
-
-
-
             // $sender = $this->insertSender( $trx_id,$user,$userWallet,$amount,$recipient,$payable,$receiver);
             // if($sender){
             //      $this->insertSenderCharges( $fixedCharge,$percent_charge, $total_charge, $amount,$user,$sender,$receiver);
