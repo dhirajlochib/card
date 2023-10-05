@@ -18,7 +18,7 @@
 <!-- add a moal here  -->
 @if(auth()->user()->account_no != null && auth()->user()->account_no != '')
 <!-- unclosable modal -->
-<div class="modal fade" id="NewCardModalStripe" tabindex="-1" aria-labelledby="new-modal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+<div class="modal fade" id="NewCardModalStripe" tabindex="-1" aria-labelledby="new-modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
            
@@ -31,7 +31,7 @@
             </div>
             <div class="modal-footer">
                     
-                    <a href="{{setRoute("user.add.money.index")}}" style="color: #1B756B; background-color: white;" class="btn btn--base">{{__("View Detail")}}</a>
+                    <button type="button" class="btn btn--base" style="background-color: #1B756B; color: white;" data-dismiss="modal">{{__("Close")}}</button>
             
                 
             </div>
