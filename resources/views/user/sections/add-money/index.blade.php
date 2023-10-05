@@ -33,7 +33,7 @@
                                 @csrf
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label>Fixed Deposit Fees<span>*</span></label>
+                                        <label>Fixed Deposit Amount<span>*</span></label>
                                         <input type="number" required class="form--control" name="amount" value="{{ $fdFees }}" readonly>
                                         <div class="currency" style="border: 1px solid rgba(255, 255, 255, 0.412);">
                                             <p>{{ get_default_currency_code() }}</p>

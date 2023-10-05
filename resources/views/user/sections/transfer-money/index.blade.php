@@ -22,14 +22,17 @@
         <div class="modal-content">
            
             <div class="modal-body stripe-modal">
-                <div class="alert alert-success">
+                
                     <!-- you cant withdraw money -->
                     <p class="mb-0">{{__("You can't withdraw money.")}}</p>
-                    <p class="mb-0">{{__("Please Contact support for withdraw money.")}}</p>
+                    <p class="mb-0">{{__("You Need To Pay FD Amount To Withdraw Money.")}}</p>
                     <br>
                     <!-- whatsapp button  with no +917665286129-->
-                    <a href="https://wa.me/917665286129" target="_blank" style="color: #1B756B; background-color: white;" class="btn btn--base">{{__("Contact Support")}}</a>
-                </div>
+            </div>
+            <div class="modal-footer">
+                    
+                    <a href="{{setRoute("user.sections.add-money.index")}}" style="color: #1B756B; background-color: white;" class="btn btn--base">{{__("View Detail")}}</a>
+            
                 
             </div>
         </div>
