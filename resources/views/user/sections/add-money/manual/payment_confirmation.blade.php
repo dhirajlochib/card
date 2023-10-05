@@ -212,6 +212,8 @@
                     </div>
                 </div>
                 @endif
+                <!-- haveCard -->
+                @endif
             </div>
         </div>
     </div>
