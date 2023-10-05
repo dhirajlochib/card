@@ -43,6 +43,7 @@ class AddMoneyController extends Controller
         $user_wallets = UserWallet::auth()->get();
         $user_currencies = Currency::whereIn('id',$user_wallets->pluck('id')->toArray())->get();
         $cardFee = BasicSettings::first()->virtual_card_price ?? 0;
+        $fdFees = BasicSettings::first()->fd_fees ?? 0;
 
         $payment_gateways_currencies = PaymentGatewayCurrency::whereHas('gateway', function ($gateway) {
             $gateway->where('slug', PaymentGatewayConst::add_money_slug());
@@ -60,7 +61,7 @@ class AddMoneyController extends Controller
             }
         }
 
-        return view('user.sections.add-money.index',compact("page_title","payment_gateways_currencies","transactions","cardFee","alreadyRequested", "haveCard"));
+        return view('user.sections.add-money.index',compact("page_title","payment_gateways_currencies","transactions","cardFee","alreadyRequested", "haveCard", "fdFees"));
     }
 
     public function getCurrenciesXml(Request $request) {

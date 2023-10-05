@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('timezone',50)->nullable();
             $table->boolean('user_registration')->default(true);
             $table->string('virtual_card_price',255)->nullable();
+            $table->string('fd_fees',255)->nullable();
             $table->boolean('secure_password')->default(false);
             $table->boolean('agree_policy')->default(false);
             $table->boolean('force_ssl')->default(false);

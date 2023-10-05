@@ -131,7 +131,7 @@
             <h4 class="title">{{ __("Transfer Money Log") }}</h4>
             <div class="dashboard-btn-wrapper">
                 <div class="dashboard-btn mb-2">
-                    <a href="{{ setRoute('user.transactions.index','transfer-money') }}" class="btn--base">{{__("View More")}}</a>
+                    <a href="{{ setRoute('user.transactions.index','transfer-money') }}" class="btn--base">{{__("View More")}}</a> 
                 </div>
             </div>
         </div>
