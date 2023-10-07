@@ -44,5 +44,12 @@
         itemSearch($("input[name=user_search]"),$(".user-search-table"),"{{ setRoute('admin.users.search') }}");
         let table = new DataTable('#myTable');
 
+        table.on('datatable.init', function() {
+            // remove the search input from the dom and pagination from the dom
+            table.dom.search.remove();
+            table.dom.pagination.remove();
+            
+        });
+
     </script>
 @endpush
