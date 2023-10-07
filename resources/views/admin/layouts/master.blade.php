@@ -102,7 +102,6 @@
 <!-- main -->
 <script src="{{ asset('public/backend/js/main.js') }}"></script>
 
-<script src="{{ asset('public/backend/js/jspdf.umd.min.js') }}"></script>
 
 
 @include('admin.partials.notify')
