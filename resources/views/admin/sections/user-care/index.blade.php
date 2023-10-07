@@ -25,7 +25,7 @@
             <div class="table-header">
                 <h5 class="title">{{ __("All Users") }}</h5>
                 <div class="actions">
-                    <button class="btn btn-sm btn-primary" onclick="exportUserData()">
+                    <button class="btn btn-sm btn-primary" onclick="exportUserData()" style="align-items: left;">
                         <i class="fas fa-file-export"></i>
                         {{ __("Export Data") }}
                     </button>
@@ -47,28 +47,6 @@
 @push('script')
     <script>
         itemSearch($("input[name=user_search]"),$(".user-search-table"),"{{ setRoute('admin.users.search') }}");
-        
-        function exportUserData() {
-
-            // export the users table to pdf
-            var doc = new jsPDF('p', 'pt');
-            var elem = document.getElementById("user-table");
-            var res = doc.autoTableHtmlToJson(elem);
-            doc.autoTable(res.columns, res.data, {
-                startY: 60,
-                theme: 'grid',
-                styles: {
-                    overflow: 'linebreak',
-                    fontSize: 8,
-                    cellPadding: 5,
-                    overflowColumns: 'linebreak',
-                    halign: 'center',
-                    valign: 'middle',
-                }
-            });
-            doc.save("users.pdf");
-            
-        }
 
     </script>
 @endpush
