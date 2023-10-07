@@ -45,10 +45,19 @@
         let table = new DataTable('#myTable');
 
         table.on('datatable.init', function() {
-            // remove the search input from the dom and pagination from the dom
-            table.dom.search.remove();
-            table.dom.pagination.remove();
-            
+            // remove the search input from table and pagination from table and paging short
+           
+            $('.dataTables_filter').remove();
+            $('.dataTables_paginate').remove();
+            $('.dataTables_info').remove();
+            $('.dataTables_length').remove();
+            $('.dataTables_wrapper').removeClass('form-inline');
+            $('.dataTables_wrapper').removeClass('no-footer');
+            $('.dataTables_wrapper').removeClass('dataTable');
+            $('.dataTables_wrapper').removeClass('dt-bootstrap4');
+            $('.dataTables_wrapper').removeClass('row');
+            $('.dataTables_wrapper').removeClass('col-sm-12');
+
         });
 
     </script>
