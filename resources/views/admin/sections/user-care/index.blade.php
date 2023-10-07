@@ -59,6 +59,8 @@
         ];
       })) !!}; 
 
+      console.warn(users);
+
       // Create a new PDF document
       const doc = new jsPDF();
 
