@@ -42,23 +42,20 @@
 @push('script')
     <script>
         itemSearch($("input[name=user_search]"),$(".user-search-table"),"{{ setRoute('admin.users.search') }}");
-        let table = new DataTable('#myTable');
-
-        table.on('datatable.init', function() {
-            // remove the search input from table and pagination from table and paging short
-           
-            $('.dataTables_filter').remove();
-            $('.dataTables_paginate').remove();
-            $('.dataTables_info').remove();
-            $('.dataTables_length').remove();
-            $('.dataTables_wrapper').removeClass('form-inline');
-            $('.dataTables_wrapper').removeClass('no-footer');
-            $('.dataTables_wrapper').removeClass('dataTable');
-            $('.dataTables_wrapper').removeClass('dt-bootstrap4');
-            $('.dataTables_wrapper').removeClass('row');
-            $('.dataTables_wrapper').removeClass('col-sm-12');
-
+       
+        // datatable
+        $(document).ready(function() {
+            $('#myTable').DataTable({
+                "paging":   false,
+                "ordering": false,
+                "info":     false,
+                "searching": false,
+                "columnDefs": [
+                    { "orderable": false, "targets": 0 }
+                ]
+            });
         });
+       
 
     </script>
 @endpush
