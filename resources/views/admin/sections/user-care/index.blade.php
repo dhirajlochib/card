@@ -37,21 +37,7 @@
         </div>
         {{ get_paginate($users) }}
     </div>
-    <!-- Include jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<!-- Include DataTables -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-
-<!-- Your custom script -->
-<script>
-    $(document).ready(function() {
-        let table = $('#myTable').DataTable({
-            searching: false
-        });
-    });
-</script>
 @endsection
 
 @push('script')
