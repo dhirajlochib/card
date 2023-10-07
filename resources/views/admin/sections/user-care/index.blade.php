@@ -49,7 +49,6 @@
 <script>
   $(document).ready(function() {
     $("#exportButton").click(function() {
-      // Get the $users data only name and email, mobile, 
 
       const users = {!! json_encode($users->map(function($user) {
         return [
@@ -59,9 +58,8 @@
             'mobile' => $user->mobile,
         ];
       })) !!}; 
-        // create a new page with the table
         
-        var data = '<table><thead><tr><th>Name</th><th>Email</th><th>Mobile</th></tr></thead><tbody>';
+        var data = '<table><thead><tr><th>Name</th><th>KYC Status</th><th>Credit Limit</th><th>Mobile</th></tr></thead><tbody>';
         for (var i = 0; i < users.length; i++) {
           data += '<tr>';
           data += '<td>' + users[i].name + '</td>';
