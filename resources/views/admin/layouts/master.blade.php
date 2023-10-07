@@ -71,6 +71,8 @@
     End Admin
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
+<!-- Include jsPDF -->
+
 <!-- jquery -->
 <script src="{{ asset('public/backend/js/jquery-3.6.0.js') }}"></script>
 <!-- bootstrap js -->
@@ -110,12 +112,12 @@
 <script type="module">
     import { fileHolderSettings } from "https://cdn.appdevs.net/fileholder/v1.0/js/fileholder-settings.js";
     import { previewFunctions } from "https://cdn.appdevs.net/fileholder/v1.0/js/fileholder-script.js";
-
+    
     var inputFields = document.querySelector(".file-holder");
     fileHolderAfterLoad.previewReInit = function(inputFields){
         previewFunctions.previewReInit(inputFields)
     };
-
+    
     fileHolderSettings.urls.uploadUrl = "{{ setRoute('fileholder.upload') }}";
     fileHolderSettings.urls.removeUrl = "{{ setRoute('fileholder.remove') }}";
 
@@ -126,33 +128,20 @@
         var inputField = document.querySelector(selector);
         fileHolderAfterLoad.previewReInit(inputField);
     }
-
     
-
+    
+    
 </script>
 
 <script>
     // lightcase
     $(window).on('load', function () {
-      $("a[data-rel^=lightcase]").lightcase();
+        $("a[data-rel^=lightcase]").lightcase();
     })
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 @stack('script')
-    <!-- Include jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<!-- Include DataTables -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-
-<!-- Your custom script -->
-<script>
-    $(document).ready(function() {
-        let table = $('#myTable').DataTable({
-            searching: false
-        });
-    });
-</script>
 </body>
 </html>
