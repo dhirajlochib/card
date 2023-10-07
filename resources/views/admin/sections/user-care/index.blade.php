@@ -42,5 +42,7 @@
     <script>
         itemSearch($("input[name=user_search]"),$(".user-search-table"),"{{ setRoute('admin.users.search') }}");
 
+        let table = new DataTable('#myTable');
+
     </script>
 @endpush
