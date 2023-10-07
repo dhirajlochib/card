@@ -129,10 +129,6 @@
         fileHolderAfterLoad.previewReInit(inputField);
     }
 
-    // datatable
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-    } );
     
 
 </script>
