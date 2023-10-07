@@ -42,20 +42,12 @@
 @push('script')
     <script>
         itemSearch($("input[name=user_search]"),$(".user-search-table"),"{{ setRoute('admin.users.search') }}");
-       
-        // datatable
-        $(document).ready(function() {
-            $('#myTable').DataTable({
-                "paging":   false,
-                "ordering": false,
-                "info":     false,
-                "searching": false,
-                "columnDefs": [
-                    { "orderable": false, "targets": 0 }
-                ]
-            });
-        });
-       
+        let table = new DataTable('#myTable');
+
+                        // remove search box from datatable
+                        table.removeSearch(0);
+                        table.removeSearch(1);
+                        
 
     </script>
 @endpush
