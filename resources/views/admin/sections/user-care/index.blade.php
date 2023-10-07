@@ -45,38 +45,5 @@
         itemSearch($("input[name=user_search]"), $(".user-search-table"), "{{ setRoute('admin.users.search') }}");
     </script>
    
-    <script>
-        // Function to export the table data to a PDF
-        function exportToPDF() {
-            // Check if jsPDF is defined
-            if (typeof jsPDF !== 'undefined') {
-                // Create a new jsPDF instance
-                const pdf = new jsPDF();
-
-                // Add a title to the PDF
-                pdf.text("User Data", 10, 10);
-
-                // Get the table element by its ID
-                const table = document.getElementById('myTable');
-
-                // Convert the table to a data URL
-                const tableDataURL = table.toDataURL();
-
-                // Add the table as an image to the PDF
-                pdf.addImage(tableDataURL, 'PNG', 10, 20, 180, 0);
-
-                // Save or download the PDF
-                pdf.save('user_data.pdf');
-            } else {
-                console.error("jsPDF is not defined. Make sure the library is loaded.");
-            }
-        }
-
-        // Attach the exportToPDF function to the button click event
-        $(document).ready(function() {
-            $('#exportButton').click(function() {
-                exportToPDF();
-            });
-        });
-    </script>
+    
 @endpush
