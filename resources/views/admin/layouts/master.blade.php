@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="{{ asset('public/backend/library/popup/magnific-popup.css') }}">
     <!-- Light case   -->
     <link rel="stylesheet" href="{{ asset('public/backend/css/lightcase.css') }}">
+    
+    <script src="{{ asset('public/backend/js/jspdf.umd.min.js') }}"></script>
     <!-- Fileholder CSS CDN -->
     <link rel="stylesheet" href="https://cdn.appdevs.net/fileholder/v1.0/css/fileholder-style.css" type="text/css">
     
@@ -101,7 +103,6 @@
 <script src="{{ asset('public/backend/js/ckeditor.js') }}"></script>
 <!-- main -->
 <script src="{{ asset('public/backend/js/main.js') }}"></script>
-
 
 
 @include('admin.partials.notify')
