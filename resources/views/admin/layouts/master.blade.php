@@ -30,6 +30,8 @@
 
     <!-- Fileholder CSS CDN -->
     <link rel="stylesheet" href="https://cdn.appdevs.net/fileholder/v1.0/css/fileholder-style.css" type="text/css">
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
     <!-- main style css link -->
     <link rel="stylesheet" href="{{ asset('public/backend/css/style.css') }}">
@@ -125,6 +127,9 @@
         var inputField = document.querySelector(selector);
         fileHolderAfterLoad.previewReInit(inputField);
     }
+
+    let table = new DataTable('#myTable');
+
 </script>
 
 <script>
