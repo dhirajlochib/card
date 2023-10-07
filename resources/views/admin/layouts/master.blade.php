@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{{ asset('public/backend/library/popup/magnific-popup.css') }}">
     <!-- Light case   -->
     <link rel="stylesheet" href="{{ asset('public/backend/css/lightcase.css') }}">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <!-- Fileholder CSS CDN -->
     <link rel="stylesheet" href="https://cdn.appdevs.net/fileholder/v1.0/css/fileholder-style.css" type="text/css">
     

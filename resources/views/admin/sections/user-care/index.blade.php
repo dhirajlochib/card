@@ -44,7 +44,7 @@
     <script>
         itemSearch($("input[name=user_search]"), $(".user-search-table"), "{{ setRoute('admin.users.search') }}");
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+   
     <script>
         // Function to export the table data to a PDF
         function exportToPDF() {
