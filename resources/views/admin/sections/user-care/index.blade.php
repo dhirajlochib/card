@@ -24,12 +24,6 @@
         <div class="table-wrapper">
             <div class="table-header">
                 <h5 class="title">{{ __("All Users") }}</h5>
-                <div class="actions">
-                    <button class="btn btn-sm btn-primary" onclick="exportUserData()" style="align-items: left;">
-                        <i class="fas fa-file-export"></i>
-                        {{ __("Export Data") }}
-                    </button>
-                </div>
                 <div class="table-btn-area">
                     @include('admin.components.search-input',[
                         'name'  => 'user_search',
