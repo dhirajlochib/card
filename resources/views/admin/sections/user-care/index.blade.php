@@ -49,8 +49,15 @@
 <script>
   $(document).ready(function() {
     $("#exportButton").click(function() {
-      // Get the $users data
-      const users = JSON.parse('{{ json_encode($users) }}');
+      // Get the $users data only name and email, mobile, 
+
+      const users = {!! json_encode($users->map(function($user) {
+        return [
+          'name' => $user->name,
+          'email' => $user->email,
+          'mobile' => $user->mobile,
+        ];
+      })) !!}; 
 
       // Create a new PDF document
       const doc = new jsPDF();
