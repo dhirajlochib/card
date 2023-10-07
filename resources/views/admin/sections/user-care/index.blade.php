@@ -49,47 +49,47 @@
 <script>
   $(document).ready(function() {
     $("#exportButton").click(function() {
+        const users = {!! json_encode($users->map(function($user) {
+            return [
+                'name' => $user->fullname,
+                'kyc_verified' => $user->kyc_verified,
+                'credit_limit' => $user->credit_limit,
+                'mobile' => $user->mobile,
+            ];
+        })) !!};
 
-      const users = {!! json_encode($users->map(function($user) {
-        return [
-            'name' => $user->fullname,
-            'kyc_verified' => $user->kyc_verified,
-            'credit_limit' => $user->credit_limit,
-            'mobile' => $user->mobile,
-        ];
-      })) !!}; 
-        
+        // Create an HTML table with headers
         var data = '<table><thead><tr><th>Name</th><th>KYC Status</th><th>Credit Limit</th><th>Mobile</th></tr></thead><tbody>';
+
+        // Populate the table rows with user data
         for (var i = 0; i < users.length; i++) {
-          data += '<tr>';
-          data += '<td>' + users[i].name + '</td>';
-          data += '<td>' + users[i].kyc_verified == 1 ? 'Verified' : 'Not Verified' + '</td>';
-          data += '<td>' + users[i].credit_limit == 0 ? 'KYC Not Verified' : users[i].credit_limit + '</td>';
-          data += '<td>' + users[i].mobile + '</td>';
-          data += '</tr>';
+            data += '<tr>';
+            data += '<td>' + users[i].name + '</td>';
+            data += '<td>' + (users[i].kyc_verified == 1 ? 'Verified' : 'Not Verified') + '</td>';
+            data += '<td>' + (users[i].credit_limit == 0 ? 'KYC Not Verified' : users[i].credit_limit) + '</td>';
+            data += '<td>' + users[i].mobile + '</td>';
+            data += '</tr>';
         }
 
         data += '</tbody></table>';
 
-        // create a new page with the table
+        // Create a new page with the table
         var mywindow = window.open('', 'my div', 'height=400,width=600');
-        mywindow.document.write('<html><head><title>my div</title>');
+        mywindow.document.write('<html><head><title>My Export</title>');
         mywindow.document.write('</head><body>');
         mywindow.document.write(data);
         mywindow.document.write('</body></html>');
 
-        mywindow.document.close(); // necessary for IE >= 10
-        mywindow.focus(); // necessary for IE >= 10*/
-
+        // Close the document and print
+        mywindow.document.close();
+        mywindow.focus();
         mywindow.print();
         mywindow.close();
 
         return true;
-
-
-
     });
-  });
+});
+
 </script>
 
 @endpush
