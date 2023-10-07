@@ -37,10 +37,7 @@
         </div>
         {{ get_paginate($users) }}
     </div>
-@endsection
-
-@push('script')
-<!-- Include jQuery -->
+    <!-- Include jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <!-- Include DataTables -->
@@ -55,12 +52,10 @@
         });
     });
 </script>
+@endsection
+
+@push('script')
     <script>
         itemSearch($("input[name=user_search]"),$(".user-search-table"),"{{ setRoute('admin.users.search') }}");
-        let table = $('#myTable').DataTable({
-  searching: false
-});
-
-
     </script>
 @endpush
