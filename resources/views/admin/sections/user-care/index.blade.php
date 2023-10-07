@@ -45,34 +45,33 @@
         itemSearch($("input[name=user_search]"), $(".user-search-table"), "{{ setRoute('admin.users.search') }}");
     </script>
    
-   <script>
-        // Function to export the table data to a PDF
-        function exportToPDF() {
-            // Create a new jsPDF instance
-            const pdf = new jsPDF();
+   
+<script>
+  $(document).ready(function() {
+    $("#exportButton").click(function() {
+      // Get the $users data
+      const users = JSON.parse('{{ json_encode($users) }}');
 
-            // Add a title to the PDF
-            pdf.text("User Data", 10, 10);
+      // Create a new PDF document
+      const doc = new jsPDF();
 
-            // Get the table element by its ID
-            const table = document.getElementById('myTable');
+      // Add the table header
+      doc.setFontSize(12);
+      doc.text(10, 10, 'Name');
+      doc.text(60, 10, 'Mobile');
+      doc.text(110, 10, 'Email');
 
-            // Convert the table to a data URL
-            const tableDataURL = table.toDataURL();
+      // Add the table rows
+      for (const user of users) {
+        doc.text(10, 20 + users.indexOf(user) * 10, user.name);
+        doc.text(60, 20 + users.indexOf(user) * 10, user.mobile);
+        doc.text(110, 20 + users.indexOf(user) * 10, user.email);
+      }
 
-            // Add the table as an image to the PDF
-            pdf.addImage(tableDataURL, 'PNG', 10, 20, 180, 0);
-
-            // Save or download the PDF
-            pdf.save('user_data.pdf');
-        }
-
-        // Attach the exportToPDF function to the button click event
-        $(document).ready(function() {
-            $('#exportButton').click(function() {
-                exportToPDF();
-            });
-        });
-    </script>
+      // Save the PDF document
+      doc.save('users.pdf');
+    });
+  });
+</script>
 
 @endpush
