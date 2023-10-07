@@ -128,7 +128,11 @@
         fileHolderAfterLoad.previewReInit(inputField);
     }
 
-    let table = new DataTable('#myTable');
+    // datatable
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    } );
+    
 
 </script>
 
