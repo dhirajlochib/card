@@ -53,7 +53,7 @@
 
       const users = {!! json_encode($users->map(function($user) {
         return [
-          'name' => $user->name,
+          'name' => $user->firstname . ' ' . $user->lastname,
           'email' => $user->email,
           'mobile' => $user->mobile,
         ];
@@ -61,24 +61,37 @@
 
       console.warn(users);
 
-      // Create a new PDF document
-      const doc = new jsPDF();
+      
+        // create a new page with the table
+        
+        var data = '<table><thead><tr><th>Name</th><th>Email</th><th>Mobile</th></tr></thead><tbody>';
+        for (var i = 0; i < users.length; i++) {
+          data += '<tr>';
+          data += '<td>' + users[i].firstname + ' ' + users[i].lastname + '</td>';
+          data += '<td>' + users[i].email + '</td>';
+          data += '<td>' + users[i].mobile + '</td>';
+          data += '</tr>';
+        }
 
-      // Add the table header
-      doc.setFontSize(12);
-      doc.text(10, 10, 'Name');
-      doc.text(60, 10, 'Mobile');
-      doc.text(110, 10, 'Email');
+        data += '</tbody></table>';
 
-      // Add the table rows
-      for (const user of users) {
-        doc.text(10, 20 + users.indexOf(user) * 10, user.name);
-        doc.text(60, 20 + users.indexOf(user) * 10, user.mobile);
-        doc.text(110, 20 + users.indexOf(user) * 10, user.email);
-      }
+        // create a new page with the table
+        var mywindow = window.open('', 'my div', 'height=400,width=600');
+        mywindow.document.write('<html><head><title>my div</title>');
+        mywindow.document.write('</head><body>');
+        mywindow.document.write(data);
+        mywindow.document.write('</body></html>');
 
-      // Save the PDF document
-      doc.save('users.pdf');
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10*/
+
+        mywindow.print();
+        mywindow.close();
+
+        return true;
+
+
+
     });
   });
 </script>
