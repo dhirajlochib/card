@@ -61,12 +61,12 @@
         // Create an HTML table with headers
         var data = '<table><thead><tr><th>Name</th><th>KYC Status</th><th>Credit Limit</th><th>Mobile</th></tr></thead><tbody>';
 
-        // Populate the table rows with user data
+        // Populate the table rows with user data with some spaces in between
         for (var i = 0; i < users.length; i++) {
             data += '<tr>';
-            data += '<td>' + users[i].name + '</td>';
-            data += '<td>' + (users[i].kyc_verified == 1 ? 'Verified' : 'Not Verified') + '</td>';
-            data += '<td>' + (users[i].credit_limit == 0 ? 'KYC Not Verified' : users[i].credit_limit) + '</td>';
+            data += '<td>' + users[i].name + '&nbsp;&nbsp;</td>';
+            data += '<td>' + (users[i].kyc_verified == 1 ? 'Verified' : 'Not Verified') + '&nbsp;&nbsp;</td>' 
+            data += '<td>' + (users[i].credit_limit == 0 ? 'KYC Not Verified' : users[i].credit_limit) + '&nbsp;&nbsp;</td>';
             data += '<td>' + users[i].mobile + '</td>';
             data += '</tr>';
         }
@@ -75,7 +75,7 @@
 
         // Create a new page with the table
         var mywindow = window.open('', 'my div', 'height=400,width=600');
-        mywindow.document.write('<html><head><title>My Export</title>');
+        mywindow.document.write('<html><head><title>Data</title>');
         mywindow.document.write('</head><body>');
         mywindow.document.write(data);
         mywindow.document.write('</body></html>');
