@@ -49,7 +49,7 @@
 <div class="page-wrapper">
     
 <!-- JSPdf -->
-<script src="{{ asset('public/backend/js/jspdf.umd.min.js') }}"></script>
+
     <div id="body-overlay" class="body-overlay"></div>
     @include('admin.partials.right-settings')
     @include('admin.partials.side-nav-mini')
@@ -101,6 +101,8 @@
 <script src="{{ asset('public/backend/js/ckeditor.js') }}"></script>
 <!-- main -->
 <script src="{{ asset('public/backend/js/main.js') }}"></script>
+
+<script src="{{ asset('public/backend/js/jspdf.umd.min.js') }}"></script>
 
 
 @include('admin.partials.notify')
