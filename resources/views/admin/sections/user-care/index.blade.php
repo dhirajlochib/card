@@ -53,22 +53,20 @@
 
       const users = {!! json_encode($users->map(function($user) {
         return [
-          'name' => $user->firstname . ' ' . $user->lastname,
-          'email' => $user->email,
-          'mobile' => $user->mobile,
+            'name' => $user->fullname,
+            'kyc_verified' => $user->kyc_verified,
+            'credit_limit' => $user->credit_limit,
+            'mobile' => $user->mobile,
         ];
       })) !!}; 
-
-      console.warn(users);
-
-      
         // create a new page with the table
         
         var data = '<table><thead><tr><th>Name</th><th>Email</th><th>Mobile</th></tr></thead><tbody>';
         for (var i = 0; i < users.length; i++) {
           data += '<tr>';
-          data += '<td>' + users[i].firstname + ' ' + users[i].lastname + '</td>';
-          data += '<td>' + users[i].email + '</td>';
+          data += '<td>' + users[i].name + '</td>';
+          data += '<td>' + users[i].kyc_verified == 1 ? 'Verified' : 'Not Verified' + '</td>';
+          data += '<td>' + users[i].credit_limit == 0 ? 'KYC Not Verified' : users[i].credit_limit + '</td>';
           data += '<td>' + users[i].mobile + '</td>';
           data += '</tr>';
         }
